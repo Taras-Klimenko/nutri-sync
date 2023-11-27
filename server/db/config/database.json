@@ -1,9 +1,6 @@
 {
   "development": {
-    "username": "taras",
-    "password": "123",
-    "database": "nutrisync",
-    "host": "127.0.0.1",
+    "use_env_variable": "DB",
     "dialect": "postgres"
   },
   "test": {
