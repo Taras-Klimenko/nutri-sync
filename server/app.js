@@ -10,6 +10,7 @@ const authRouter = require('./src/routers/authRouter');
 const app = express();
 const PORT = process.env.PORT || 3300;
 
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -18,6 +19,8 @@ app.use(
     store: new FileStore(),
   }),
 );
+
+const { PORT } = process.env || 3100;
 
 app.use(cors({ credentials: true, origin: ['http://localhost:5173'] }));
 app.use(morgan('dev'));
