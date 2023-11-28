@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Client from './components/Clients/Clients'
@@ -7,7 +8,7 @@ import Dashbord from "./components/Dashbord/Dashbord.tsx";
 import AddClients from "./components/AddClients/AddClients.tsx";
 import Login from './authPages/Login';
 import Registration from './authPages/Registration';
-
+import Knowledge from './pages/Knowledge';
 
 function App() {
   
@@ -26,15 +27,17 @@ function App() {
   },[]);
 
 
+
+
   return (
     <>
      <Router>
       <Routes>
         <Route path="/clients" element={<Client />} />
-      
+        <Route path="/knowledge" element={<Knowledge />} />
       </Routes>
       </Router>
-          <>
+       
       <Login />
       <Registration />
       <Dashbord/>
