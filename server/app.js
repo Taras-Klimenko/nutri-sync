@@ -7,7 +7,6 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
 const authRouter = require('./src/routers/authRouter');
-const clientRoute = require('./routes/clientRoute');
 
 
 const app = express();
@@ -24,7 +23,7 @@ app.use(
   }),
 );
 
-app.use(cors());
+app.use(cors({ credentials: true, origin: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
@@ -32,27 +31,17 @@ app.use(express.static('public'));
 
 
 
-
-
-
-app.get('/', (req, res) => {
-  res.send('Работает');
-});
+app.use('/auth', authRouter);
 app.use('/api/categories', categoryRouter);
 app.use('/clients', clientRouter);
-
-app.use('/clients/:id', clientRouter);
-
-app.use('client/:id/param', clientRouter);
+// app.use('/clients/:id', clientRouter);
+// app.use('clients/:id/param', clientRouter);
 
 app.use('*', (req, res) => {
-  res.redirect('/');
+    res.redirect('/');
 });
 
-app.use('/auth', authRouter);
-app.use('/client', clientRoute);
-
 app.listen(PORT, () => {
- 
+
   console.log('Start in ', PORT);
 });

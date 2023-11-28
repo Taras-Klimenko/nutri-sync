@@ -1,48 +1,26 @@
-
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css'
-import Client from './components/Clients/Clients'
-import { useEffect } from 'react'
-import Dashbord from "./components/Dashbord/Dashbord.tsx";
-import AddClients from "./components/AddClients/AddClients.tsx";
+import { Routes, Route } from 'react-router-dom';
+import './App.css';
+import Client from './components/Clients/Clients';
+import Dashbord from './components/Dashbord/Dashbord';
+import AddClients from './components/AddClients/AddClients';
 import Login from './authPages/Login';
 import Registration from './authPages/Registration';
-import Knowledge from './pages/Knowledge';
 
 function App() {
-  
-  useEffect(() => {
-    (async () => {
-      try {
-        const res = await fetch('http://localhost:3100/api/clients', {
-          credentials: 'include',
-        });
-        const data = await res.json();
-        console.log(data,'&&&&&&&&&&&&&&&&&');
-      } catch (err) {
-        console.log(err);
-      }
-    })();
-  },[]);
 
-
-
-
-  return (
-    <>
-     <Router>
-      <Routes>
+    return (
+<>
+    <Routes>
         <Route path="/clients" element={<Client />} />
-        <Route path="/knowledge" element={<Knowledge />} />
-      </Routes>
-      </Router>
-       
-      <Login />
-      <Registration />
-      <Dashbord/>
-        <AddClients/>
+        <Route path="/dashbord" element={<Dashbord />} />
+        <Route path="/add-clients" element={<AddClients />} />
+    </Routes>
+    {/*<Login />*/}
+    {/*<Registration />*/}
+</>
 
-    </>
-      
+
+    );
+}
+
 export default App;
