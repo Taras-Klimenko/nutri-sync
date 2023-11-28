@@ -1,16 +1,21 @@
 {
-  "env": {
-    "browser": true,
-    "commonjs": true,
-    "es2021": true,
-    "node": true
-  },
-  "extends": "airbnb",
-  "parserOptions": {
-    "ecmaVersion": "latest"
-  },
-  "rules": {
-    "import/no-extraneous-dependencies": 0,
-    "no-console": 0
-  }
+
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": "airbnb",
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "rules": {
+        "react/function-component-definition": "off",
+        "import/no-extraneous-dependencies": "off",
+        "react/prop-types": "off",
+        "import/prefer-default-export": "off"
+
+    }
+
 }
