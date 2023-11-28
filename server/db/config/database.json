@@ -1,10 +1,11 @@
 {
   "development": {
-    "username": "taras",
-    "password": "123",
-    "database": "nutrisync",
+    "username": "albina",
+    "password": "12345",
+    "database": "nutri",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "port": "5433"
   },
   "test": {
     "username": "root",
