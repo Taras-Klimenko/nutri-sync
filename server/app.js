@@ -1,28 +1,40 @@
-const express = require('express');
 require('dotenv').config();
-const cors = require('cors');
+const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
+const session = require('express-session');
+const FileStore = require('session-file-store')(session);
 
-const app = express();
-
-const PORT = process.env.PORT || 3000;
-const { sequelize } = require('./db/models');
-
+const authRouter = require('./src/routers/authRouter');
 const clientRoute = require('./routes/clientRoute');
 
+const app = express();
+const PORT = process.env.PORT || 3000;
 
 
-app.use(cors({ credentials: true, origin: true }));
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    store: new FileStore(),
+  }),
+);
+
+
+app.use(cors({ credentials: true, origin: ['http://localhost:5173'] }));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.get('/', (req, res) => {
+  res.send('Работает');
+});
 
+app.use('/auth', authRouter);
 app.use('/client', clientRoute);
 
 app.listen(PORT, () => {
-  sequelize
-      .authenticate()
-      .then(() => console.log('БД подключена!'))
-      .catch((error) => console.log('ERROR DB==>', error));
+ 
   console.log('Start in ', PORT);
 });
