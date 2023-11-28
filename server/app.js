@@ -6,9 +6,11 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
 const authRouter = require('./src/routers/authRouter');
+const clientRoute = require('./routes/clientRoute');
 
 const app = express();
-const PORT = process.env.PORT || 3300;
+const PORT = process.env.PORT || 3000;
+
 
 
 app.use(
@@ -20,7 +22,6 @@ app.use(
   }),
 );
 
-const { PORT } = process.env || 3100;
 
 app.use(cors({ credentials: true, origin: ['http://localhost:5173'] }));
 app.use(morgan('dev'));
@@ -31,7 +32,9 @@ app.get('/', (req, res) => {
 });
 
 app.use('/auth', authRouter);
+app.use('/client', clientRoute);
 
 app.listen(PORT, () => {
-  console.log(`Сервер запущен на порту ${PORT}`);
+ 
+  console.log('Start in ', PORT);
 });
