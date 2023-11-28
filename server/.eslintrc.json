@@ -10,5 +10,10 @@
         "ecmaVersion": "latest"
     },
     "rules": {
+        "react/function-component-definition": "off",
+        "import/no-extraneous-dependencies": "off",
+        "react/prop-types": "off",
+        "import/prefer-default-export": "off"
+
     }
 }
