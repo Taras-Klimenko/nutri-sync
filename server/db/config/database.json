@@ -1,11 +1,8 @@
 {
   "development": {
-    "username": "albina",
-    "password": "12345",
-    "database": "nutri",
-    "host": "127.0.0.1",
-    "dialect": "postgres",
-    "port": "5433"
+
+    "use_env_variable": "DB"
+
   },
   "test": {
     "username": "root",

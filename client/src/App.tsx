@@ -1,7 +1,14 @@
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Client from './components/Clients/Clients'
 import { useEffect } from 'react'
+import Dashbord from "./components/Dashbord/Dashbord.tsx";
+import AddClients from "./components/AddClients/AddClients.tsx";
+import Login from './authPages/Login';
+import Registration from './authPages/Registration';
+
+
 function App() {
   
   useEffect(() => {
@@ -19,8 +26,6 @@ function App() {
   },[]);
 
 
-
-
   return (
     <>
      <Router>
@@ -29,9 +34,12 @@ function App() {
       
       </Routes>
       </Router>
-      
-    </>
-  )
-}
+          <>
+      <Login />
+      <Registration />
+      <Dashbord/>
+        <AddClients/>
 
-export default App
+    </>
+      
+export default App;
