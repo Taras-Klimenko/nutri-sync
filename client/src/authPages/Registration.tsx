@@ -60,35 +60,51 @@ export default function Registration() {
   };
 
   return (
-    <div className="container column border">
+    <div className="container column">
       <h1>Регистрация</h1>
       <input
         name="login"
         type="text"
-        placeholder="Login"
         onChange={handleInputChange}
+        id="loginInput"
+        className="input"
       />
+      <label htmlFor="loginInput" className="input__label">
+        Login
+      </label>
       <br />
       <input
         name="name"
         type="text"
-        placeholder="Name"
+        id="nameInput"
         onChange={handleInputChange}
+        className="input"
       />
+      <label htmlFor="nameInput" className="input__label">
+        Name
+      </label>
       <br />
       <input
         name="email"
         type="text"
-        placeholder="Email"
         onChange={handleInputChange}
+        id="emailInput"
+        className="input"
       />
+      <label htmlFor="emailInput" className="input__label">
+        Email
+      </label>
       <br />
       <input
         name="password"
         type="password"
-        placeholder="Password"
         onChange={handleInputChange}
+        id="passwordInput"
+        className="input"
       />
+      <label htmlFor="passwordInput" className="input__label">
+        Password
+      </label>
       <br />
       <button onClick={regHandler}>Регистрация</button>
       {error && <div>{error}</div>}

@@ -52,21 +52,29 @@ export default function Login() {
   };
 
   return (
-    <div className="container column border">
+    <div className="container column">
       <h1>Вход</h1>
       <input
         onChange={handleInputChange}
         type="text"
         name="login"
-        placeholder="Login"
+        className="input"
+        id="loginInput"
       />
+      <label htmlFor="loginInput" className="input__label">
+        Login
+      </label>
       <br />
       <input
         onChange={handleInputChange}
         type="password"
         name="password"
-        placeholder="Password"
+        id="passwordInput"
+        className="input"
       />
+      <label htmlFor="passwordInput" className="input__label">
+        Password
+      </label>
       <br />
       <button onClick={loginHandler}>Войти</button>
       <br />

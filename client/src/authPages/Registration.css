@@ -1,11 +1,43 @@
+:root {
+  --color-light: white;
+  --color-dark: #212121;
+  --color-signal: #fab700;
+  --color-background: rgb(100, 97, 97);
+}
+
 .container {
   display: flex;
+  align-items: center;
 }
 
 .column {
   flex-direction: column;
 }
 
-.border {
-  border: solid 2px red;
+.input {
+  width: 80%;
+  height: 30px;
+  border: unset;
+  border-radius: 15px;
+  text-align: center;
+  outline: none;
+}
+
+.input__label {
+  display: block;
+  position: relative;
+  background-color: transparent;
+  border-radius: 15px;
+  color: var(--color-light);
+  bottom: 32px;
+  right: 0px;
+  font-size: 15px;
+  padding: 3px;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out,
+    background-color 0.5s ease-in-out;
+}
+.input:focus + .input__label {
+  transform: translate(0.15rem, -110%) scale(1.2);
+  color: var(--color-signal);
+  background-color: var(--color-background);
 }
