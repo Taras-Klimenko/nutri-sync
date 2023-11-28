@@ -33,9 +33,8 @@ app.use(express.static('public'));
 
 app.use('/auth', authRouter);
 app.use('/api/categories', categoryRouter);
-app.use('/clients', clientRouter);
-// app.use('/clients/:id', clientRouter);
-// app.use('clients/:id/param', clientRouter);
+app.use('/api/clients', clientRouter);
+
 
 app.use('*', (req, res) => {
     res.redirect('/');

@@ -14,8 +14,6 @@ router.get('/', async (req, res) => {
 });
 
 
-
-
 // router.get('/param', async (req, res) => {
 //   try {
 //     const { weight, chest, waist, hips, BMI, clientId } = req.query;
@@ -48,6 +46,7 @@ router.get('/:id', async (req, res) => {
     const { id } = req.params;
     // console.log("gggggggggg")
     const client = await Client.findByPk(id);
+    const parametr = await Parameter.findOne({where: clientId === id})
     console.log(client, 'cliiient');
     if (client) {
       res.json(client);
