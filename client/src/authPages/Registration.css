@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.border {
+  border: solid 2px red;
+}
