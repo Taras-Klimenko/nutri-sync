@@ -10,7 +10,7 @@ export default function AllClients() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get<Client[]>('http://localhost:3000/client');
+                const response = await axios.get<Client[]>('http://localhost:3000/clients');
                 setClients(response.data as Client[]);
             } catch (error) {
                 if (error instanceof Error) {

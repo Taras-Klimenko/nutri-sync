@@ -10,8 +10,8 @@ export default function TodoDasbord() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get<Task[]>('http://localhost:3000/client/task'); // Исправлен тип данных в запросе
-                setTasks(response.data); // Исправлен вызов setTasks
+                const response = await axios.get<Task[]>('http://localhost:3000/clients/task'); // Исправлен тип данных в запросе
+                setTasks(response.data);
             } catch (error) {
                 if (error instanceof Error) {
                     console.error(`Ошибка запроса: ${error.message}`);

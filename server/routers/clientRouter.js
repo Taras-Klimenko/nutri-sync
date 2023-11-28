@@ -1,18 +1,44 @@
 const express = require('express');
-const { Client, Parameter } = require('../db/models');
+const { Client, Parameter, Task} = require('../db/models');
 
 const router = express.Router();
 
 router.get('/', async (req, res) => {
   try {
     const client = await Client.findAll();
-    const data = client.map((el) => el.get({ plain: true }));
-    // console.log(data, 'IIIIIIIIIIIIIIIi');
-    // console.log(client, '$$$$$$$$$$$$$$$$$$$$4');
     res.json(client);
   } catch (error) {
     console.error(error);
     res.status(500).json({ ошибка: `${error}` });
+  }
+});
+
+
+
+
+// router.get('/param', async (req, res) => {
+//   try {
+//     const { weight, chest, waist, hips, BMI, clientId } = req.query;
+//     const allParameters = await Parameter.findAll({
+//       include: Parameter,
+//     });
+//     console.log('LLLLLLLLL')
+//     res.json(allParameters);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: 'Ошибка сервера' });
+//   }
+// });
+
+router.get('/task', async (req, res) => {
+  try {
+    const tasks = await Task.findAll({
+      raw: true,
+    });
+    res.json(tasks);
+  } catch (error) {
+    console.error(`Ошибка homeRoutes /: ${error}`);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
@@ -31,21 +57,6 @@ router.get('/:id', async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Ошибка сервера' });
-  }
-});
-
-
-router.get('/param', async (req, res) => {
-  try {
-    const { weight, chest, waist, hips, BMI, clientId } = req.query;
-    const allParameters = await Parameter.findAll({
-      include: Parameter,
-    });
-    console.log('LLLLLLLLL')
-    res.json(allParameters);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Ошибка сервера' });
   }
 });
 
