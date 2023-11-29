@@ -1,21 +1,27 @@
 :root {
-  --color-light: white;
-  --color-dark: #212121;
-  --color-signal: #fab700;
+  background-color: rgb(13, 194, 88);
+  --color-text: white;
+  --color-light: rgb(28, 230, 112);
+  --color-dark: rgb(5, 113, 50);
+  --color-signal: rgba(67, 45, 3, 0.954);
   --color-background: rgb(100, 97, 97);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.container {
+.login.container {
+  width: 100%;
   display: flex;
   align-items: center;
+  height: 100%;
+  width: 50%;
 }
 
 .column {
   flex-direction: column;
 }
 
-.input {
-  width: 80%;
+.login.input {
+  width: 200px;
   height: 30px;
   border: unset;
   border-radius: 15px;
@@ -23,21 +29,59 @@
   outline: none;
 }
 
-.input__label {
+.login.input__label {
   display: block;
   position: relative;
   background-color: transparent;
   border-radius: 15px;
-  color: var(--color-light);
+  color: var(--color-dark);
   bottom: 32px;
   right: 0px;
-  font-size: 15px;
+  font-size: 13px;
   padding: 3px;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out,
     background-color 0.5s ease-in-out;
 }
-.input:focus + .input__label {
-  transform: translate(0.15rem, -110%) scale(1.2);
-  color: var(--color-signal);
+.login.input:focus + .input__label {
+  transform: translate(-6rem, -70%) scale(1.2);
+  color: var(--color-text);
   background-color: var(--color-background);
+}
+
+.login.input:focus {
+  box-shadow: 3px 5px 0 0 var(--color-signal);
+  color: var(--color-light);
+  font-size: 16px;
+}
+
+.login.error {
+  min-height: 25px;
+  background-color: rgba(255, 255, 255, 0.213);
+  transition: opacity 0.5s ease-in-out;
+  border-radius: 5px;
+}
+
+.error.visible {
+  opacity: 1;
+}
+
+.error.invisible {
+  opacity: 0;
+}
+
+button.login {
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  color: var(--color-text);
+  background-color: var(--color-dark);
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+}
+
+button.login:hover {
+  color: rgb(48, 47, 47);
+  background-color: var(--color-light);
+  box-shadow: 3px 3px 0 1px var(--color-signal);
 }

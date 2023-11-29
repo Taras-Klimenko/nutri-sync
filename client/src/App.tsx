@@ -11,13 +11,13 @@ function App() {
   return (
     <>
       <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/reg" element={<Registration />} />
         <Route path="/clients" element={<Client />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/add-clients" element={<AddClients />} />
         <Route path="knowledge" element={<Knowledge />} />
       </Routes>
-      {/*<Login />*/}
-      {/*<Registration />*/}
     </>
   );
 }

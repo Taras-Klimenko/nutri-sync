@@ -34,13 +34,11 @@ export default function Login() {
         },
         { withCredentials: true }
       );
-      console.log(response);
+
       if (response.status === 201) {
         // dispatch({ type: 'SET_USER', payload: response.data });
         // navigate('/main');
-        console.log('УСПЕШНЫЙ ВХОД');
       } else if (response.status === 200) {
-        console.log('НЕУСПЕШНЫЙ ВХОД');
         setError(response.data.error);
         setTimeout(() => {
           setError('');
@@ -52,33 +50,37 @@ export default function Login() {
   };
 
   return (
-    <div className="container column">
-      <h1>Вход</h1>
+    <div className="login container column">
+      <h1 className="login">Вход</h1>
       <input
-        onChange={handleInputChange}
+        className="login input"
         type="text"
         name="login"
-        className="input"
         id="loginInput"
+        onChange={handleInputChange}
       />
-      <label htmlFor="loginInput" className="input__label">
+      <label htmlFor="loginInput" className="login input__label">
         Login
       </label>
-      <br />
+
       <input
         onChange={handleInputChange}
         type="password"
         name="password"
         id="passwordInput"
-        className="input"
+        className="login input"
       />
-      <label htmlFor="passwordInput" className="input__label">
+      <label htmlFor="passwordInput" className="login input__label">
         Password
       </label>
-      <br />
-      <button onClick={loginHandler}>Войти</button>
-      <br />
-      {error && <div>{error}</div>}
+
+      <div className={`login error ${error ? 'visible' : 'invisible'}`}>
+        {error}
+      </div>
+
+      <button className="login" onClick={loginHandler}>
+        Войти
+      </button>
     </div>
   );
 }
