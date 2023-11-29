@@ -1,21 +1,63 @@
-import React from 'react';
+import React, { useState, useEffect }from 'react';
 import NoteItem from './NoteItem';
+import { getNotesByCategory, createNote, deleteNote } from '../api'
 
-function NoteList({selectedNotebook}) {
-  // This will eventually be loaded from the server
-  const notes = [
-    { id: 1, title: 'Note 1', text: 'Note 1 text', categoryId: 1 },
-    { id: 2, title: 'Note 2', text: 'Note 2 text', categoryId: 2},
-    { id: 3, title: 'Note 3', text: 'Note 3 text', categoryId: 1}
-  ];
+function NoteList({selectedNotebook, onSelectNote}) {
+  const [notes, setNotes] = useState([]);
+  const [showInput, setShowInput] = useState(false);
+  const [newNoteTitle, setNewNoteTitle] = useState('');
 
-  const filteredNotes = selectedNotebook ? notes.filter(note => note.categoryId === selectedNotebook.id) : [];
+  useEffect(() => {
+    if (selectedNotebook) {
+      getNotesByCategory(selectedNotebook.id).then(setNotes);
+    }
+  }, [selectedNotebook]);
+
+  const handleCreateNote = async (event) => {
+    event.preventDefault();
+    if (selectedNotebook && newNoteTitle) {
+      try {
+        const newNote = await createNote(selectedNotebook.id, { title: newNoteTitle });
+        setNotes([...notes, newNote]);
+        setNewNoteTitle('');
+        setShowInput(false);
+      } catch (error) {
+        console.error('Не удалось создать заметку:', error);
+      }
+    }
+  };
+    
+  if (!selectedNotebook) {
+    return <div>Select a notebook to add notes.</div>;
+  }
+
+  const handleDeleteNote = async (noteId) => {
+    try {
+      await deleteNote(noteId);
+      setNotes(notes.filter(note => note.id !== noteId));
+    } catch (error) {
+      console.error('Не удалось удалить заметку:', error);
+    }
+  };
+
 
   return (
     <div>
-      <h2>Notes</h2>
-      {filteredNotes.map((note) => (
-        <NoteItem key={note.id} note={note}/>
+      <h2>Заметки</h2>
+      <button onClick={() => setShowInput(true)}>Добавить</button>
+      {showInput && (
+        <form onSubmit={handleCreateNote}>
+          <input 
+            type="text" 
+            value={newNoteTitle} 
+            onChange={(event) => setNewNoteTitle(event.target.value)} 
+            placeholder="Название заметки"
+          />
+          <button type="submit">Создать</button>
+        </form>
+      )}
+      {notes.map((note) => (
+        <NoteItem key={note.id} note={note} onSelect={onSelectNote} onDelete={handleDeleteNote}/>
       ))}
     </div>
   );

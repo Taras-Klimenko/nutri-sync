@@ -13,7 +13,23 @@ router.get('/', async (req, res) => {
   }
 });
 
-
+router.post('/', async (req, res) => {
+  try {
+    const { firstName, lastName, birthday, paidTill, phoneNumber, curatorId } = req.body;
+    const client = await Client.create({
+      firstName,
+      lastName,
+      birthday,
+      paidTill,
+      phoneNumber,
+      curatorId,
+    });
+    res.json(client);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ ошибка: `${error}` });
+  }
+});
 
 
 // router.get('/param', async (req, res) => {
@@ -48,6 +64,7 @@ router.get('/:id', async (req, res) => {
     const { id } = req.params;
     // console.log("gggggggggg")
     const client = await Client.findByPk(id);
+    // const parametr = await Parameter.findOne({where: clientId === id})
     console.log(client, 'cliiient');
     if (client) {
       res.json(client);
