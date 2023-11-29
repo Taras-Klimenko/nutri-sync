@@ -13,6 +13,24 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.post('/', async (req, res) => {
+  try {
+    const { firstName, lastName, birthday, paidTill, phoneNumber, curatorId } = req.body;
+    const client = await Client.create({
+      firstName,
+      lastName,
+      birthday,
+      paidTill,
+      phoneNumber,
+      curatorId,
+    });
+    res.json(client);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ ошибка: `${error}` });
+  }
+});
+
 
 
 
