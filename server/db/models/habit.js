@@ -13,25 +13,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   Habit.init(
     {
-      diary: DataTypes.BOOLEAN,
-      eatingSkills: DataTypes.BOOLEAN,
-      enoughVegetables: DataTypes.BOOLEAN,
-      allNutrients: DataTypes.BOOLEAN,
-      allMainMeals: DataTypes.BOOLEAN,
-      haveSnack: DataTypes.BOOLEAN,
-      mealInterval: DataTypes.BOOLEAN,
-      minAnimalFats: DataTypes.BOOLEAN,
-      minAddedSugar: DataTypes.BOOLEAN,
-      enoughWater: DataTypes.BOOLEAN,
-      enoughSleep: DataTypes.BOOLEAN,
-      enoughDailyPlates: DataTypes.BOOLEAN,
-      correctPlateSize: DataTypes.BOOLEAN,
-      mealLeftovers: DataTypes.BOOLEAN,
-      maintainNutrition: DataTypes.BOOLEAN,
-      help: DataTypes.BOOLEAN,
-      lessonsFromFailures: DataTypes.BOOLEAN,
-      hungerAppetiteDiff: DataTypes.BOOLEAN,
+   
       clientId: DataTypes.INTEGER,
+      title: DataTypes.STRING,
+      isCompleted: DataTypes.BOOLEAN,
     },
     {
       sequelize,
