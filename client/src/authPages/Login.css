@@ -1,12 +1,14 @@
 :root {
-  background-color: rgba(214, 223, 242, 0.954);
-  --color-light: rgba(126, 159, 229, 0.954);
-  --color-dark: rgba(12, 67, 185, 0.954, 0.954);
-  --color-signal: rgba(12, 220, 235, 0.954);
+  background-color: rgb(13, 194, 88);
+  --color-text: white;
+  --color-light: rgb(28, 230, 112);
+  --color-dark: rgb(5, 113, 50);
+  --color-signal: rgba(67, 45, 3, 0.954);
   --color-background: rgb(100, 97, 97);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.container {
+.login.container {
   width: 100%;
   display: flex;
   align-items: center;
@@ -27,12 +29,12 @@
   outline: none;
 }
 
-.input__label {
+.login.input__label {
   display: block;
   position: relative;
   background-color: transparent;
   border-radius: 15px;
-  color: var(--color-light);
+  color: var(--color-dark);
   bottom: 32px;
   right: 0px;
   font-size: 13px;
@@ -42,7 +44,7 @@
 }
 .login.input:focus + .input__label {
   transform: translate(-6rem, -70%) scale(1.2);
-  color: var(--color-signal);
+  color: var(--color-text);
   background-color: var(--color-background);
 }
 
@@ -52,7 +54,7 @@
   font-size: 16px;
 }
 
-.error {
+.login.error {
   min-height: 25px;
   background-color: rgba(255, 255, 255, 0.213);
   transition: opacity 0.5s ease-in-out;
@@ -68,14 +70,18 @@
 }
 
 button.login {
-  color: var(--color-light);
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  color: var(--color-text);
   background-color: var(--color-dark);
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out,
     box-shadow 0.3s ease-in-out;
 }
 
 button.login:hover {
-  color: var(--color-dark);
+  color: rgb(48, 47, 47);
   background-color: var(--color-light);
   box-shadow: 3px 3px 0 1px var(--color-signal);
 }

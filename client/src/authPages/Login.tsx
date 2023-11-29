@@ -50,8 +50,8 @@ export default function Login() {
   };
 
   return (
-    <div className="container column">
-      <h1>Вход</h1>
+    <div className="login container column">
+      <h1 className="login">Вход</h1>
       <input
         className="login input"
         type="text"
@@ -59,7 +59,7 @@ export default function Login() {
         id="loginInput"
         onChange={handleInputChange}
       />
-      <label htmlFor="loginInput" className="input__label">
+      <label htmlFor="loginInput" className="login input__label">
         Login
       </label>
 
@@ -70,11 +70,13 @@ export default function Login() {
         id="passwordInput"
         className="login input"
       />
-      <label htmlFor="passwordInput" className="input__label">
+      <label htmlFor="passwordInput" className="login input__label">
         Password
       </label>
 
-      <div className={`error ${error ? 'visible' : 'invisible'}`}>{error}</div>
+      <div className={`login error ${error ? 'visible' : 'invisible'}`}>
+        {error}
+      </div>
 
       <button className="login" onClick={loginHandler}>
         Войти

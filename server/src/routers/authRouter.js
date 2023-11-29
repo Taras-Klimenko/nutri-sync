@@ -14,9 +14,7 @@ router.post('/login', async (req, res) => {
     });
 
     if (user === null) {
-      res
-        .status(200)
-        .json({ error: 'Пользователя с таким login не найден.' });
+      res.status(200).json({ error: 'Пользователя с таким login не найден.' });
       return;
     }
 
