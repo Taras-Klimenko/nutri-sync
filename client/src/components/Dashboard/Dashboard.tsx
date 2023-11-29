@@ -2,13 +2,12 @@ import { ReactElement, MouseEvent } from 'react';
 import AllClients from '../AllClients/AllClients.tsx';
 import TodoDasbord from '../TodoDasbord/TodoDasbord.tsx';
 import MyButton from '../MyButton/MyButton.tsx';
+import {Link} from "react-router-dom";
 
-interface DashbordProps {}
+interface DashboardProps {}
 
-export default function Dashbord({}: DashbordProps): ReactElement {
-    const addClient = (event: MouseEvent<HTMLButtonElement>) => {
-        // Ваша логика для кнопки "AddClients"
-    };
+export default function Dashboard({}: DashboardProps): ReactElement {
+
 
     const baza = (event: MouseEvent<HTMLButtonElement>) => {
         // Ваша логика для кнопки "Baza"
@@ -16,7 +15,10 @@ export default function Dashbord({}: DashbordProps): ReactElement {
 
     return (
         <div>
-            <MyButton onClick={addClient}>AddClients</MyButton>
+            <Link to="/add-clients">
+                <MyButton>Add Client</MyButton>
+            </Link>
+
             <MyButton onClick={baza}>Baza</MyButton>
             <AllClients />
             <TodoDasbord />
