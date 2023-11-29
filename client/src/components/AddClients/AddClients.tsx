@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
 import styles from './AddClients.module.css';
 import MyButton from '../MyButton/MyButton';
-import axios from 'axios';
 import {Client} from "../../types.ts";
 import {Link, useNavigate} from "react-router-dom";
+import {useAppDispatch, useAppSelector} from "../../redux/store/hooks.ts";
+import {addClient, getCurators} from "../../redux/store/thunkActions.ts";
 
 export default function AddClients() {
+    const dispatch = useAppDispatch()
     const navigate = useNavigate();
+    const {curators} = useAppSelector((store) => store.clientSlice)
+
     const [formData, setFormData] = useState<Client>({
         firstName: '',
         lastName: '',
@@ -16,21 +20,10 @@ export default function AddClients() {
         curatorId: '',
     });
 
-    const [curatorInfo, setCuratorInfo] = useState(null);
 
     useEffect(() => {
-        const fetchCuratorInfo = async () => {
-            try {
-                const response = await axios.get('http://localhost:3000/curator'); // Замените на свой URL
-                setCuratorInfo(response.data);
-            } catch (error) {
-                console.error(`Ошибка запроса куратора: ${error.message}`);
-            }
-        };
-
-        fetchCuratorInfo();
-    }, []);
-
+        dispatch(getCurators());
+    }, [dispatch]);
     const handleChange = (e: { target: { name: any; value: any; }; }) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
@@ -40,9 +33,7 @@ export default function AddClients() {
     };
 
     const handleAddClient = async () => {
-        try {
-            const response = await axios.post('http://localhost:3000/clients', formData);
-
+        dispatch(addClient(formData))
             setFormData({
                 firstName: '',
                 lastName: '',
@@ -51,10 +42,6 @@ export default function AddClients() {
                 phoneNumber: '',
             });
             navigate(`/dashboard`);
-        } catch (error) {
-
-            console.error('Error adding client:', error.message);
-        }
     };
 
     return (
@@ -84,8 +71,8 @@ export default function AddClients() {
                 Curator:
                 <select name="curatorId" value={formData.curatorId} onChange={handleChange}>
                     <option value="">Select Curator</option>
-                    {curatorInfo &&
-                        curatorInfo.map((curator) => (
+                    {curators &&
+                        curators.map((curator) => (
                             <option key={curator.id} value={curator.id}>
                                 {curator.name}
                             </option>
