@@ -26,14 +26,14 @@ export default function AllClients() {
     return (
         <div>
             <h2>All Clients</h2>
-            <ul>
+            <div>
                 {clients.map(client => (
-                    <li key={client.id}>
+                    <div key={client.id}>
                         {client.firstName} {client.lastName}
                         <MyButton>more...</MyButton>
-                    </li>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     )
 };

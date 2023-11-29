@@ -1,6 +1,7 @@
 .container {
     max-width: 400px;
     margin: 0 auto;
+    padding: 20px; /* Добавим отступы для контейнера */
 }
 
 label {
@@ -8,9 +9,19 @@ label {
     margin-bottom: 10px;
 }
 
-input {
+input,
+select {
     width: 100%;
     padding: 8px;
     margin-bottom: 15px;
+    box-sizing: border-box; /* Учтем padding в расчете ширины элемента */
+}
+
+select {
+    appearance: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding-right: 30px; /* Добавим дополнительное пространство справа для стрелки */
+    cursor: pointer;
 }
 

@@ -12,7 +12,7 @@ export default function Registration() {
     password: '',
   });
   const [error, setError] = useState('');
-
+  const [errorVisible, setErrorVisible] = useState(false);
   //   const navigate = useNavigate();
   //   const { name } = useAppSelector((store) => store.userReducer);
   //   const dispatch = useAppDispatch();
@@ -42,16 +42,14 @@ export default function Registration() {
         },
         { withCredentials: true }
       );
-      console.log(response);
       if (response.status === 201) {
-        console.log('УСПЕШНАЯ РЕГИСТРАЦИЯ');
         // dispatch({ type: 'SET_USER', payload: response.data });
         // navigate('/main');
       } else if (response.status === 200) {
-        console.log('НЕУСПЕШНАЯ РЕГИСТРАЦИЯ');
         setError(response.data.error);
+        setErrorVisible(true);
         setTimeout(() => {
-          setError('');
+          setErrorVisible(false);
         }, 3000);
       }
     } catch (error) {
@@ -60,54 +58,57 @@ export default function Registration() {
   };
 
   return (
-    <div className="container column">
-      <h1>Регистрация</h1>
+    <div className="reg container column">
+      <h1 className="reg">Регистрация</h1>
       <input
+        className="reg input"
         name="login"
         type="text"
-        onChange={handleInputChange}
         id="loginInput"
-        className="input"
+        onChange={handleInputChange}
       />
-      <label htmlFor="loginInput" className="input__label">
+      <label htmlFor="loginInput" className="reg input__label">
         Login
       </label>
-      <br />
       <input
         name="name"
         type="text"
         id="nameInput"
         onChange={handleInputChange}
-        className="input"
+        className="reg input"
       />
-      <label htmlFor="nameInput" className="input__label">
+      <label htmlFor="nameInput" className="reg input__label">
         Name
       </label>
-      <br />
       <input
         name="email"
         type="text"
         onChange={handleInputChange}
         id="emailInput"
-        className="input"
+        className="reg input"
       />
-      <label htmlFor="emailInput" className="input__label">
+      <label htmlFor="emailInput" className="reg input__label">
         Email
       </label>
-      <br />
       <input
         name="password"
         type="password"
         onChange={handleInputChange}
         id="passwordInput"
-        className="input"
+        className="reg input"
       />
-      <label htmlFor="passwordInput" className="input__label">
+      <label htmlFor="passwordInput" className="reg input__label">
         Password
       </label>
       <br />
-      <button onClick={regHandler}>Регистрация</button>
-      {error && <div>{error}</div>}
+
+      <div className={`reg error ${errorVisible ? 'visible' : 'invisible'}`}>
+        {error}
+      </div>
+      <br />
+      <button className="reg" onClick={regHandler}>
+        Регистрация
+      </button>
     </div>
   );
 }
