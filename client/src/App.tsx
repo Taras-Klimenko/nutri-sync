@@ -6,6 +6,7 @@ import AddClients from './components/AddClients/AddClients';
 import Knowledge from './pages/Knowledge';
 import Login from './authPages/Login';
 import Registration from './authPages/Registration';
+import Statistics from './pages/Statistics';
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <Route path="/clients" element={<Client />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/add-clients" element={<AddClients />} />
-        <Route path="knowledge" element={<Knowledge />} />
+        <Route path="/knowledge" element={<Knowledge />} />
+        <Route path="/statistics" element={<Statistics />} />
       </Routes>
     </>
   );

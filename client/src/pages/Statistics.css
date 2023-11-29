@@ -1,0 +1,46 @@
+:root {
+  background-color: rgb(71, 234, 112);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.statistics.first.container {
+  background-color: rgba(0, 0, 0, 0.233);
+  width: 1300px;
+  height: 700px;
+  align-items: center;
+}
+
+.statistics.second.container {
+  height: 100%;
+  width: 1300px;
+  justify-content: center;
+  align-items: center;
+}
+
+.first.element {
+  background-color: rgba(0, 0, 0, 0.678);
+  width: 22%;
+  height: 600px;
+  color: wheat;
+}
+
+.second.element {
+  background-color: rgb(246, 246, 236);
+  width: 72%;
+  height: 600px;
+}
