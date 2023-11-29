@@ -1,5 +1,5 @@
 export type Client = {
-    id: number;
+    id: number | null;
     firstName: string;
     lastName: string;
     birthday: Date;
@@ -8,6 +8,7 @@ export type Client = {
     curatorId: number | null; // Или другой тип, если необходимо
     createdAt: Date;
     updatedAt: Date;
+    Curator: Curator
 };
 
 export type Task = {
