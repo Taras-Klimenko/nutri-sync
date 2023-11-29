@@ -1,43 +1,72 @@
-:root {
-  --color-light: white;
-  --color-dark: #212121;
-  --color-signal: #fab700;
-  --color-background: rgb(100, 97, 97);
-}
-
-.container {
+.reg.container {
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  height: 100%;
 }
 
 .column {
   flex-direction: column;
 }
 
-.input {
-  width: 80%;
-  height: 30px;
+.reg.input {
+  width: 200px;
+  height: 45px;
   border: unset;
   border-radius: 15px;
   text-align: center;
   outline: none;
+  color: black;
+  font-size: 16px;
 }
 
-.input__label {
+.reg.input__label {
   display: block;
   position: relative;
   background-color: transparent;
   border-radius: 15px;
-  color: var(--color-light);
+  color: var(--color-dark);
   bottom: 32px;
   right: 0px;
-  font-size: 15px;
+  font-size: 13px;
   padding: 3px;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out,
     background-color 0.5s ease-in-out;
 }
-.input:focus + .input__label {
-  transform: translate(0.15rem, -110%) scale(1.2);
-  color: var(--color-signal);
+.reg.input:focus + .input__label {
+  transform: translate(-6rem, -70%) scale(1.2);
+  color: var(--color-text);
   background-color: var(--color-background);
+}
+
+.reg.input:focus {
+  box-shadow: 3px 5px 0 0 var(--color-signal);
+  color: black;
+  font-size: 16px;
+}
+
+.reg.error {
+  height: 40px;
+  background-color: var(--color-dark);
+  color: var(--color-text);
+  transition: opacity 0.4s ease-in-out;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+button.reg {
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  color: var(--color-text);
+  background-color: var(--color-dark);
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+}
+
+button.reg:hover {
+  color: rgb(48, 47, 47);
+  background-color: var(--color-light);
+  box-shadow: 3px 3px 0 1px var(--color-signal);
 }

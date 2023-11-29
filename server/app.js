@@ -8,7 +8,6 @@ const FileStore = require('session-file-store')(session);
 
 const authRouter = require('./src/routers/authRouter');
 
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 const clientRouter = require('./routers/clientRouter');
@@ -16,22 +15,30 @@ const categoryRouter = require('./src/routers/categoryRouter');
 const curatorRouter = require('./src/routers/curatorRouter');
 const habitRouter = require('./routers/habitRouter');
 
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
-    store: new FileStore(),
-  }),
-);
+const corsOptions = {
+  origin: ['http://localhost:5173'],
+  optionsSuccessStatus: 200,
+  credentials: true,
+};
 
-app.use(cors({ credentials: true, origin: true }));
+const sessionConfig = {
+  name: 'nutrition',
+  store: new FileStore(),
+  secret: process.env.SECRET_KEY_SESSION,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 10 * 60 * 60 * 1000,
+    httpOnly: true,
+  },
+};
+
+app.use(cors(corsOptions));
+app.use(session(sessionConfig));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(express.static('public'));
-
-
 
 app.use('/auth', authRouter);
 app.use('/api/categories', categoryRouter);
@@ -41,10 +48,9 @@ app.use('/habit', habitRouter);
 
 
 app.use('*', (req, res) => {
-    res.redirect('/');
+  res.redirect('/');
 });
 
 app.listen(PORT, () => {
-
   console.log('Start in ', PORT);
 });

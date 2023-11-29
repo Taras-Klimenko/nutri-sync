@@ -1,11 +1,15 @@
 const express = require('express');
-const { Client, Parameter, Task, Habit } = require('../db/models');
+
+const { Client, Parameter, Curator, Task , Habit } = require('../db/models');
+
 
 const router = express.Router();
 
 router.get('/', async (req, res) => {
   try {
-    const client = await Client.findAll();
+    const client = await Client.findAll({
+      include: { model: Curator },
+    });
     res.json(client);
   } catch (error) {
     console.error(error);
@@ -32,6 +36,42 @@ router.post('/', async (req, res) => {
     res.status(500).json({ ошибка: `${error}` });
   }
 });
+
+router.patch('/update/:id', async (req, res) => {
+  const { Id } = req.params;
+  try {
+    const client = await Client.findByPk(Id);
+
+    if (!client) {
+      return res.status(404).json({ сообщение: 'Клиент не найден' });
+    }
+
+    const { firstName, lastName, birthday, paidTill, phoneNumber, curatorId } = req.body;
+    await client.update({
+      firstName,
+      lastName,
+      birthday,
+      paidTill,
+      phoneNumber,
+      curatorId,
+    });
+
+    res.json(client);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ ошибка: `${error}` });
+  }
+});
+router.delete('/update/:id', async (req, res) => {
+  try {
+    await Client.destroy({ where: { id: req.params.id } });
+    res.sendStatus(200);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ ошибка: `${error}` });
+  }
+});
+
 
 router.get('/task', async (req, res) => {
   try {

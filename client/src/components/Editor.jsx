@@ -3,7 +3,7 @@ import Quill from 'quill'
 import 'quill/dist/quill.snow.css'
 import {updateNote} from '../api'
 
-function Editor({ note }) {
+function Editor({ note, onNotebookChange }) {
   const editorRef = useRef(null);
   const quillRef = useRef(null);
   const toolbarOptions = [
@@ -40,7 +40,10 @@ function Editor({ note }) {
     if (quillRef.current && note && note.text) {
       quillRef.current.root.innerHTML = note.text;
     }
-  }, [note]);
+    else if (onNotebookChange) {
+      quillRef.current.root.innerHTML = ''; 
+    }
+  }, [note, onNotebookChange]);
 
   const handleSave = async () => {
     if (note && quillRef.current) {
