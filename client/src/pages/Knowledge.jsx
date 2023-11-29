@@ -7,13 +7,13 @@ import Header from '../components/Header';
 function Knowledge() {
   const [selectedNotebook, setSelectedNotebook] = useState(null);
   const [selectedNote, setSelectedNote] = useState(null);
-  console.log(selectedNotebook)
+
 
   return (
     <div className="knowledge">
       <Header />
       <div className="content">
-        <Sidebar onSelectNotebook={setSelectedNotebook} selectedNotebook={selectedNotebook} />
+        <Sidebar onSelectNotebook={setSelectedNotebook} onSelectNote={setSelectedNote} selectedNotebook={selectedNotebook} />
         <Editor note={selectedNote}/>
       </div>
     </div>

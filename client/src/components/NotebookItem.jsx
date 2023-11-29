@@ -1,9 +1,10 @@
 import React from 'react';
 
-function NotebookItem({ notebook, onSelect }) {
+function NotebookItem({ notebook, onSelect, onDelete }) {
   return (
-    <div className="notebookItem" onClick={() => {onSelect(notebook)}}>
-      {notebook.name}
+    <div className="notebookItem">
+      <span onClick={() => {onSelect(notebook)}}>{notebook.name}</span>
+      <button onClick={() => {onDelete(notebook.id)}}>X</button>
     </div>
   );
 }

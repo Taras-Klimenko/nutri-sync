@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Header() {
-  return <header>Knowledge Database</header>;
+  return <header><h1>Knowledge Database</h1></header>;
 }
 
 export default Header;
