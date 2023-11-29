@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import Sidebar from '../components/Sidebar';
 import Editor from '../components/Editor';
@@ -14,7 +14,6 @@ function Knowledge() {
     setSelectedNote(null);
     setNotebookChanged(true);
   };
-
 
   return (
     <div className="knowledge">
