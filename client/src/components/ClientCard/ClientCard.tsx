@@ -3,6 +3,7 @@ import styles from './ClientCard.module.css';
 
 interface ClientType {
   firstName: string;
+
 }
 
 async function fetchClientById(id: number) {
@@ -26,7 +27,7 @@ const ClientCard = () => {
   };
 
   useEffect(() => {
-    //Todo change name function
+  
     async function fetchClient() {
       const data = await fetchClientById(2);
       console.log(data);
@@ -65,6 +66,7 @@ const ClientCard = () => {
           <div>
             <h2>Данные:</h2>
             <div>{client.firstName}</div>
+            
           </div>
         )}
 
