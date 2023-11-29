@@ -1,13 +1,43 @@
-import React, { useState } from 'react';
-import styles from './Clients.module.css';
+import React, { useState, useEffect } from 'react';
+import styles from './ClientCard.module.css';
 
-const Client = () => {
+interface ClientType {
+  firstName: string;
+
+}
+
+async function fetchClientById(id: number) {
+  const response = await fetch(`http://localhost:3000/api/clients/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  const data: ClientType = await response.json();
+  // console.log(data)
+  return data;
+}
+
+const ClientCard = () => {
   const [activeTab, setActiveTab] = useState('data');
+  const [client, setClient] = useState<ClientType | null>(null);
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
   };
 
+  useEffect(() => {
+  
+    async function fetchClient() {
+      const data = await fetchClientById(2);
+      console.log(data);
+      setClient(data);
+    }
+    fetchClient();
+  }, []);
+  if (client === null) {
+    return 'Загрузка';
+  }
   return (
     <div>
       <div className="tabs">
@@ -35,6 +65,8 @@ const Client = () => {
         {activeTab === 'data' && (
           <div>
             <h2>Данные:</h2>
+            <div>{client.firstName}</div>
+            
           </div>
         )}
 
@@ -54,4 +86,4 @@ const Client = () => {
   );
 };
 
-export default Client;
+export default ClientCard;

@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import Client from './components/Clients/Clients';
+import Client from './components/ClientCard/ClientCard';
 import Dashboard from './components/Dashboard/Dashboard';
 import AddClients from './components/AddClients/AddClients';
 import Knowledge from './pages/Knowledge';
