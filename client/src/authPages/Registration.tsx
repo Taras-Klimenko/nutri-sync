@@ -44,12 +44,11 @@ export default function Registration() {
       );
       console.log(response);
       if (response.status === 201) {
-        console.log('УСПЕШНАЯ РЕГИСТРАЦИЯ');
         // dispatch({ type: 'SET_USER', payload: response.data });
         // navigate('/main');
       } else if (response.status === 200) {
-        console.log('НЕУСПЕШНАЯ РЕГИСТРАЦИЯ');
         setError(response.data.error);
+
         setTimeout(() => {
           setError('');
         }, 3000);
@@ -63,11 +62,11 @@ export default function Registration() {
     <div className="container column">
       <h1>Регистрация</h1>
       <input
+        className="reg input"
         name="login"
         type="text"
-        onChange={handleInputChange}
         id="loginInput"
-        className="input"
+        onChange={handleInputChange}
       />
       <label htmlFor="loginInput" className="input__label">
         Login
@@ -78,7 +77,7 @@ export default function Registration() {
         type="text"
         id="nameInput"
         onChange={handleInputChange}
-        className="input"
+        className="reg input"
       />
       <label htmlFor="nameInput" className="input__label">
         Name
@@ -89,7 +88,7 @@ export default function Registration() {
         type="text"
         onChange={handleInputChange}
         id="emailInput"
-        className="input"
+        className="reg input"
       />
       <label htmlFor="emailInput" className="input__label">
         Email
@@ -100,14 +99,16 @@ export default function Registration() {
         type="password"
         onChange={handleInputChange}
         id="passwordInput"
-        className="input"
+        className="reg input"
       />
       <label htmlFor="passwordInput" className="input__label">
         Password
       </label>
       <br />
-      <button onClick={regHandler}>Регистрация</button>
-      {error && <div>{error}</div>}
+
+      <div className={`error ${error ? 'visible' : 'invisible'}`}>{error}</div>
+      <br />
+      <button className='reg' onClick={regHandler}>Регистрация</button>
     </div>
   );
 }

@@ -7,20 +7,17 @@ import Login from './authPages/Login';
 import Registration from './authPages/Registration';
 
 function App() {
-
-    return (
-<>
-    <Routes>
+  return (
+    <>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/reg" element={<Registration />} />
         <Route path="/clients" element={<Client />} />
         <Route path="/dashbord" element={<Dashbord />} />
         <Route path="/add-clients" element={<AddClients />} />
-    </Routes>
-    {/*<Login />*/}
-    {/*<Registration />*/}
-</>
-
-
-    );
+      </Routes>
+    </>
+  );
 }
 
 export default App;
