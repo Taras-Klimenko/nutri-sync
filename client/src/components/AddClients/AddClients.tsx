@@ -34,13 +34,6 @@ export default function AddClients() {
 
     const handleAddClient = async () => {
         dispatch(addClient(formData))
-            setFormData({
-                firstName: '',
-                lastName: '',
-                birthday: '',
-                paidTill: '',
-                phoneNumber: '',
-            });
             navigate(`/dashboard`);
     };
 

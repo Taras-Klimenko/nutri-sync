@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {Client, Curator} from "../../../types.ts";
-import { addClient, getClients, getCurators, updateClient  } from "../thunkActions.ts";
+import { addClient, getClients, getCurators, updateClient, deleteClient  } from "../thunkActions.ts";
 
 
 interface IInitialState {
@@ -11,11 +11,12 @@ interface IInitialState {
 
 const initialState: IInitialState = {
     clients: [],
+    curators: [],
     loader: false,
 };
 
 export const clientSlice = createSlice({
-    name: "todos",
+    name: "clients",
     initialState,
     reducers: {
     },
@@ -45,7 +46,6 @@ export const clientSlice = createSlice({
             (state, action: PayloadAction<Client>) => {
                 const updatedClientIndex = state.clients.findIndex(client => client.id === action.payload.id);
                 if (updatedClientIndex !== -1) {
-                    // Заменяем существующего клиента обновленными данными
                     state.clients[updatedClientIndex] = action.payload;
                 }
                 state.loader = false;
@@ -54,7 +54,17 @@ export const clientSlice = createSlice({
         builder.addCase(updateClient.pending, (state) => {
             state.loader = true;
         });
-
+        builder.addCase(
+            deleteClient.fulfilled,
+            (state, action: PayloadAction<number | string>) => {
+                const deletedClientId = action.payload;
+                state.clients = state.clients.filter(client => client.id !== deletedClientId);
+                state.loader = false;
+            }
+        );
+        builder.addCase(deleteClient.pending, (state) => {
+            state.loader = true;
+        });
         builder.addCase(
             getCurators.fulfilled,
             (state, action: PayloadAction<Curator[]>) => {

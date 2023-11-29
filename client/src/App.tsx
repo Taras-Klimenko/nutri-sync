@@ -6,7 +6,7 @@ import AddClients from './components/AddClients/AddClients';
 import Login from './authPages/Login';
 import Registration from './authPages/Registration';
 import {useAppDispatch} from "./redux/store/hooks.ts";
-import {getClients} from "./redux/store/thunkActions.ts";
+import {getClients, getCurators} from "./redux/store/thunkActions.ts";
 import {useEffect} from "react";
 import EditClientDefault from "./components/EditClientDefault/EditClientDefault.tsx";
 
@@ -15,7 +15,8 @@ function App() {
 
     useEffect(() => {
         dispatch(getClients());
-    }, [dispatch, AddClients]);
+    }, []);
+
     return (
 <>
     <Routes>

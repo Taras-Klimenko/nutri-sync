@@ -15,19 +15,19 @@ export default function EditClient(props: EditClientProps) {
     const { id } = useParams<{ id: string }>();
     const clients = useAppSelector((store) => store.clientSlice.clients);
     const {curators} = useAppSelector((store) => store.clientSlice)
-    const initFormData : Client = {
-        id: null,
-    firstName: '',
-    lastName: '',
-    birthday: Date,
-    paidTill: Date,
-    phoneNumber: '',
-    curatorId: null,
-    createdAt: Date,
-    updatedAt: Date,
-    Curator: {}
-    }
-    const [formData, setFormData] = useState<Client>(initFormData);
+    // const initFormData : Client = {
+    //     id: null,
+    // firstName: '',
+    // lastName: '',
+    // birthday: Date,
+    // paidTill: Date,
+    // phoneNumber: '',
+    // curatorId: null,
+    // createdAt: Date,
+    // updatedAt: Date,
+    // Curator: {}
+    // }
+    const [formData, setFormData] = useState<Client>();
 
     useEffect(() => {
         const selectedClient = clients.find((client) => client.id === Number(id));
@@ -60,49 +60,52 @@ export default function EditClient(props: EditClientProps) {
         navigate("/dashboard");
     };
 
-    console.log()
+    console.log(formData)
     return (
-        <div>
-            <label>
-                First Name:
-                <input type="text" name="firstName" value={formData.firstName} placeholder="First Name" onChange={handleChange} required />
-            </label>
-            <label>
-                Last Name:
-                <input type="text" name="lastName" value={formData.lastName} placeholder="Last Name" onChange={handleChange} />
-            </label>
-            <label>
-                Birthday: <br/>
-                Birthday: {formData.birthday.toString().slice(0, 10)}
-                <input type="date" name="birthday" value={formData.birthday.toString()} onChange={handleChange} />
-            </label>
-            <label>
-                Paid Till: <br/>
-                Paid Till: {formData.paidTill.toString().slice(0, 10)}
-                <input type="date" name="paidTill" value={formData.paidTill.toString()} onChange={handleChange} />
-            </label>
-            <label>
-                Phone Number:
-                <input type="text" name="phoneNumber" value={formData.phoneNumber} placeholder="Phone" onChange={handleChange} />
-            </label>
-            <label>
-                Curator:<br/>
-                Curator: {formData.Curator.name}
-                <select name="curatorId" value={formData.curatorId} onChange={handleChange}>
-                    <option value="">Select Curator</option>
-                    {curators &&
-                        curators.map((curator) => (
-                            <option key={curator.id} value={curator.id}>
-                                {curator.name}
-                            </option>
-                        ))}
-                </select>
-            </label>
-            <MyButton onClick={handleUpdateClient}>Update</MyButton>
-            <MyButton onClick={handleDeleteClient}>Delete</MyButton>
-            <Link to="/dashboard">
-                <MyButton>Back</MyButton>
-            </Link>
-        </div>
+        <>
+            {formData?
+                <div>
+                    <label>
+                        First Name:
+                        <input type="text" name="firstName" value={formData.firstName} placeholder="First Name" onChange={handleChange} required />
+                    </label>
+                    <label>
+                        Last Name:
+                        <input type="text" name="lastName" value={formData.lastName} placeholder="Last Name" onChange={handleChange} />
+                    </label>
+                    <label>
+                        Birthday: <br/>
+                        Birthday: {formData.birthday.toString().slice(0, 10)}
+                        <input type="date" name="birthday" value={formData.birthday.toString()} onChange={handleChange} />
+                    </label>
+                    <label>
+                        Paid Till: <br/>
+                        Paid Till: {formData.paidTill.toString().slice(0, 10)}
+                        <input type="date" name="paidTill" value={formData.paidTill.toString()} onChange={handleChange} />
+                    </label>
+                    <label>
+                        Phone Number:
+                        <input type="text" name="phoneNumber" value={formData.phoneNumber} placeholder="Phone" onChange={handleChange} />
+                    </label>
+                    <label>
+                        Curator:<br/>
+                        Curator: {formData?.Curator?.name}
+                        <select name="curatorId" value={formData.curatorId} onChange={handleChange}>
+                            <option value="">Select Curator</option>
+                            {curators &&
+                                curators.map((curator) => (
+                                    <option key={curator.id} value={curator.id}>
+                                        {curator.name}
+                                    </option>
+                                ))}
+                        </select>
+                    </label>
+                    <MyButton onClick={handleUpdateClient}>Update</MyButton>
+                    <MyButton onClick={handleDeleteClient}>Delete</MyButton>
+                    <Link to="/dashboard">
+                        <MyButton>Back</MyButton>
+                    </Link>
+                </div> :<div>!!!!!!!!</div>}
+        </>
     );
 }
