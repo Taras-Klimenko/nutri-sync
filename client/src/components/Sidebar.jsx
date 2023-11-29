@@ -2,11 +2,11 @@ import React from 'react';
 import NotebookList from './NotebookList';
 import NoteList from './NoteList';
 
-function Sidebar({onSelectNotebook, selectedNotebook}) {
+function Sidebar({onSelectNotebook, onSelectNote, selectedNotebook}) {
   return (
     <aside>
       <NotebookList onSelectNotebook={onSelectNotebook}/>
-      <NoteList selectedNotebook={selectedNotebook}/>
+      <NoteList selectedNotebook={selectedNotebook} onSelectNote={onSelectNote}/>
     </aside>
   );
 }

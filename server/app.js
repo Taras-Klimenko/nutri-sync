@@ -13,6 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const clientRouter = require('./routers/clientRouter');
 const categoryRouter = require('./src/routers/categoryRouter');
+const curatorRouter = require('./src/routers/curatorRouter');
 
 app.use(
   session({
@@ -34,6 +35,9 @@ app.use(express.static('public'));
 app.use('/auth', authRouter);
 app.use('/api/categories', categoryRouter);
 app.use('/api/clients', clientRouter);
+app.use('/clients', clientRouter);
+app.use('/curator', curatorRouter);
+
 
 
 app.use('*', (req, res) => {

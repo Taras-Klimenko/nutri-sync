@@ -20,3 +20,14 @@ export type Task = {
     updatedAt: Date;
 };
 
+export type Curator = {
+    id: number;
+    login: string;
+    name: string;
+    email: string;
+    password: string;
+    isAdmin: boolean;
+};
+
+
+
