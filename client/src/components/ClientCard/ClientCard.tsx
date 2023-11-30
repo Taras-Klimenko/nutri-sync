@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import styles from './ClientCard.module.css';
+
 import HabitRow from './HabitRow';
+import AddHabit from './AddHabit';
+import { useParams } from 'react-router-dom';
 
 interface ClientType {
   firstName: string;
@@ -35,17 +37,17 @@ async function fetchClientById(id: number) {
     },
   });
   const data: ClientType = await response.json();
-  // const dataParam: ParameterType = await response.json();
-  // const dataHabit: HabitType = await response.json();
-  // console.log(data)
   return data;
 }
 
-const ClientCard = () => {
+const ClientCard = (props) => {
   const [activeTab, setActiveTab] = useState('data');
   const [client, setClient] = useState<ClientType | null>(null);
   const [parameter, setParameter] = useState<ParameterType | null>(null);
   const [habit, setHabit] = useState<HabitType[] | null>(null);
+
+ const { id } = useParams();
+  console.log(id)
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
@@ -53,7 +55,7 @@ const ClientCard = () => {
 
   useEffect(() => {
     async function fetchClient() {
-      const data = await fetchClientById(1);
+      const data = await fetchClientById(id);
       console.log(data);
       setClient(data.client);
       setParameter(data.parameter);
@@ -64,6 +66,7 @@ const ClientCard = () => {
   if (client === null) {
     return 'Загрузка';
   }
+
   return (
     <div>
       <div className="tabs">
@@ -113,10 +116,15 @@ const ClientCard = () => {
         {activeTab === 'goals' && (
           <div>
             <h2>Привычки:</h2>
-            <div>
-              {habit?.map((hab) => {
-                return <HabitRow key={hab.id} hab={hab} />;
-              })}
+            <div style={{ display: 'flex' }}>
+              <div className="habit-title">
+                {habit?.map((hab) => {
+                  return <HabitRow key={hab.id} hab={hab} setHabit={setHabit}/>;
+                })}
+              </div>
+              <div>
+                <AddHabit id={id} setHabit={setHabit} />
+              </div>
             </div>
           </div>
         )}

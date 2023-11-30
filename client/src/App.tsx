@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import Client from './components/ClientCard/ClientCard';
+import ClientCard from './components/ClientCard/ClientCard';
 import Dashboard from './components/Dashboard/Dashboard';
 import AddClients from './components/AddClients/AddClients';
 import Knowledge from './pages/Knowledge';
@@ -26,7 +26,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/reg" element={<Registration />} />
-        <Route path="/clients" element={<Client />} />
+        <Route path="/clients/:id" element={<ClientCard />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/add-clients" element={<AddClients />} />
         <Route path="/knowledge" element={<Knowledge />} />
