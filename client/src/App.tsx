@@ -16,10 +16,13 @@ function App() {
 
     const dispatch = useAppDispatch();
 
-    useEffect(() => {
-        dispatch(getClients());
-    }, []);
-    <>
+    // useEffect(() => {
+    //     dispatch(getClients());
+
+    // }, []);
+
+    return (
+<>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/reg" element={<Registration />} />
@@ -30,7 +33,9 @@ function App() {
         <Route path="/statistics" element={<Statistics />} />
       </Routes>
     </>
-  );
+
+    )
+    
 
 }
 
