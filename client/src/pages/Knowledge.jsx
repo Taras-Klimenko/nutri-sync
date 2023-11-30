@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import Editor from '../components/Editor';
 import Header from '../components/Header';
+import {Link} from "react-router-dom";
+import MyButton from "../components/MyButton/MyButton.tsx";
 
 function Knowledge() {
   const [selectedNotebook, setSelectedNotebook] = useState(null);
@@ -17,6 +19,9 @@ function Knowledge() {
 
   return (
     <div className="knowledge">
+      <Link to="/dashboard">
+        <MyButton>Back</MyButton>
+      </Link>
       <Header />
       <div className="content">
         <Sidebar onSelectNotebook={handleSelectNotebook} onSelectNote={setSelectedNote} selectedNotebook={selectedNotebook} />

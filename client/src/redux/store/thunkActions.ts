@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { Client } from "../../types.ts";
+import {Client, Task} from "../../types.ts";
 import axios from "axios";
 
 export const getClients = createAsyncThunk("clients/all", async () => {
@@ -16,7 +16,6 @@ export const addClient = createAsyncThunk(
         return response.data;
     }
 );
-
 export const updateClient = createAsyncThunk(
     "client/updateStatus",
     async ({
@@ -47,7 +46,6 @@ export const updateClient = createAsyncThunk(
         return response.data;
     }
 );
-
 export const deleteClient = createAsyncThunk(
     "client/delete",
     async (id: string | number) => {
@@ -55,9 +53,41 @@ export const deleteClient = createAsyncThunk(
         return id;
     }
 )
-
-
 export const getCurators = createAsyncThunk("curators/all", async () => {
     const response = await axios.get("http://localhost:3000/curator");
     return response.data;
 });
+
+export const getTodos = createAsyncThunk("todos/fetch", async () => {
+    const result = await axios.get("http://localhost:3000/api/todos");
+    return result.data;
+});
+
+export const addTodos = createAsyncThunk("todos/add", async (formData) => {
+    const result = await axios.post("http://localhost:3000/api/todos", formData);
+    return result.data;
+});
+
+export const updateTodoStatus = createAsyncThunk(
+    "todos/updateStatus",
+    async ({ id, isCompleted, text }: { id: string | number; text: string; isCompleted: boolean }) => {
+        const result = await axios.patch(`http://localhost:3000/api/todos/${id}`, { text, isCompleted });
+        return result.data;
+    }
+);
+
+export const deleteTodo = createAsyncThunk(
+    "todos/delete",
+    async (id: string | number) => {
+        await axios.delete(`http://localhost:3000/api/todos/${id}`);
+        return id;
+    }
+);
+
+export const updateTodo = createAsyncThunk(
+    "todos/update",
+    async (todo: Task) => {
+        const result = await axios.put(`http://localhost:3000/api/todos/${todo.id}`, todo);
+        return result.data;
+    }
+);

@@ -15,6 +15,9 @@ export default function AllClients() {
                         <Link to={`/client/${client.id}`} state={{id: client.id, }}>
                             <MyButton>more...</MyButton>
                         </Link>
+                        <Link to={`/clients/${client.id}`} state={{id: client.id, }}>
+                            <MyButton>info</MyButton>
+                        </Link>
                     </div>
                 ))}
             </div>

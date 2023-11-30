@@ -7,7 +7,7 @@ import Knowledge from './pages/Knowledge';
 import Login from './authPages/Login';
 import Registration from './authPages/Registration';
 import {useAppDispatch} from "./redux/store/hooks.ts";
-import {getClients, getCurators} from "./redux/store/thunkActions.ts";
+import {getClients, getTodos} from "./redux/store/thunkActions.ts";
 import {useEffect} from "react";
 import EditClientDefault from "./components/EditClientDefault/EditClientDefault.tsx";
 import Statistics from './pages/Statistics';
@@ -19,6 +19,12 @@ function App() {
     useEffect(() => {
         dispatch(getClients());
     }, []);
+
+    useEffect(() => {
+        dispatch(getTodos());
+    }, [dispatch]);
+
+    return(
     <>
       <Routes>
         <Route path="/login" element={<Login />} />
@@ -28,6 +34,8 @@ function App() {
         <Route path="/add-clients" element={<AddClients />} />
         <Route path="/knowledge" element={<Knowledge />} />
         <Route path="/statistics" element={<Statistics />} />
+          <Route path="/client/:id" element={<EditClientDefault />} />
+          <Route path="/clients/:id" element={<Client />} />
       </Routes>
     </>
   );
