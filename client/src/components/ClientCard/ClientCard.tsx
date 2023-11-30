@@ -63,7 +63,9 @@ const ClientCard = (props) => {
       setHabit(data.habit);
     }
     fetchClient();
-  }, []);
+  }, [id]);
+
+  
   if (client === null) {
     return 'Загрузка';
   }

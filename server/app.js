@@ -47,7 +47,7 @@ app.use('/api/clients', clientRouter);
 app.use('/curator', curatorRouter);
 app.use('/api/todos', todoRouter);
 app.use('/habit', habitRouter);
-
+app.use('/clients', clientRouter);
 
 app.use('*', (req, res) => {
   res.redirect('/');

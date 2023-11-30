@@ -104,7 +104,7 @@ router.get('/:id', async (req, res) => {
     const client = await Client.findByPk(id);
     const parameter = await Parameter.findOne({ where: { clientId: id } });
     const habit = await Habit.findAll();
-    //  console.log( '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+      console.log( '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
      
     if (client && parameter && habit) {
       const response = { client, parameter, habit };
