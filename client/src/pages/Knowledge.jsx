@@ -7,20 +7,20 @@ import Header from '../components/Header';
 function Knowledge() {
   const [selectedNotebook, setSelectedNotebook] = useState(null);
   const [selectedNote, setSelectedNote] = useState(null);
-  const [notebookChanged, setNotebookChanged] = useState(false);
-
-  const handleSelectNotebook = (notebook) => {
-    setSelectedNotebook(notebook);
-    setSelectedNote(null);
-    setNotebookChanged(true);
+ 
+  const handleNoteUpdate = (updatedNote) => {
+    setSelectedNote(updatedNote); // Update the selected note with the updated data
+  };
+  const handleSelectNote = (note) => {
+    setSelectedNote(note);
   };
 
   return (
     <div className="knowledge">
       <Header />
       <div className="content">
-        <Sidebar onSelectNotebook={handleSelectNotebook} onSelectNote={setSelectedNote} selectedNotebook={selectedNotebook} />
-        <Editor note={selectedNote} onNotebookChange={notebookChanged}/>
+      <Sidebar onSelectNotebook={setSelectedNotebook} onSelectNote={handleSelectNote} selectedNotebook={selectedNotebook} />
+        <Editor note={selectedNote} onNoteUpdate={handleNoteUpdate}/>
       </div>
     </div>
   );
