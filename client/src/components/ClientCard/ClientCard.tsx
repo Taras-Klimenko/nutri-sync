@@ -91,11 +91,11 @@ const ClientCard = () => {
         {activeTab === 'data' && (
           <div>
             <h2>Данные:</h2>
-            <div> Имя клиента: {client.firstName}</div>
-            <div> Фамилия клиента:{client.lastName}</div>
-            <div> День рождения: {client.birthday}</div>
-            <div> Номер телефона: {client.phoneNumber}</div>
-            <div> Клиент оплатил до: {client.paidTill}</div>
+            <div> Имя клиента: {client?.firstName}</div>
+            <div> Фамилия клиента:{client?.lastName}</div>
+            <div> День рождения: {client?.birthday}</div>
+            <div> Номер телефона: {client?.phoneNumber}</div>
+            <div> Клиент оплатил до: {client?.paidTill}</div>
           </div>
         )}
 
