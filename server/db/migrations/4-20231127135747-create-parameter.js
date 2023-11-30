@@ -9,6 +9,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      height: {
+        type: Sequelize.FLOAT,
+      },
       weight: {
         type: Sequelize.FLOAT,
       },

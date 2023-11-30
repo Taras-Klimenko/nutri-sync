@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Parameter.init(
     {
+      height: DataTypes.FLOAT,
       weight: DataTypes.FLOAT,
       chest: DataTypes.FLOAT,
       waist: DataTypes.FLOAT,
