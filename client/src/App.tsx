@@ -45,7 +45,7 @@ function App() {
         <Route path="/knowledge" element={<Knowledge />} />
         <Route path="/statistics" element={<Statistics />} />
           <Route path="/client/:id" element={<EditClientDefault />} />
-          <Route path="/clients/:id" element={<Client />} />
+         
       </Routes>
     </>
   );

@@ -9,16 +9,14 @@ interface DashboardProps {}
 
 export default function Dashboard({}: DashboardProps): ReactElement {
   return (
-    <div>
-      <Link to="/add-clients">
-        <MyButton>Add Client</MyButton>
-      </Link>
-      <Link to="/knowledge">
-        <MyButton>Baza</MyButton>
-      </Link>
+    
+      // {/* <Link to="/add-clients">
+      //   <MyButton>Add Client</MyButton>
+      // </Link>
+      // <Link to="/knowledge">
+      //   <MyButton>Baza</MyButton>
+      // </Link> */}
 
-
-    return (
         <div>
             <Link to="/add-clients">
                 <MyButton>Add Client</MyButton>
@@ -29,6 +27,8 @@ export default function Dashboard({}: DashboardProps): ReactElement {
             <AllClients />
             <TodoDasbord />
             <AllCurator/>
+
         </div>
     );
-}
+
+    }
