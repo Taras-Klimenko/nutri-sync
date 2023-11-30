@@ -12,7 +12,7 @@ export default function AllClients() {
                 {clients.map(client => (
                     <div key={client.id}>
                         {client.firstName} {client.lastName}
-                        <Link to={`/client/${client.id}`} state={{id: client.id, }}>
+                        <Link to={`/clients/${client.id}`} state={{id: client.id, }}>
                             <MyButton>more...</MyButton>
                         </Link>
                         <Link to={`/clients/${client.id}`} state={{id: client.id, }}>

@@ -85,15 +85,27 @@ router.get('/task', async (req, res) => {
   }
 });
 
+
+
+
+
+
 router.get('/:id', async (req, res) => {
   try {
     // console.log("EEEEEEEEEEEEEE");
     const { id } = req.params;
+    // console.log(id);
+    if (!id) {
+      res.status(400).json({ error: 'Client ID is missing in the request' });
+          console.log("##########################")
+      return;
+    }
     // console.log("gggggggggg")
     const client = await Client.findByPk(id);
     const parameter = await Parameter.findOne({ where: { clientId: id } });
-    const habit = await Habit.findAll({ where: { clientId: id } });
-    // console.log(parameter, 'paraametr');
+    const habit = await Habit.findAll();
+    //  console.log( '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+     
     if (client && parameter && habit) {
       const response = { client, parameter, habit };
       res.json(response);

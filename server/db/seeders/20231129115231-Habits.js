@@ -4,14 +4,50 @@ module.exports = {
     await queryInterface.bulkInsert('Habits', [
       {
         clientId: 1,
-        title: 'Ведет дневник',
+        title: 'Ведение дневника питания',
         isCompleted: false,
       },
       {
         clientId: 1,
-        title: 'Бегает',
+        title: 'Навыки осознанного питания',
         isCompleted: false,
       },
+      {
+        clientId: 1,
+        title: 'Достаточное количество овощей и фруктов',
+        isCompleted: false,
+      },
+      {
+        clientId: 1,
+        title: 'Наличие в рационе всех пищевых продуктов',
+        isCompleted: false,
+      },
+      {
+        clientId: 1,
+        title: 'Наличие основных приемов пищи',
+        isCompleted: false,
+      },
+      {
+        clientId: 1,
+        title: 'Носить перекус с собой',
+        isCompleted: false,
+      },
+      {
+        clientId: 1,
+        title: 'Промежутки между едой 3-4 часа',
+        isCompleted: false,
+      },
+      {
+        clientId: 1,
+        title: 'Минимальное количество животных жиров',
+        isCompleted: false,
+      },
+      {
+        clientId: 1,
+        title: 'Минимальное количество добавленного сахара',
+        isCompleted: false,
+      },
+      
     ], {});
   },
 

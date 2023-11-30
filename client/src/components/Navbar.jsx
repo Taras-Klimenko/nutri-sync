@@ -20,7 +20,8 @@ export default function Navbar() {
       <Link className="navLink" to="/reg">
         Reg
       </Link>
-      <Link className="navLink" to="/clients">
+      {/* TODO для теста одного клиента (потом удалить)  */}
+      <Link className="navLink" to="/clients/1">
         Clients
       </Link>
       <Link className="navLink" to="/dashboard">
