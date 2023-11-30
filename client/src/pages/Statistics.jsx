@@ -31,7 +31,9 @@ export default function Statistics() {
   };
 
   const weight = [40, 85, 45, 80, 82, 85, 87, 90, 92];
+  
   const bwi = weight.map((el) => calculateBMI(el, parameters.height));
+  
   function calculateBMI(weight, height) {
     const heightInMeters = height / 100;
     const bmi = weight / (heightInMeters * heightInMeters);

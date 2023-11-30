@@ -4,3 +4,53 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgba(0, 0, 0, 0.697);
+  height: 50px;
+}
+
+.navLink {
+  background-color: rgb(234, 255, 244);
+  color: black;
+  text-decoration: none;
+  border: solid 3px green;
+  padding: 6px;
+  border-radius: 8px;
+}
+
+.navLink:hover {
+  background-color: rgb(5, 57, 30);
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  border: solid 3px rgb(0, 0, 0);
+  padding: 6px;
+  border-radius: 8px;
+}
+
+.loader {
+  border: 10px solid #f3f3f3;
+  border-top: 8px solid #34db87;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,5 +1,7 @@
 const express = require('express');
-const { Client, Parameter, Curator, Task} = require('../db/models');
+
+const { Client, Parameter, Curator, Task , Habit } = require('../db/models');
+
 
 const router = express.Router();
 
@@ -17,7 +19,9 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const { firstName, lastName, birthday, paidTill, phoneNumber, curatorId } = req.body;
+    const {
+      firstName, lastName, birthday, paidTill, phoneNumber, curatorId,
+    } = req.body;
     const client = await Client.create({
       firstName,
       lastName,
@@ -69,20 +73,6 @@ router.delete('/update/:id', async (req, res) => {
 });
 
 
-// router.get('/param', async (req, res) => {
-//   try {
-//     const { weight, chest, waist, hips, BMI, clientId } = req.query;
-//     const allParameters = await Parameter.findAll({
-//       include: Parameter,
-//     });
-//     console.log('LLLLLLLLL')
-//     res.json(allParameters);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ message: 'Ошибка сервера' });
-//   }
-// });
-
 router.get('/task', async (req, res) => {
   try {
     const tasks = await Task.findAll({
@@ -101,10 +91,12 @@ router.get('/:id', async (req, res) => {
     const { id } = req.params;
     // console.log("gggggggggg")
     const client = await Client.findByPk(id);
-    // const parametr = await Parameter.findOne({where: clientId === id})
-    console.log(client, 'cliiient');
-    if (client) {
-      res.json(client);
+    const parameter = await Parameter.findOne({ where: { clientId: id } });
+    const habit = await Habit.findAll({ where: { clientId: id } });
+    // console.log(parameter, 'paraametr');
+    if (client && parameter && habit) {
+      const response = { client, parameter, habit };
+      res.json(response);
     } else {
       res.status(404).json({ error: 'Клиент не найден' });
     }
@@ -113,6 +105,8 @@ router.get('/:id', async (req, res) => {
     res.status(500).json({ error: 'Ошибка сервера' });
   }
 });
+
+
 
 
 module.exports = router;

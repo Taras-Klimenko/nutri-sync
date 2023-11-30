@@ -9,58 +9,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      diary: {
-        type: Sequelize.BOOLEAN,
+      title: {
+        type: Sequelize.STRING,
       },
-      eatingSkills: {
-        type: Sequelize.BOOLEAN,
-      },
-      enoughVegetables: {
-        type: Sequelize.BOOLEAN,
-      },
-      allNutrients: {
-        type: Sequelize.BOOLEAN,
-      },
-      allMainMeals: {
-        type: Sequelize.BOOLEAN,
-      },
-      haveSnack: {
-        type: Sequelize.BOOLEAN,
-      },
-      mealInterval: {
-        type: Sequelize.BOOLEAN,
-      },
-      minAnimalFats: {
-        type: Sequelize.BOOLEAN,
-      },
-      minAddedSugar: {
-        type: Sequelize.BOOLEAN,
-      },
-      enoughWater: {
-        type: Sequelize.BOOLEAN,
-      },
-      enoughSleep: {
-        type: Sequelize.BOOLEAN,
-      },
-      enoughDailyPlates: {
-        type: Sequelize.BOOLEAN,
-      },
-      correctPlateSize: {
-        type: Sequelize.BOOLEAN,
-      },
-      mealLeftovers: {
-        type: Sequelize.BOOLEAN,
-      },
-      maintainNutrition: {
-        type: Sequelize.BOOLEAN,
-      },
-      help: {
-        type: Sequelize.BOOLEAN,
-      },
-      lessonsFromFailures: {
-        type: Sequelize.BOOLEAN,
-      },
-      hungerAppetiteDiff: {
+      isCompleted: {
         type: Sequelize.BOOLEAN,
       },
       clientId: {

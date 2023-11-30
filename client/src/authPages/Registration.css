@@ -1,8 +1,10 @@
 .reg.container {
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: space-around;
   height: 100%;
+  top: 90px;
 }
 
 .column {

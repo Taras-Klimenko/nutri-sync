@@ -1,4 +1,4 @@
-import { ReactElement, MouseEvent } from 'react';
+import { ReactElement } from 'react';
 import AllClients from '../AllClients/AllClients.tsx';
 import TodoDasbord from '../TodoDasbord/TodoDasbord.tsx';
 import MyButton from '../MyButton/MyButton.tsx';
@@ -8,6 +8,14 @@ import AllCurator from "../AllCurator/AllCurator.tsx";
 interface DashboardProps {}
 
 export default function Dashboard({}: DashboardProps): ReactElement {
+  return (
+    <div>
+      <Link to="/add-clients">
+        <MyButton>Add Client</MyButton>
+      </Link>
+      <Link to="/knowledge">
+        <MyButton>Baza</MyButton>
+      </Link>
 
 
     return (

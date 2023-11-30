@@ -1,33 +1,27 @@
 import React, { useState } from 'react';
-
+import MyButton from '../components/MyButton/MyButton'
 import Sidebar from '../components/Sidebar';
 import Editor from '../components/Editor';
 import Header from '../components/Header';
-import {Link} from "react-router-dom";
-import MyButton from "../components/MyButton/MyButton.tsx";
+import {Link} from 'react-router-dom'
 
 function Knowledge() {
   const [selectedNotebook, setSelectedNotebook] = useState(null);
   const [selectedNote, setSelectedNote] = useState(null);
-  const [notebookChanged, setNotebookChanged] = useState(false);
 
-  const handleSelectNotebook = (notebook) => {
-    setSelectedNotebook(notebook);
-    setSelectedNote(null);
-    setNotebookChanged(true);
+  const handleNoteUpdate = (updatedNote) => {
+    setSelectedNote(updatedNote); // Update the selected note with the updated data
+  };
+  const handleSelectNote = (note) => {
+    setSelectedNote(note);
   };
 
   return (
     <div className="knowledge">
-      <Link to="/dashboard">
-        <MyButton>Back</MyButton>
-      </Link>
-      <Header />
-      <div className="content">
-        <Sidebar onSelectNotebook={handleSelectNotebook} onSelectNote={setSelectedNote} selectedNotebook={selectedNotebook} />
-        <Editor note={selectedNote} onNotebookChange={notebookChanged}/>
+      <Link to="/dashboard"><MyButton>На главную</MyButton></Link>
+      <Sidebar onSelectNotebook={setSelectedNotebook} onSelectNote={handleSelectNote} selectedNotebook={selectedNotebook} />
+        <Editor note={selectedNote} onNoteUpdate={handleNoteUpdate}/>
       </div>
-    </div>
   );
 }
 
