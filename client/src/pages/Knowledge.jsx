@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-
+import MyButton from '../components/MyButton/MyButton'
 import Sidebar from '../components/Sidebar';
 import Editor from '../components/Editor';
 import Header from '../components/Header';
+import {Link} from 'react-router-dom'
 
 function Knowledge() {
   const [selectedNotebook, setSelectedNotebook] = useState(null);
@@ -17,14 +18,10 @@ function Knowledge() {
 
   return (
     <div className="knowledge">
-      <Header />
-      <Sidebar
-        onSelectNotebook={setSelectedNotebook}
-        onSelectNote={handleSelectNote}
-        selectedNotebook={selectedNotebook}
-      />
-      <Editor note={selectedNote} onNoteUpdate={handleNoteUpdate} />
-    </div>
+      <Link to="/dashboard"><MyButton>На главную</MyButton></Link>
+      <Sidebar onSelectNotebook={setSelectedNotebook} onSelectNote={handleSelectNote} selectedNotebook={selectedNotebook} />
+        <Editor note={selectedNote} onNoteUpdate={handleNoteUpdate}/>
+      </div>
   );
 }
 
