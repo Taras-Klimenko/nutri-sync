@@ -6,9 +6,10 @@ import AddClients from './components/AddClients/AddClients';
 import Knowledge from './pages/Knowledge';
 import Login from './authPages/Login';
 import Registration from './authPages/Registration';
+import {getClients, getTodos} from "./redux/store/thunkActions.ts";
+import {useEffect} from "react";
+import EditClientDefault from "./components/EditClientDefault/EditClientDefault.tsx";
 import { useAppDispatch, useAppSelector } from './redux/store/hooks.ts';
-import { useEffect } from 'react';
-import EditClientDefault from './components/EditClientDefault/EditClientDefault.tsx';
 import Statistics from './pages/Statistics';
 import Navbar from './components/Navbar.jsx';
 import axios from 'axios';
@@ -17,9 +18,13 @@ import { checkSession } from './redux/store/thunkActions.ts';
 function App() {
   const dispatch = useAppDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getClients());
-  // }, []);
+    useEffect(() => {
+        dispatch(getClients());
+    }, []);
+
+    useEffect(() => {
+        dispatch(getTodos());
+    }, [dispatch]);
 
   useEffect(() => {
     dispatch(checkSession());
@@ -39,6 +44,8 @@ function App() {
         <Route path="/add-clients" element={<AddClients />} />
         <Route path="/knowledge" element={<Knowledge />} />
         <Route path="/statistics" element={<Statistics />} />
+          <Route path="/client/:id" element={<EditClientDefault />} />
+          <Route path="/clients/:id" element={<Client />} />
       </Routes>
     </>
   );

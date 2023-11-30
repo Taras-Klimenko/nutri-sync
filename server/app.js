@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 3000;
 const clientRouter = require('./routers/clientRouter');
 const categoryRouter = require('./src/routers/categoryRouter');
 const curatorRouter = require('./src/routers/curatorRouter');
+const todoRouter = require('./routers/todoRouter');
 const habitRouter = require('./routers/habitRouter');
 
 const corsOptions = {
@@ -44,6 +45,7 @@ app.use('/auth', authRouter);
 app.use('/api/categories', categoryRouter);
 app.use('/api/clients', clientRouter);
 app.use('/curator', curatorRouter);
+app.use('/api/todos', todoRouter);
 app.use('/habit', habitRouter);
 
 

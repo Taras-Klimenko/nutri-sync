@@ -5,28 +5,13 @@ import { useAppDispatch, useAppSelector } from "../../redux/store/hooks.ts";
 import MyButton from "../MyButton/MyButton.tsx";
 import {deleteClient, getCurators, updateClient} from "../../redux/store/thunkActions.ts";
 
-interface EditClientProps {
-    client: Client;
-}
 
-export default function EditClient(props: EditClientProps) {
+export default function EditClient() {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const { id } = useParams<{ id: string }>();
     const clients = useAppSelector((store) => store.clientSlice.clients);
     const {curators} = useAppSelector((store) => store.clientSlice)
-    // const initFormData : Client = {
-    //     id: null,
-    // firstName: '',
-    // lastName: '',
-    // birthday: Date,
-    // paidTill: Date,
-    // phoneNumber: '',
-    // curatorId: null,
-    // createdAt: Date,
-    // updatedAt: Date,
-    // Curator: {}
-    // }
     const [formData, setFormData] = useState<Client>();
 
     useEffect(() => {
@@ -60,7 +45,6 @@ export default function EditClient(props: EditClientProps) {
         navigate("/dashboard");
     };
 
-    console.log(formData)
     return (
         <>
             {formData?
@@ -89,7 +73,6 @@ export default function EditClient(props: EditClientProps) {
                     </label>
                     <label>
                         Curator:<br/>
-                        Curator: {formData?.Curator?.name}
                         <select name="curatorId" value={formData.curatorId} onChange={handleChange}>
                             <option value="">Select Curator</option>
                             {curators &&
