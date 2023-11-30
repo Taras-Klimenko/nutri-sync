@@ -11,7 +11,7 @@ function NoteList({selectedNotebook, onSelectNote}) {
     if (selectedNotebook) {
       getNotesByCategory(selectedNotebook.id).then(setNotes);
     }
-  }, [selectedNotebook]);
+  }, [selectedNotebook, onSelectNote]);
 
   const handleCreateNote = async (event) => {
     event.preventDefault();

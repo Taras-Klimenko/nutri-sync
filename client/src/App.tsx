@@ -19,6 +19,7 @@ function App() {
   //   dispatch(getClients());
   // }, []);
 
+
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
@@ -29,7 +30,7 @@ function App() {
       <Route path="/knowledge" element={<Knowledge />} />
       <Route path="/statistics" element={<Statistics />} />
     </Routes>
-  );
+)
 }
 
 export default App;

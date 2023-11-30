@@ -14,9 +14,10 @@ export default function Dashboard({}: DashboardProps): ReactElement {
             <Link to="/add-clients">
                 <MyButton>Add Client</MyButton>
             </Link>
-            <Link to="/add-clients">
+            <Link to="/knowledge">
                 <MyButton>Baza</MyButton>
             </Link>
+
             <AllClients />
             <TodoDasbord />
         </div>
