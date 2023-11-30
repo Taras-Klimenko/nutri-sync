@@ -12,6 +12,7 @@ interface ClientType {
 }
 
 interface ParameterType {
+  height: number;
   weight: number;
   chest: number;
   waist: number;
@@ -96,12 +97,14 @@ const ClientCard = () => {
             <div> День рождения: {client?.birthday}</div>
             <div> Номер телефона: {client?.phoneNumber}</div>
             <div> Клиент оплатил до: {client?.paidTill}</div>
+            <div> Рост, в см: {parameter?.height}</div>
           </div>
         )}
 
         {activeTab === 'parameters' && (
           <div>
             <h2>Параметры:</h2>
+            <div> Рост: {parameter?.height}</div>
             <div> Вес: {parameter.weight}</div>
             <div> Обхват груди:{parameter.chest}</div>
             <div> Обхват талии: {parameter.waist}</div>
