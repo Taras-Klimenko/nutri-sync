@@ -11,6 +11,7 @@ import { getClients, getCurators } from './redux/store/thunkActions.ts';
 import { useEffect } from 'react';
 import EditClientDefault from './components/EditClientDefault/EditClientDefault.tsx';
 import Statistics from './pages/Statistics';
+import Navbar from './components/Navbar.jsx';
 
 function App() {
   // const dispatch = useAppDispatch();
@@ -19,18 +20,20 @@ function App() {
   //   dispatch(getClients());
   // }, []);
 
-
   return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/reg" element={<Registration />} />
-      <Route path="/clients" element={<Client />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/add-clients" element={<AddClients />} />
-      <Route path="/knowledge" element={<Knowledge />} />
-      <Route path="/statistics" element={<Statistics />} />
-    </Routes>
-)
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/reg" element={<Registration />} />
+        <Route path="/clients" element={<Client />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/add-clients" element={<AddClients />} />
+        <Route path="/knowledge" element={<Knowledge />} />
+        <Route path="/statistics" element={<Statistics />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;
