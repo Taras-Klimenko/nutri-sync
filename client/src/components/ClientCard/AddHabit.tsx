@@ -12,7 +12,7 @@ interface HabitValuesForm {
 
 export default function HabitForm(props): JSX.Element {
   const { setHabit, id } = props;
-  console.log(id, 'IIIIIIII')
+  // console.log(id, 'IIIIIIII')
   const [habitValues, setHabitValues] = useState<HabitValuesForm>({
     title: '',  
     isCompleted: false,
@@ -36,7 +36,7 @@ export default function HabitForm(props): JSX.Element {
       body: JSON.stringify(habitValues),
       
     }).then((data)=>{
-    return data.json()
+    return data.json() /* RETUUURN*/
     }).then((data)=>{
       console.log(data) 
       setHabit((prev) => [...prev, data])

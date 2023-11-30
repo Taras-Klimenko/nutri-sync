@@ -33,7 +33,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     const habit = await Habit.findByPk(req.params.id);
-    console.log(habit, 'hhhhhhh');
+    console.log(habit, 'hhhhhhhhhhhhhhhhhhh');
     if (!habit) {
       return res.status(404).send('Привычка не найдена');
     }
