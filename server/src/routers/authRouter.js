@@ -30,10 +30,9 @@ router.post('/login', async (req, res) => {
       };
 
       res.status(201).json({
-        id: user.id,
         login: user.login,
-        email: user.email,
         name: user.name,
+        email: user.email,
         isAdmin: user.isAdmin,
       });
       return;
@@ -105,29 +104,35 @@ router.post('/reg', async (req, res) => {
 
 router.get('/check', (req, res) => {
   try {
-    if (req.session.user) {
-      const user = {
-        id: req.session.user.id,
-        login: req.session.user.login,
-        email: req.session.user.email,
-        name: req.session.user.name,
-        isAdmin: req.session.user.isAdmin,
-      };
-      return res.json(user);
-    }
-    return res.json(null);
+    setTimeout(() => {
+      if (req.session.user) {
+        const user = {
+          login: req.session.user.login,
+          email: req.session.user.email,
+          name: req.session.user.name,
+          isAdmin: req.session.user.isAdmin,
+        };
+        return res.json(user);
+      }
+      return res.json({
+        login: '',
+        email: '',
+        name: '',
+        isAdmin: false,
+      });
+    }, 2000);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 });
 
-router.post('/logout', (req, res) => {
+router.get('/logout', (req, res) => {
   req.session.destroy((err) => {
     if (err) {
       return res.status(500).json({ error: 'Ошибка при выходе из сессии' });
     }
     res.clearCookie('connect.sid');
-    res.status(201).json({ message: 'Вы успешно вышли из сессии' });
+    res.status(201).end();
   });
 });
 

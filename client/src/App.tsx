@@ -6,23 +6,31 @@ import AddClients from './components/AddClients/AddClients';
 import Knowledge from './pages/Knowledge';
 import Login from './authPages/Login';
 import Registration from './authPages/Registration';
-import { useAppDispatch } from './redux/store/hooks.ts';
-import { getClients, getCurators } from './redux/store/thunkActions.ts';
+import { useAppDispatch, useAppSelector } from './redux/store/hooks.ts';
 import { useEffect } from 'react';
 import EditClientDefault from './components/EditClientDefault/EditClientDefault.tsx';
 import Statistics from './pages/Statistics';
 import Navbar from './components/Navbar.jsx';
+import axios from 'axios';
+import { checkSession } from './redux/store/thunkActions.ts';
 
 function App() {
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
   // useEffect(() => {
   //   dispatch(getClients());
   // }, []);
 
+  useEffect(() => {
+    dispatch(checkSession());
+  }, []);
+
+  const { loader } = useAppSelector((store) => store.userSlice);
+
   return (
     <>
       <Navbar />
+      {loader && <div className="loader"></div>}
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/reg" element={<Registration />} />
