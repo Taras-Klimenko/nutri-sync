@@ -76,7 +76,8 @@ export const updateNote = async (noteId, updatedContent) => {
     throw new Error('Ошибка сетевого соединения');
   }
 
-  return response.json();
+  const updatedNote = await response.json();
+  return updatedNote;
 };
 
 export const deleteNote = async (noteId) => {

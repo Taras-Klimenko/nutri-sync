@@ -3,7 +3,7 @@ import Quill from 'quill'
 import 'quill/dist/quill.snow.css'
 import {updateNote} from '../api'
 
-function Editor({ note, onNotebookChange }) {
+function Editor({ note, onNoteUpdate }) {
   const editorRef = useRef(null);
   const quillRef = useRef(null);
   const toolbarOptions = [
@@ -37,28 +37,25 @@ function Editor({ note, onNotebookChange }) {
   }, []);
 
   useEffect(() => {
-    if (quillRef.current && note && note.text) {
-      quillRef.current.root.innerHTML = note.text;
+    if (quillRef.current && note) {
+      quillRef.current.root.innerHTML = note.text || '';
     }
-    else if (onNotebookChange) {
-      quillRef.current.root.innerHTML = ''; 
-    }
-  }, [note, onNotebookChange]);
+  }, [note]);
 
   const handleSave = async () => {
     if (note && quillRef.current) {
-      const text = quillRef.current.root.innerHTML
+      const text = quillRef.current.root.innerHTML;
       try {
-        await updateNote(note.id, {text});
-        alert('Сохранено успешно')
+        const updatedNote = await updateNote(note.id, { text });
+        onNoteUpdate(updatedNote); // Pass the updated note back to Knowledge
+        alert('Сохранено успешно');
       } catch (error) {
         console.error('Error saving note:', error);
-        alert('Failed to save note');
+        alert('Не удалось сохранить заметку');
       }
     }
   }
     
-
   return (
     <div>
       <div ref={editorRef}></div>
