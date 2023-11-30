@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Registration.css';
 import axios from 'axios';
-// import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { useNavigate } from 'react-router-dom';
 
 export default function Registration() {
@@ -13,15 +12,7 @@ export default function Registration() {
   });
   const [error, setError] = useState('');
   const [errorVisible, setErrorVisible] = useState(false);
-  //   const navigate = useNavigate();
-  //   const { name } = useAppSelector((store) => store.userReducer);
-  //   const dispatch = useAppDispatch();
-
-  //   useEffect(() => {
-  //     if (name) {
-  //       navigate('/main');
-  //     }
-  //   }, [name]);
+  const navigate = useNavigate();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputs((prevValues) => ({
@@ -43,8 +34,7 @@ export default function Registration() {
         { withCredentials: true }
       );
       if (response.status === 201) {
-        // dispatch({ type: 'SET_USER', payload: response.data });
-        // navigate('/main');
+        navigate('/dashboard');
       } else if (response.status === 200) {
         setError(response.data.error);
         setErrorVisible(true);

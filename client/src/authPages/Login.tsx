@@ -2,17 +2,19 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
+import { useAppDispatch, useAppSelector } from '../redux/store/hooks';
+import { addUser } from '../redux/store/slice/userSlice';
 
 export default function Login() {
-  //   const navigate = useNavigate();
-  // const { name } = useAppSelector((store) => store.userReducer);
-  // const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const { name } = useAppSelector((store) => store.userSlice);
+  const dispatch = useAppDispatch();
 
-  // useEffect(() => {
-  //   if (name) {
-  //     navigate('/main');
-  //   }
-  // }, [name]);
+  useEffect(() => {
+    if (name) {
+      navigate('/dashboard');
+    }
+  }, [name]);
 
   const [inputs, setInputs] = useState({ login: '', password: '' });
   const [error, setError] = useState('');
@@ -36,8 +38,8 @@ export default function Login() {
       );
 
       if (response.status === 201) {
-        // dispatch({ type: 'SET_USER', payload: response.data });
-        // navigate('/main');
+        dispatch(addUser(response.data));
+        navigate('/dashboard');
       } else if (response.status === 200) {
         setError(response.data.error);
         setTimeout(() => {
