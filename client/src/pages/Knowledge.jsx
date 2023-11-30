@@ -19,8 +19,12 @@ function Knowledge() {
     <div className="knowledge">
       <Header />
       <div className="content">
-        <Sidebar onSelectNotebook={handleSelectNotebook} onSelectNote={setSelectedNote} selectedNotebook={selectedNotebook} />
-        <Editor note={selectedNote} onNotebookChange={notebookChanged}/>
+        <Sidebar
+          onSelectNotebook={handleSelectNotebook}
+          onSelectNote={setSelectedNote}
+          selectedNotebook={selectedNotebook}
+        />
+        <Editor note={selectedNote} onNotebookChange={notebookChanged} />
       </div>
     </div>
   );
