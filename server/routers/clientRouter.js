@@ -1,8 +1,6 @@
 const express = require('express');
 
-const {
-  Client, Parameter, Curator, Task, Habit,
-} = require('../db/models');
+const { Client, Parameter, Curator, Task, Habit } = require('../db/models');
 
 const router = express.Router();
 
@@ -19,11 +17,9 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  console.log(req.body, 'OOOOOOOOOOOOOO');
   try {
-    const {
-      firstName, lastName, birthday, paidTill, phoneNumber, curatorId,
-    } = req.body;
+    const { firstName, lastName, birthday, paidTill, phoneNumber, curatorId } =
+      req.body;
     const client = await Client.create({
       firstName,
       lastName,
@@ -48,9 +44,8 @@ router.patch('/update/:id', async (req, res) => {
       return res.status(404).json({ сообщение: 'Клиент не найден' });
     }
 
-    const {
-      firstName, lastName, birthday, paidTill, phoneNumber, curatorId,
-    } = req.body;
+    const { firstName, lastName, birthday, paidTill, phoneNumber, curatorId } =
+      req.body;
     await client.update({
       firstName,
       lastName,
@@ -90,21 +85,16 @@ router.get('/task', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    // console.log("EEEEEEEEEEEEEE");
     const { id } = req.params;
-    // console.log(id);
     if (!id) {
       res.status(400).json({ error: 'Client ID is missing in the request' });
-      console.log('##########################');
       return;
     }
-    // console.log("gggggggggg")
     const client = await Client.findByPk(id);
     const parameter = await Parameter.findOne({ where: { clientId: id } });
     const habit = await Habit.findAll();
-    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
     if (client) {
-      let response = { client, parameter, habit };
+      const response = { client, parameter, habit };
       return res.json(response);
     }
     res.status(404).json({ error: 'Клиент не найден' });

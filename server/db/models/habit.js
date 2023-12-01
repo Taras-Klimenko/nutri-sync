@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
   }
   Habit.init(
     {
-   
       clientId: DataTypes.INTEGER,
       title: DataTypes.STRING,
       isCompleted: DataTypes.BOOLEAN,
@@ -21,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'Habit',
-    }
+    },
   );
   return Habit;
 };

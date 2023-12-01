@@ -70,6 +70,15 @@ const ClientCard = (props) => {
     return 'Загрузка';
   }
 
+  function formatDate(dateString) {
+    const parsedDate = new Date(dateString);
+    const day = parsedDate.getDate().toString().padStart(2, '0');
+    const month = (parsedDate.getMonth() + 1).toString().padStart(2, '0');
+    const year = parsedDate.getFullYear().toString();
+    return `${day}.${month}.${year}`;
+  }
+
+
   return (
     <div>
       <div className="tabs">
@@ -99,9 +108,9 @@ const ClientCard = (props) => {
             <h2>Данные:</h2>
             <div> Имя клиента: {client?.firstName}</div>
             <div> Фамилия клиента:{client?.lastName}</div>
-            <div> День рождения: {client?.birthday}</div>
+            <div> День рождения: {formatDate(client?.birthday)}</div>
             <div> Номер телефона: {client?.phoneNumber}</div>
-            <div> Клиент оплатил до: {client?.paidTill}</div>
+            <div> Клиент оплатил до: {formatDate(client?.paidTill)}</div>
             <div> Рост, в см: {parameter?.height}</div>
           </div>
         )}
