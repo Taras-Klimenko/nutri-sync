@@ -16,6 +16,36 @@ router.get('/', async (req, res) => {
   }
 });
 
+const standardHabits = [
+  { title: 'Ведение дневника питания', isCompleted: false },
+  { title: 'Навыки осознанного питания', isCompleted: false },
+  { title: 'Достаточное количество овощей и фруктов', isCompleted: false },
+  { title: 'Наличие в рационе всех пищевых групп', isCompleted: false },
+  { title: 'Наличие основных приемов пищи', isCompleted: false },
+  { title: 'Носить перекус с собой', isCompleted: false },
+  { title: 'Промежутки между едой 3-4 часа', isCompleted: false },
+  { title: 'Минимальное количество животных жиров', isCompleted: false },
+  { title: 'Минимальное количество добавленного сахара', isCompleted: false },
+  { title: 'Достаточное количество воды', isCompleted: false },
+  { title: 'Хороший и достаточный сон', isCompleted: false },
+  { title: 'Необходимое количество порций ежедневно', isCompleted: false },
+  { title: 'Контроль размера порций', isCompleted: false },
+  { title: 'Оставлять лишнее на тарелке', isCompleted: false },
+  {
+    title: 'Правильное питание в ситуациях, когда раньше переедал(а)',
+    isCompleted: false,
+  },
+  { title: 'Просьба о поддержке и получение поддержки', isCompleted: false },
+  { title: 'Извлечение уроков из срывов', isCompleted: false },
+  { title: 'Различение голода и аппетита', isCompleted: false },
+];
+
+async function createStandardHabitsForCLient(clientId) {
+  for (const habit of standardHabits) {
+    await Habit.create({ ...habit, clientId });
+  }
+}
+
 router.post('/', async (req, res) => {
   try {
     const { firstName, lastName, birthday, paidTill, phoneNumber, curatorId } =
@@ -28,6 +58,7 @@ router.post('/', async (req, res) => {
       phoneNumber,
       curatorId,
     });
+    await createStandardHabitsForCLient(client.id);
     res.json(client);
   } catch (error) {
     console.error(error);
@@ -92,7 +123,7 @@ router.get('/:id', async (req, res) => {
     }
     const client = await Client.findByPk(id);
     const parameter = await Parameter.findOne({ where: { clientId: id } });
-    const habit = await Habit.findAll();
+    const habit = await Habit.findAll({ where: { clientId: id } });
     if (client) {
       const response = { client, parameter, habit };
       return res.json(response);
