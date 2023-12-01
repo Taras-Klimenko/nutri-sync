@@ -13,6 +13,7 @@ import { useAppDispatch, useAppSelector } from './redux/store/hooks.ts';
 import Statistics from './pages/Statistics';
 import Navbar from './components/Navbar.jsx';
 import { checkSession } from './redux/store/thunkActions.ts';
+import AllCurator from "./components/AllCurator/AllCurator.tsx";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -43,7 +44,8 @@ function App() {
         <Route path="/add-clients" element={<AddClients />} />
         <Route path="/knowledge" element={<Knowledge />} />
         <Route path="/statistics" element={<Statistics />} />
-        <Route path="/client/:id" element={<EditClientDefault />} />
+          <Route path="/client/:id" element={<EditClientDefault />} />
+          <Route path="/all-curator" element={<AllCurator/>}/>
       </Routes>
     </>
   );
