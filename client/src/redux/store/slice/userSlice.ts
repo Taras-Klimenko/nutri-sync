@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../store';
-import { checkSession } from '../thunkActions';
+import { addWeight, checkSession, getParameters } from '../thunkActions';
 
 // Define a type for the slice state
 export interface IUserState {
@@ -9,6 +9,7 @@ export interface IUserState {
   email: string;
   isAdmin: boolean;
   loader: boolean;
+  parameters: Array<number>;
 }
 
 // Define the initial state using that type
@@ -18,6 +19,7 @@ const initialState: IUserState = {
   email: '',
   isAdmin: false,
   loader: false,
+  parameters: [],
 };
 
 export const userSlice = createSlice({
@@ -44,10 +46,16 @@ export const userSlice = createSlice({
       state.name = action.payload.name;
       state.email = action.payload.email;
       state.isAdmin = action.payload.isAdmin;
-      state.loader = false; 
+      state.loader = false;
     });
     builder.addCase(checkSession.pending, (state, action) => {
       state.loader = true;
+    });
+    builder.addCase(getParameters.fulfilled, (state, action) => {
+      state.parameters = action.payload;
+    });
+    builder.addCase(addWeight.fulfilled, (state, action) => {
+      state.parameters.push(action.payload);
     });
   },
 });
