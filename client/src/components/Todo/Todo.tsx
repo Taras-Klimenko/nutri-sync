@@ -18,23 +18,22 @@ export default function Todo() {
         setFormData({ text: "", isCompleted: false });
     };
     return (
-        <div>
-            <input
-                onChange={changeHandler}
-                name="text"
-                type="text"
-                placeholder="Text"
-                value={formData.text}
-            />
-            {/*<input*/}
-            {/*    onChange={changeHandler}*/}
-            {/*    name="isCompleted"*/}
-            {/*    type="checkbox"*/}
-            {/*    checked={formData.isCompleted}*/}
-            {/*/>*/}
-            <MyButton onClick={formSubmitHandler} type="button">
-                Submit
-            </MyButton>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center', marginRight: '10px' }}>
+                <input
+                    onChange={changeHandler}
+                    name="text"
+                    type="text"
+                    placeholder="Text"
+                    value={formData.text}
+                />
+            </div>
+            <div style={{marginBottom: "13px"}}>
+                <MyButton  onClick={formSubmitHandler} type="button" >
+                    Submit
+                </MyButton>
+            </div>
         </div>
+
     );
 };

@@ -18,10 +18,19 @@ export default function AllCurator() {
                 Curators:
                     {curators &&
                         curators.map((curator) => (
-                            <div key={curator.id} value={curator.id}>
-                                {curator.login},
-                                {curator.name}
-                                {curator.email}
+                            <div
+                                key={curator.id}
+                                value={curator.id}
+                                style={{
+                                    border: "2px solid #000",
+                                    padding: "10px",
+                                    marginBottom: "20px",
+                                    marginTop: "20px"
+                                }}
+                            >
+                                <p>Login: {curator.login}</p>
+                                <p>Name: {curator.name}</p>
+                                <p>Email: {curator.email}</p>
                             </div>
                         ))}
             </label>

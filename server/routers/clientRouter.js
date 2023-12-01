@@ -38,12 +38,12 @@ router.post('/', async (req, res) => {
 });
 
 router.patch('/update/:id', async (req, res) => {
-  const { Id } = req.params;
+  const { id } = req.params;
   try {
-    const client = await Client.findByPk(Id);
+    const client = await Client.findByPk(id);
 
     if (!client) {
-      return res.status(404).json({ сообщение: 'Клиент не найден' });
+      return res.status(200).json({ сообщение: 'Клиент не найден' });
     }
 
     const { firstName, lastName, birthday, paidTill, phoneNumber, curatorId } = req.body;
@@ -85,11 +85,6 @@ router.get('/task', async (req, res) => {
   }
 });
 
-
-
-
-
-
 router.get('/:id', async (req, res) => {
   try {
     // console.log("EEEEEEEEEEEEEE");
@@ -105,7 +100,7 @@ router.get('/:id', async (req, res) => {
     const parameter = await Parameter.findOne({ where: { clientId: id } });
     const habit = await Habit.findAll();
       console.log( '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-     
+
     if (client && parameter && habit) {
       const response = { client, parameter, habit };
       res.json(response);
