@@ -15,6 +15,7 @@ const categoryRouter = require('./src/routers/categoryRouter');
 const curatorRouter = require('./src/routers/curatorRouter');
 const todoRouter = require('./routers/todoRouter');
 const habitRouter = require('./routers/habitRouter');
+const parametersRouter = require('./src/routers/parametersRouter');
 
 const corsOptions = {
   origin: ['http://localhost:5173'],
@@ -48,10 +49,11 @@ app.use('/curator', curatorRouter);
 app.use('/api/todos', todoRouter);
 app.use('/habit', habitRouter);
 app.use('/clients', clientRouter);
+app.use('/api/parameters', parametersRouter);
 
-app.use('*', (req, res) => {
-  res.redirect('/');
-});
+// app.use('*', (req, res) => {
+//   res.redirect('/');
+// });
 
 app.listen(PORT, () => {
   console.log('Start in ', PORT);
