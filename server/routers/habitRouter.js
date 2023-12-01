@@ -4,7 +4,6 @@ const { Habit } = require('../db/models');
 router.post('/', async (req, res) => {
   try {
     const { title, isCompleted, clientId } = req.body;
-  
     const newHabit = await Habit.create({
       title,
       isCompleted,
@@ -20,7 +19,6 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   const habitUpdate = await Habit.findByPk(req.params.id);
-  // console.log(habitUpdate);
   if (habitUpdate) {
     await habitUpdate.update(req.body);
     //  console.log(req.body, 'iiiii');
@@ -33,7 +31,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     const habit = await Habit.findByPk(req.params.id);
-    console.log(habit, 'hhhhhhhhhhhhhhhhhhh');
+    // console.log(habit, 'hhhhhhhhhhhhhhhhhhh');
     if (!habit) {
       return res.status(404).send('Привычка не найдена');
     }
