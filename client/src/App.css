@@ -1,8 +1,18 @@
+:root {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  --color-dark-brown: #4d4729;
+  --color-olive: #7e8341;
+  --color-light-olive: #9ea868;
+  --color-beige: #c7c9a9;
+  --color-light-blue: #b1cecc;
+}
+
 body {
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--color-light-olive);
 }
 
 .navbar {
@@ -15,26 +25,31 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  background-color: rgba(0, 0, 0, 0.697);
+  background-color: var(--color-light-olive);
   height: 50px;
 }
 
 .navLink {
+  font-size: 12px;
   background-color: rgb(234, 255, 244);
   color: black;
   text-decoration: none;
-  border: solid 3px green;
+  border: none;
   padding: 6px;
   border-radius: 8px;
+  width: 90px;
+  height: 20px;
+  margin-top: 0px;
+  text-align: center;
+  box-shadow: 3px 3px 1px 1px var(--color-beige);
+  transition: box-shadow 0.5s ease-in-out;
 }
 
 .navLink:hover {
-  background-color: rgb(5, 57, 30);
+  background-color: var(--color-dark-brown);
+  box-shadow: 3px 3px 1px 1px var(--color-light-olive);
   color: rgb(255, 255, 255);
   text-decoration: none;
-  border: solid 3px rgb(0, 0, 0);
-  padding: 6px;
-  border-radius: 8px;
 }
 
 .loader {
