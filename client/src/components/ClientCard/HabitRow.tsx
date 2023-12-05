@@ -3,7 +3,7 @@ import './HabitRow.css'
 
 
 async function updateHabitById(id: number, isCompleted: boolean) {
-  await fetch(`http://localhost:3000/habit/${id}`, {
+  await fetch(`https://nutrition-o5ja.onrender.com/habit/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -14,7 +14,7 @@ async function updateHabitById(id: number, isCompleted: boolean) {
 
 
 async function deleteHabitById(id: number) {
-  await fetch(`http://localhost:3000/habit/${id}`, {
+  await fetch(`https://nutrition-o5ja.onrender.com/habit/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',

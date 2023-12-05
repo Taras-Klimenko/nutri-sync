@@ -24,7 +24,7 @@ export default function Registration() {
   const regHandler = async () => {
     try {
       const response = await axios.post(
-        'http://localhost:3000/auth/reg',
+        'https://nutrition-o5ja.onrender.com/auth/reg',
         {
           login: inputs.login,
           name: inputs.name,

@@ -28,20 +28,21 @@ export default function HabitForm(props): JSX.Element {
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-     fetch(`http://localhost:3000/habit`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: 'include',
-      body: JSON.stringify(habitValues),
-      
-    }).then((data)=>{
-    return data.json() /* RETUUURN*/
-    }).then((data)=>{
-      console.log(data) 
-      setHabit((prev) => [...prev, data])
-    })
+     fetch(`https://nutrition-o5ja.onrender.com/habit`, {
+       method: 'POST',
+       headers: {
+         'Content-Type': 'application/json',
+       },
+       credentials: 'include',
+       body: JSON.stringify(habitValues),
+     })
+       .then((data) => {
+         return data.json(); /* RETUUURN*/
+       })
+       .then((data) => {
+         console.log(data);
+         setHabit((prev) => [...prev, data]);
+       });
 
    
     setHabitValues({ title: '',  isCompleted: false, clientId: Number(id)})

@@ -29,7 +29,7 @@ export default function Login() {
   const loginHandler = async () => {
     try {
       const response = await axios.post(
-        'http://localhost:3000/auth/login',
+        'https://nutrition-o5ja.onrender.com/auth/login',
         {
           login: inputs.login,
           password: inputs.password,

@@ -33,12 +33,15 @@ interface HabitType {
 }
 
 async function fetchClientById(id: number) {
-  const response = await fetch(`http://localhost:3000/api/clients/${id}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+  const response = await fetch(
+    `https://nutrition-o5ja.onrender.com/api/clients/${id}`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
   const data: ClientType = await response.json();
   return data;
 }
