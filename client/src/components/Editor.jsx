@@ -50,7 +50,7 @@ function Editor({ note, onNoteUpdate }) {
         onNoteUpdate(updatedNote); // Pass the updated note back to Knowledge
         alert('Сохранено успешно');
       } catch (error) {
-        console.error('Error saving note:', error);
+        console.error('Ошибка при сохранении:', error);
         alert('Не удалось сохранить заметку');
       }
     }

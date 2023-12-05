@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import MyButton from '../components/MyButton/MyButton'
 import Sidebar from '../components/Sidebar';
 import Editor from '../components/Editor';
-import Header from '../components/Header';
 import {Link} from 'react-router-dom'
+import './Knowledge.css'
 
 function Knowledge() {
   const [selectedNotebook, setSelectedNotebook] = useState(null);
   const [selectedNote, setSelectedNote] = useState(null);
 
   const handleNoteUpdate = (updatedNote) => {
-    setSelectedNote(updatedNote); // Update the selected note with the updated data
+    setSelectedNote(updatedNote);
   };
   const handleSelectNote = (note) => {
     setSelectedNote(note);
