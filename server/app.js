@@ -16,6 +16,7 @@ const curatorRouter = require('./src/routers/curatorRouter');
 const todoRouter = require('./routers/todoRouter');
 const habitRouter = require('./routers/habitRouter');
 const parametersRouter = require('./src/routers/parametersRouter');
+const stataRouter = require('./src/routers/stataRouter')
 
 const corsOptions = {
   origin: ['http://localhost:5173'],
@@ -50,6 +51,8 @@ app.use('/api/todos', todoRouter);
 app.use('/habit', habitRouter);
 app.use('/clients', clientRouter);
 app.use('/api/parameters', parametersRouter);
+app.use('/api/stata', stataRouter);
+
 
 // app.use('*', (req, res) => {
 //   res.redirect('/');

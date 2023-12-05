@@ -30,4 +30,14 @@ export type Curator = {
     isAdmin: boolean;
 };
 
+export type Stata = {
+    height: number,
+    weight: number,
+    chest: number,
+    waist: number,
+    hips: number,
+    BMI: number,
+    clientId: number,
+    createdAt: Date,
+};
 

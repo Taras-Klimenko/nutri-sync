@@ -7,7 +7,6 @@ const router = express.Router();
 router.post('/login', async (req, res) => {
   try {
     const { login, password } = req.body;
-
     const user = await Curator.findOne({
       where: { login },
       raw: true,
@@ -111,6 +110,7 @@ router.get('/check', (req, res) => {
           email: req.session.user.email,
           name: req.session.user.name,
           isAdmin: req.session.user.isAdmin,
+          id: req.session.user.id,
         };
         return res.json(user);
       }
@@ -118,6 +118,7 @@ router.get('/check', (req, res) => {
         login: '',
         email: '',
         name: '',
+        id: '',
         isAdmin: false,
       });
     }, 2000);

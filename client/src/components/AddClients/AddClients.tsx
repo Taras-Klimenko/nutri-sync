@@ -30,7 +30,6 @@ export default function AddClients() {
             ...prevData,
             [name]: value,
         }));
-        console.log(formData, 'FOOOORMDATAAA')
     };
 
     const handleAddClient = async () => {
@@ -63,7 +62,7 @@ export default function AddClients() {
             </label>
             <label>
                 Curator:
-            
+
                 <select name="curatorId" value={formData.curatorId} onChange={handleChange}>
                     <option value="">Select Curator</option>
                     {curators &&

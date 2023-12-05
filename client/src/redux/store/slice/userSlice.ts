@@ -7,6 +7,7 @@ export interface IUserState {
   login: string;
   name: string;
   email: string;
+  id: number;
   isAdmin: boolean;
   loader: boolean;
   parameters: Array<number>;
@@ -17,6 +18,7 @@ const initialState: IUserState = {
   login: '',
   name: '',
   email: '',
+  id: 0,
   isAdmin: false,
   loader: false,
   parameters: [],
@@ -32,11 +34,13 @@ export const userSlice = createSlice({
       state.name = action.payload.name;
       state.email = action.payload.email;
       state.isAdmin = action.payload.isAdmin;
+      state.id = action.payload.id;
     },
     logout: (state: IUserState, action: PayloadAction<IUserState>) => {
       state.login = '';
       state.name = '';
       state.email = '';
+      state.id = 0;
       state.isAdmin = false;
     },
   },
@@ -47,6 +51,7 @@ export const userSlice = createSlice({
       state.email = action.payload.email;
       state.isAdmin = action.payload.isAdmin;
       state.loader = false;
+      state.id = action.payload.id;
     });
     builder.addCase(checkSession.pending, (state, action) => {
       state.loader = true;

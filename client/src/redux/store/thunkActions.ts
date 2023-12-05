@@ -6,6 +6,10 @@ export const getClients = createAsyncThunk('clients/all', async () => {
   const response = await axios.get('http://localhost:3000/clients');
   return response.data;
 });
+export const getClientsCurator = createAsyncThunk('clientsCurator/all', async (curatorId) => {
+    const response = await axios.get(`http://localhost:3000/clients/curator/${curatorId}`);
+    return response.data;
+});
 
 export const addClient = createAsyncThunk(
   'client/add',
@@ -34,8 +38,8 @@ export const updateClient = createAsyncThunk(
     id: string | number;
     firstName: string;
     lastName: string;
-    birthday: string; // Заменил на строку, предполагая, что ты используешь строку для представления даты
-    paidTill: string; // То же самое здесь
+    birthday: string;
+    paidTill: string;
     phoneNumber: string;
     curatorId: string | number;
   }) => {
@@ -138,3 +142,4 @@ export const addWeight = createAsyncThunk(
     return response.data;
   }
 );
+
