@@ -6,7 +6,9 @@ import axios from 'axios';
 import MyButton from "../MyButton/MyButton.tsx";
 
 async function fetchStata(id: number) {
-    const response = await axios.get(`http://localhost:3000/api/stata/${id}`);
+    const response = await axios.get(
+      `https://nutrition-o5ja.onrender.com/api/stata/${id}`
+    );
     return response.data;
 }
 

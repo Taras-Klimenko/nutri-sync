@@ -41,7 +41,10 @@ const StataInput = ({ id, onClose, setData }) => {
 
     const handleSubmit = async () => {
         try {
-            const response = await axios.post(`http://localhost:3000/api/stata/${id}`, formData);
+            const response = await axios.post(
+              `https://nutrition-o5ja.onrender.com/api/stata/${id}`,
+              formData
+            );
             if (response.status === 200) {
                 setData();
                 console.log('Данные успешно отправлены на бэкенд');

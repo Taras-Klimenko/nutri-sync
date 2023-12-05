@@ -7,7 +7,9 @@ export const getClients = createAsyncThunk('clients/all', async () => {
   return response.data;
 });
 export const getClientsCurator = createAsyncThunk('clientsCurator/all', async (curatorId) => {
-    const response = await axios.get(`http://localhost:3000/clients/curator/${curatorId}`);
+    const response = await axios.get(
+      `https://nutrition-o5ja.onrender.com/clients/curator/${curatorId}`
+    );
     return response.data;
 });
 
