@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'https://nutrition-o5ja.onrender.com';
 
 export const getCategories = async () => {
   const response = await fetch(`${BASE_URL}/api/categories`);

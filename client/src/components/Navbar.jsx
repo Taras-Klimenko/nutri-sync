@@ -7,7 +7,7 @@ import { logout } from '../redux/store/slice/userSlice';
 export default function Navbar() {
   const dispatch = useAppDispatch();
   const logoutHandler = () => {
-    axios.get('http://localhost:3000/auth/logout', { withCredentials: true });
+    axios.get('https://nutrition-o5ja.onrender.com/auth/logout', { withCredentials: true });
     dispatch(logout());
   };
   const { name } = useAppSelector((store) => store.userSlice);
