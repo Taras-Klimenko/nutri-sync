@@ -1,0 +1,65 @@
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+ 
+  position: relative;
+
+  
+}
+
+.tabs button {
+  border-radius: 2px 2px 2px 0px;
+  background-color: rgb(234, 255, 244);
+  background-image: url('../../img/5555.jpg');
+  font-size: 15px;
+  transition: all 0.3s ease;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  outline: none;
+  margin: 0.2px;
+  width: 120px;
+  padding: 3px;
+}
+
+.tabs button:first-child {
+  border-radius: 5px 5px 0px 0px;
+}
+.tabs button {
+  border-radius: 5px 5px 0px 0px;
+}
+.tabs button:last-child {
+  border-radius: 5px 5px 0px 0px;
+}
+
+.tabs button:hover {
+  background-color: var(--color-dark-brown);
+  /* box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12); */
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  transform: scale(1.02);
+}
+
+.tabs button:active {
+  background-color: var(--color-dark-green);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  transform: scale(0.98);
+}
+
+.data-container {
+  margin-left: 2px;
+  overflow: auto; /* Добавьте эти две строки */
+  overflow-y: scroll; /* Добавьте эти две строки */
+  background-image: url('../../img/5555.jpg');
+  /* background-color: aliceblue; */
+  border-radius: 4px 4px 10px 10px;
+  padding: 32px;
+  /* max-height: 500px;
+  width: 500px; */
+
+}
+.habit-cont{
+  overflow: auto;
+
+  width: 500px;
+}

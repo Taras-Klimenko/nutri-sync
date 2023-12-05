@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ClientCard from '../ClientCard/ClientCard'
+import './ClientCard.css'
 
 
 interface HabitValuesForm {
@@ -48,7 +49,7 @@ export default function HabitForm(props): JSX.Element {
 
   return (
   
-    <form  onSubmit={submitHandler}>
+    <form className='habit-add' onSubmit={submitHandler}>
       <input
         onChange={changeHandler}
         type="text"
@@ -57,7 +58,7 @@ export default function HabitForm(props): JSX.Element {
         placeholder="text"
         required
       />
-      <button type='submit'>Add Habit</button>
+      <button className='habbit-button' type='submit'>Добавить</button>
   
     </form>
   );

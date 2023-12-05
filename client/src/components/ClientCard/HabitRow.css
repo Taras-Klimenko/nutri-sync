@@ -1,0 +1,39 @@
+.habit-title{
+
+}
+
+.habit-input{
+height: 20px;
+}
+
+.habit-container{
+  display: flex;
+  overflow: auto;
+  /* justify-content: space-between;  */
+  padding: 0px 10px 5px 0px;
+
+}
+.habit-title{
+
+}
+.habit-checkbox{
+  width: 20px;
+ 
+
+}
+.habit-add{
+  display: flex;
+
+}
+.habbit-button{
+  width: 80px;
+  height: 36px;
+}
+.habit-delete{
+
+}
+.habit-div{
+  display: flex;
+  flex-direction:column;
+
+}
