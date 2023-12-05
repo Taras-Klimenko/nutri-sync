@@ -15,6 +15,19 @@ router.get('/', async (req, res) => {
     res.status(500).json({ ошибка: `${error}` });
   }
 });
+router.get('/curator/:id', async (req, res) => {
+  const curatorId = req.params.id;
+  try {
+    const client = await Client.findAll({
+      where: { curatorId: curatorId }, // Уточните, как поле curatorId представлено в вашей модели Client
+      include: { model: Curator },
+    });
+    res.json(client);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ ошибка: `${error}` });
+  }
+});
 
 const standardHabits = [
   { title: 'Ведение дневника питания', isCompleted: false },
@@ -85,7 +98,6 @@ router.patch('/update/:id', async (req, res) => {
       phoneNumber,
       curatorId,
     });
-
     res.json(client);
   } catch (error) {
     console.error(error);

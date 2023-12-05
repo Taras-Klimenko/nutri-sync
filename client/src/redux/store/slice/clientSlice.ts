@@ -8,7 +8,7 @@ import {
     deleteClient,
     getTodos,
     addTodos,
-    updateTodoStatus, updateTodo, deleteTodo
+    updateTodoStatus, updateTodo, deleteTodo, getClientsCurator
 } from "../thunkActions.ts";
 
 
@@ -40,6 +40,16 @@ export const clientSlice = createSlice({
             }
         );
         builder.addCase(getClients.pending, (state) => {
+            state.loader = true;
+        });
+        builder.addCase(
+            getClientsCurator.fulfilled,
+            (state, action: PayloadAction<Client[]>) => {
+                state.clients = action.payload;
+                state.loader = false;
+            }
+        );
+        builder.addCase(getClientsCurator.pending, (state) => {
             state.loader = true;
         });
         builder.addCase(
@@ -94,12 +104,10 @@ export const clientSlice = createSlice({
                 state.todos.push(action.payload);
             })
             .addCase(updateTodoStatus.fulfilled, (state, action: PayloadAction<Task>) => {
-                // Обновляем состояние todos в соответствии с новыми данными
                 state.todos = state.todos.map((todo) =>
                     todo.id === action.payload.id ? action.payload : todo)
             })
             .addCase(updateTodo.fulfilled, (state, action: PayloadAction<Task>) => {
-                // Обновляем состояние todos в соответствии с новыми данными
                 state.todos = state.todos.map((todo) =>
                     todo.id === action.payload.id ? action.payload : todo
                 );

@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+
+import { useState, useEffect } from 'react';
 import './ClientCard.css';
 import HabitRow from './HabitRow';
 import AddHabit from './AddHabit';
 import { useParams } from 'react-router-dom';
+import Stata from "../Stata/Stata.tsx";
 
 interface ClientType {
   firstName: string;
@@ -65,7 +67,7 @@ const ClientCard = (props) => {
     fetchClient();
   }, [id]);
 
-  
+
   if (client === null) {
     return 'Загрузка';
   }
@@ -118,15 +120,19 @@ const ClientCard = (props) => {
         )}
 
         {activeTab === 'parameters' && (
-           <div className='data-container'>
-            <h2>Параметры:</h2>
+          <div className='data-container'>
+            <h2>Параметры: {client?.firstName} {client?.lastName}</h2>
             <div> Рост: {parameter?.height}</div>
-            <div> Вес: {parameter.weight}</div>
-            <div> Обхват груди:{parameter.chest}</div>
-            <div> Обхват талии: {parameter.waist}</div>
-            <div> Обхват бедер: {parameter.hips}</div>
-            <div> Индекс массы тела: {parameter.BMI}</div>
+            <div> Вес: {parameter?.weight}</div>
+            <div> Обхват груди:{parameter?.chest}</div>
+            <div> Обхват талии: {parameter?.waist}</div>
+            <div> Обхват бедер: {parameter?.hips}</div>
+            <div> Индекс массы тела: {parameter?.BMI}</div>
+              <div style={{ width: '300px', height: '300px' }}>
+                  <Stata id={id}/>
+              </div>
           </div>
+
         )}
 
         {activeTab === 'goals' && (

@@ -6,7 +6,7 @@ import AddClients from './components/AddClients/AddClients';
 import Knowledge from './pages/Knowledge';
 import Login from './authPages/Login';
 import Registration from './authPages/Registration';
-import { getClients, getTodos } from './redux/store/thunkActions.ts';
+import {getClients, getClientsCurator, getStata, getTodos} from './redux/store/thunkActions.ts';
 import { useEffect } from 'react';
 import EditClientDefault from './components/EditClientDefault/EditClientDefault.tsx';
 import { useAppDispatch, useAppSelector } from './redux/store/hooks.ts';
@@ -16,39 +16,48 @@ import { checkSession } from './redux/store/thunkActions.ts';
 import AllCurator from "./components/AllCurator/AllCurator.tsx";
 
 function App() {
+  const {loader, isAdmin, id} = useAppSelector((store) => store.userSlice);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getClients());
-  }, []);
-
-  useEffect(() => {
-    dispatch(getTodos());
+    dispatch(getTodos(id));
   }, [dispatch]);
 
   useEffect(() => {
     dispatch(checkSession());
   }, []);
 
-  const { loader } = useAppSelector((store) => store.userSlice);
+  useEffect(() => {
+    const fetchData = async () => {
+      if (isAdmin == true) {
+        await dispatch(getClients());
+        console.log('Поле isAdmin равно true');
+      } else {
+        await dispatch(getClientsCurator(id));
+        console.log('Поле isAdmin равно false');
+      }
+    };
+    fetchData();
+  }, [dispatch, isAdmin, id]);
+
+
 
   return (
-    <>
-      <Navbar />
-      {loader && <div className="loader"></div>}
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/reg" element={<Registration />} />
-        <Route path="/clients/:id" element={<ClientCard />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/add-clients" element={<AddClients />} />
-        <Route path="/knowledge" element={<Knowledge />} />
-        <Route path="/statistics" element={<Statistics />} />
-          <Route path="/client/:id" element={<EditClientDefault />} />
+      <>
+        <Navbar/>
+        {loader && <div className="loader"></div>}
+        <Routes>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/reg" element={<Registration/>}/>
+          <Route path="/clients/:id" element={<ClientCard/>}/>
+          <Route path="/dashboard" element={<Dashboard/>}/>
+          <Route path="/add-clients" element={<AddClients/>}/>
+          <Route path="/knowledge" element={<Knowledge/>}/>
+          <Route path="/statistics" element={<Statistics/>}/>
+          <Route path="/client/:id" element={<EditClientDefault/>}/>
           <Route path="/all-curator" element={<AllCurator/>}/>
-      </Routes>
-    </>
+        </Routes>
+      </>
   );
 }
-
 export default App;
