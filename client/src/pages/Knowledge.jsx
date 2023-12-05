@@ -3,7 +3,7 @@ import MyButton from '../components/MyButton/MyButton'
 import Sidebar from '../components/Sidebar';
 import Editor from '../components/Editor';
 import {Link} from 'react-router-dom'
-import './Knowledge.css'
+import styles from './Knowledge.module.css';
 
 function Knowledge() {
   const [selectedNotebook, setSelectedNotebook] = useState(null);
@@ -17,7 +17,7 @@ function Knowledge() {
   };
 
   return (
-    <div className="knowledge">
+    <div className={styles.knowledge_container}>
       <Link to="/dashboard"><MyButton>На главную</MyButton></Link>
       <Sidebar onSelectNotebook={setSelectedNotebook} onSelectNote={handleSelectNote} selectedNotebook={selectedNotebook} />
         <Editor note={selectedNote} onNoteUpdate={handleNoteUpdate}/>
