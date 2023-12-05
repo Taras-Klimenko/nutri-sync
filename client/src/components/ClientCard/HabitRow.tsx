@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './HabitRow.module.css';
+import './HabitRow.css' 
 
 
 async function updateHabitById(id: number, isCompleted: boolean) {
@@ -48,18 +48,18 @@ const handleDelete = (id) => {
  })
 }
 
-  
-
   return (
-    <div>
-    <div>{hab.title}</div>
-    
-    <input
+    <div className='habit-container'>
+    <input className='habit-checkbox'
       type="checkbox"
       checked={isActive}
       onChange={() => handleCheckboxChange(hab.id)}
-    />
-   <button onClick={() => handleDelete(hab.id)}>Удалить</button>
+    /> 
+    <div className='habit-title'>{hab.title}</div>
+    <div className='habit-div'>
+    <button className='habit-delete' onClick={() => handleDelete(hab.id)}>X</button>
+    </div>
+  
   </div>
   );
 };

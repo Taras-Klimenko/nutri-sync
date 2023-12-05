@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import './ClientCard.css';
 import HabitRow from './HabitRow';
 import AddHabit from './AddHabit';
 import { useParams } from 'react-router-dom';
@@ -86,7 +86,7 @@ const ClientCard = (props) => {
           className={activeTab === 'data' ? 'active' : ''}
           onClick={() => handleTabChange('data')}
         >
-          Данные о клиенте
+          О клиенте
         </button>
         <button
           className={activeTab === 'parameters' ? 'active' : ''}
@@ -104,7 +104,8 @@ const ClientCard = (props) => {
 
       <div className="tab-content">
         {activeTab === 'data' && (
-          <div>
+          <div className='data-container'>
+            <div className='data-text'>
             <h2>Данные:</h2>
             <div> Имя клиента: {client?.firstName}</div>
             <div> Фамилия клиента:{client?.lastName}</div>
@@ -112,11 +113,12 @@ const ClientCard = (props) => {
             <div> Номер телефона: {client?.phoneNumber}</div>
             <div> Клиент оплатил до: {formatDate(client?.paidTill)}</div>
             <div> Рост, в см: {parameter?.height}</div>
+            </div>
           </div>
         )}
 
         {activeTab === 'parameters' && (
-          <div>
+           <div className='data-container'>
             <h2>Параметры:</h2>
             <div> Рост: {parameter?.height}</div>
             <div> Вес: {parameter.weight}</div>
@@ -128,16 +130,18 @@ const ClientCard = (props) => {
         )}
 
         {activeTab === 'goals' && (
-          <div>
+             <div className='data-container'>
             <h2>Привычки:</h2>
-            <div style={{ display: 'flex' }}>
+            
+            <div className='habit-cont' style={{ display: 'flex' }}>
               <div className="habit-title">
+              <AddHabit id={id} setHabit={setHabit} />
                 {habit?.map((hab) => {
                   return <HabitRow key={hab.id} hab={hab} setHabit={setHabit}/>;
                 })}
               </div>
               <div>
-                <AddHabit id={id} setHabit={setHabit} />
+              
               </div>
             </div>
           </div>

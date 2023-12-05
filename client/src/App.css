@@ -1,3 +1,4 @@
+
 :root {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   --color-dark-brown: #4d4729;
@@ -12,7 +13,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--color-light-olive);
+  /* background-color: var(--color-light-olive); */
+  background-image: url('../src/img/44444.jpg');
+  background-size: cover;
+
+
 }
 
 .navbar {
@@ -25,28 +30,31 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  background-color: var(--color-light-olive);
+  /* background-color: var(--color-dark-brown); */
   height: 50px;
+
 }
 
 .navLink {
   font-size: 12px;
-  background-color: rgb(234, 255, 244);
-  color: black;
+  /* background-color: rgb(234, 255, 244); */
+  color: white;
   text-decoration: none;
   border: none;
   padding: 6px;
   border-radius: 8px;
+  border-color: #b1cecc;
   width: 90px;
   height: 20px;
   margin-top: 0px;
   text-align: center;
-  box-shadow: 3px 3px 1px 1px var(--color-beige);
+  box-shadow: 3px 3px 1px 1px var(--color-light-olive);
   transition: box-shadow 0.5s ease-in-out;
+  font-size: 15px;
 }
 
 .navLink:hover {
-  background-color: var(--color-dark-brown);
+  background-color:var(--color-light-olive);
   box-shadow: 3px 3px 1px 1px var(--color-light-olive);
   color: rgb(255, 255, 255);
   text-decoration: none;
