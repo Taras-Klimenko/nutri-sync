@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+
+
+import ClientCard from '../ClientCard/ClientCard';
+
 import './ClientCard.css';
 
 interface HabitValuesForm {
@@ -22,6 +26,7 @@ export default function HabitForm(props): JSX.Element {
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
+    
     fetch(`${import.meta.env.VITE_URL}habit`, {
       method: 'POST',
       headers: {
@@ -48,7 +53,7 @@ export default function HabitForm(props): JSX.Element {
         type="text"
         name="title"
         value={habitValues.title}
-        placeholder="text"
+        placeholder="Описание"
         required
       />
       <button className="habbit-button" type="submit">

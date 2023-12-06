@@ -27,13 +27,15 @@ export default function Todo() {
           onChange={changeHandler}
           name="text"
           type="text"
+
           placeholder="Text"
           value={input}
+
         />
       </div>
       <div style={{ marginBottom: '13px' }}>
         <MyButton onClick={formSubmitHandler} type="button">
-          Submit
+          Добавить
         </MyButton>
       </div>
     </div>

@@ -111,7 +111,7 @@ const EditModal = ({ data, onSave, onDelete, onClose }) => {
 
       <MyButton onClick={handleSave}>Сохранить</MyButton>
       <MyButton onClick={handleDelete}>Удалить</MyButton>
-      <MyButton onClick={onClose}>Отменить</MyButton>
+      <MyButton onClick={onClose}>Отмена</MyButton>
     </div>
   );
 };

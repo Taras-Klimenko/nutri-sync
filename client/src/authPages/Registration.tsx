@@ -58,7 +58,7 @@ export default function Registration() {
         onChange={handleInputChange}
       />
       <label htmlFor="loginInput" className="reg input__label">
-        Login
+        Логин
       </label>
       <input
         name="name"
@@ -68,7 +68,7 @@ export default function Registration() {
         className="reg input"
       />
       <label htmlFor="nameInput" className="reg input__label">
-        Name
+        Имя
       </label>
       <input
         name="email"
@@ -78,7 +78,7 @@ export default function Registration() {
         className="reg input"
       />
       <label htmlFor="emailInput" className="reg input__label">
-        Email
+        Почта
       </label>
       <input
         name="password"
@@ -88,7 +88,7 @@ export default function Registration() {
         className="reg input"
       />
       <label htmlFor="passwordInput" className="reg input__label">
-        Password
+        Пароль
       </label>
       <br />
 
@@ -96,8 +96,7 @@ export default function Registration() {
         {error}
       </div>
       <br />
-      <button className="reg" onClick={regHandler}>
-        Регистрация
+      <button className="reg" onClick={regHandler}> Регистрация
       </button>
     </div>
   );

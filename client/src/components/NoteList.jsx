@@ -28,7 +28,7 @@ function NoteList({selectedNotebook, onSelectNote}) {
   };
     
   if (!selectedNotebook) {
-    return <div>Select a notebook to add notes.</div>;
+    return <div>Выберите категорию для создания заметки</div>;
   }
 
   const handleDeleteNote = async (noteId) => {
