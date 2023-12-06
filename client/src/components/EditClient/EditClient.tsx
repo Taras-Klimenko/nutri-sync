@@ -3,6 +3,7 @@ import { Client } from '../../types.ts';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../redux/store/hooks.ts';
 import MyButton from '../MyButton/MyButton.tsx';
+import './EditClient.css'
 import {
   deleteClient,
   getCurators,
@@ -48,6 +49,7 @@ export default function EditClient() {
 
   return (
     <>
+    <div className='editClient'>
       {formData ? (
         <div>
           <label>
@@ -125,6 +127,7 @@ export default function EditClient() {
       ) : (
         <div>Клиент не найден</div>
       )}
+      </div>
     </>
   );
 }

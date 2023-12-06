@@ -1,10 +1,10 @@
 /* MyButton.module.css */
 .myButton {
     width: 100px;
-    height: 30px;
+    height: 35px;
     border-radius: 10px;
     text-align: center;
-    margin-left: 35px;
+    margin-left: 50px;
     /* color: var(--color-text); */
     background-color: var(--color-dark);
     transition: color 0.3s ease-in-out,

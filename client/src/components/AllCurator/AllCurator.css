@@ -1,0 +1,16 @@
+.allCurator{
+  background-image: url('../../img/5555.jpg');
+  /* background-color: rgb(214, 125, 125); */
+  padding: 20px;
+  border-radius: 5px;
+  max-height: 500px;
+  display: flex;
+  flex-direction: row;
+  margin-right: 10px;
+
+
+}
+.allCurator-title{
+width: 100px;
+height: 20px;
+}

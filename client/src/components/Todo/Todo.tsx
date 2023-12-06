@@ -19,7 +19,7 @@ export default function Todo() {
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
+    <div style={{ display: 'flex', alignItems: 'center'}}>
       <div
         style={{ display: 'flex', alignItems: 'center', marginRight: '10px' }}
       >

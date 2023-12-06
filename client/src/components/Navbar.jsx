@@ -23,24 +23,24 @@ export default function Navbar() {
         Регистрация
       </Link>
       {/* TODO для теста одного клиента (потом удалить)  */}
-      <Link className="navLink" to="/clients/1">
+      {/* <Link className="navLink" to="/clients/1">
         Клиенты
-      </Link>
+      </Link> */}
       <Link className="navLink" to="/dashboard">
         Главная
       </Link>
-      <Link className="navLink" to="/add-clients">
+      {/* <Link className="navLink" to="/add-clients">
         Добавить клиента
-      </Link>
+      </Link> */}
       {/* <Link className="navLink" to="/add-clients">
        Новый клиент
       </Link> */}
       <Link className="navLink" to="/knowledge">
         База знаний
       </Link>
-      <Link className="navLink" to="/statistics">
+      {/* <Link className="navLink" to="/statistics">
         Статистика
-      </Link>
+      </Link> */}
       {/* <Link className="navLink" to="/statistics">
         Параметры
       </Link> */}
