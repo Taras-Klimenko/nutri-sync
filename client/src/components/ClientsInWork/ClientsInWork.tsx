@@ -14,7 +14,6 @@ export default function ClientsInWork() {
     borderRadius: '5px',
     color: '#9d1150',
     backgroundColor: '#d8cbcb',
-    borderRadius: '5px',
     transition: 'background-color 0.3s, color 0.3s',
     marginTop: '20px',
   };

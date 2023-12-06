@@ -23,7 +23,6 @@ export default function AllCurator() {
               key={curator.id}
               value={curator.id}
               style={{
-        
                 border: '2px solid #000',
                 borderRadius: '5px',
                 padding: '10px',
