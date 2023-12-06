@@ -15,7 +15,7 @@ export default function TodoDasbord() {
   };
 
   return (
-    <div style={{ padding: '20px', border: '#3498db solid 2px' }}>
+    <div style={{ padding: '20px', borderRadius: '5px' }}>
       <h2 style={{ marginBottom: '20px' }}>Задачи</h2>
       <Todo />
       {todos.map((task) => (
@@ -29,6 +29,7 @@ export default function TodoDasbord() {
             border: '1px solid #ddd',
             borderRadius: '5px',
             backgroundColor: '#fff',
+            
           }}
         >
           <div style={{ flex: '1', marginRight: '10px' }}>{task.text}</div>

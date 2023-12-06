@@ -11,7 +11,7 @@ export default function ClientsInWork() {
     textAlign: 'center',
     textDecoration: 'none',
     outline: 'none',
-    border: '2px solid #3498db',
+    borderRadius: '5px',
     color: '#9d1150',
     backgroundColor: '#d8cbcb',
     borderRadius: '5px',

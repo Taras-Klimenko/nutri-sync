@@ -2,6 +2,7 @@ import MyButton from '../MyButton/MyButton.tsx';
 import { useAppSelector } from '../../redux/store/hooks.ts';
 import { Link } from 'react-router-dom';
 import styles from './AllClients.module.css'; // Замените на путь к вашему файлу стилей
+import ClientsInWork from '../ClientsInWork/ClientsInWork.tsx';
 
 export default function AllClients() {
   const { clients } = useAppSelector((store) => store.clientSlice);
@@ -25,6 +26,7 @@ export default function AllClients() {
           </div>
         ))}
       </div>
+      <ClientsInWork />
     </div>
   );
 }

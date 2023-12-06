@@ -25,7 +25,7 @@ export default function Todo() {
   };
   console.log(formData);
   return (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
+    <div style={{ display: 'flex', alignItems: 'center'}}>
       <div
         style={{ display: 'flex', alignItems: 'center', marginRight: '10px' }}
       >
