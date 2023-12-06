@@ -45,7 +45,7 @@ export default function AddClients() {
           type="text"
           name="firstName"
           value={formData.firstName}
-          placeholder="введите имя"
+          placeholder="Введите имя"
           onChange={handleChange}
           required
         />
@@ -56,7 +56,7 @@ export default function AddClients() {
           type="text"
           name="lastName"
           value={formData.lastName}
-          placeholder="введите фамилию"
+          placeholder="Введите фамилию"
           onChange={handleChange}
         />
       </label>
@@ -84,7 +84,7 @@ export default function AddClients() {
           type="text"
           name="phoneNumber"
           value={formData.phoneNumber}
-          placeholder="введите номер"
+          placeholder="Введите номер телефона"
           onChange={handleChange}
         />
       </label>

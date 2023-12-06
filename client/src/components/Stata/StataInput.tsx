@@ -29,6 +29,7 @@ const StataInput = ({ id, onClose, setData }) => {
     }
   };
 
+
   const calculateBMI = (weight: string, height: string | number) => {
     const weightNumber = parseFloat(weight);
     const heightNumber = parseFloat(height / 10);
@@ -38,6 +39,7 @@ const StataInput = ({ id, onClose, setData }) => {
     }
     return '';
   };
+
 
   const handleSubmit = async () => {
     try {
@@ -57,66 +59,37 @@ const StataInput = ({ id, onClose, setData }) => {
     }
   };
 
-  return (
-    <div>
-      <label>
-        Рост см:
-        <input
-          type="text"
-          name="height"
-          value={formData.height}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <label>
-        Вес кг:
-        <input
-          type="text"
-          name="weight"
-          value={formData.weight}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <label>
-        Объем груди см:
-        <input
-          type="text"
-          name="chest"
-          value={formData.chest}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <label>
-        Объем талии см:
-        <input
-          type="text"
-          name="waist"
-          value={formData.waist}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <label>
-        Объем бедер см:
-        <input
-          type="text"
-          name="hips"
-          value={formData.hips}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <label>
-        ИМТ:
-        <input type="text" name="BMI" value={formData.BMI} readOnly />
-      </label>
-      <br />
-      <MyButton onClick={handleSubmit}>Отправить данные</MyButton>
-    </div>
-  );
+    return (
+        <div>
+            <label>
+                Рост см:
+                <input type="text" name="height" value={formData.height} onChange={handleChange} placeholder="Введите рост" />
+            </label>
+            <br />
+            <label>
+                Вес кг:
+                <input type="text" name="weight" value={formData.weight} onChange={handleChange} placeholder="Введите вес" />
+            </label>
+            <br />
+            <label>
+                Объем груди см:
+                <input type="text" name="chest" value={formData.chest} onChange={handleChange} placeholder="Введите объем груди"/>
+            </label>
+            <br />
+            <label>
+                Объем талии см:
+                <input type="text" name="waist" value={formData.waist} onChange={handleChange} placeholder="Введите объем талии"/>
+            </label>
+            <br />
+            <label>
+                Объем бедер см:
+                <input type="text" name="hips" value={formData.hips} onChange={handleChange} placeholder="Введите объем бедер"/>
+            </label>
+            <br />
+            <MyButton onClick={handleSubmit}>Отправить данные</MyButton>
+        </div>
+    );
+
 };
 
 export default StataInput;
