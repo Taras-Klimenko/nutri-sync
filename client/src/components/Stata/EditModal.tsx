@@ -25,7 +25,7 @@ const EditModal = ({ data, onSave, onDelete, onClose }) => {
     const bmi = calculateBMI();
     try {
       const response = await axios.put(
-        `https://nutrition-o5ja.onrender.com/api/stata/update/${editedData.id}`,
+        `${import.meta.env.VITE_URL}api/stata/update/${editedData.id}`,
         { ...editedData, BMI: bmi }
       );
       console.log(response.data);
@@ -39,9 +39,8 @@ const EditModal = ({ data, onSave, onDelete, onClose }) => {
   const handleDelete = async () => {
     try {
       const response = await axios.delete(
-        `https://nutrition-o5ja.onrender.com/api/stata/update/${data.id}`
+        `${import.meta.env.VITE_URL}api/stata/update/${data.id}`
       );
-      console.log(response.data);
       onDelete(data.id);
     } catch (error) {
       console.error('Произошла ошибка при удалении данных:', error);

@@ -1,4 +1,4 @@
-const BASE_URL = 'https://nutrition-o5ja.onrender.com';
+const BASE_URL = import.meta.env.VITE_URL;
 
 export const getCategories = async () => {
   const response = await fetch(`${BASE_URL}/api/categories`);

@@ -6,24 +6,18 @@ import MyButton from '../MyButton/MyButton.tsx';
 
 export default function Todo() {
   const { id } = useAppSelector((store) => store.userSlice);
-  const dispatch = useAppDispatch();
-  const [formData, setFormData] = useState<Task>({
-    text: '',
-    isCompleted: false,
-    curatorId: 0,
-  });
 
-  const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    const value =
-      e.target.type === 'checkbox' ? e.target.checked : e.target.value;
-    setFormData({ ...formData, [e.target.name]: value });
+  const dispatch = useAppDispatch();
+  const [input, setInput] = useState('');
+
+  const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    setInput(event.target.value);
   };
 
   const formSubmitHandler = (): void => {
-    dispatch(addTodos(formData));
-    setFormData({ text: '', isCompleted: false, curatorId: id });
+    dispatch(addTodos({ curatorId: id, text: input, isCompleted: false }));
   };
-  console.log(formData);
+
   return (
     <div style={{ display: 'flex', alignItems: 'center'}}>
       <div
@@ -33,8 +27,10 @@ export default function Todo() {
           onChange={changeHandler}
           name="text"
           type="text"
-          placeholder="введите описание задачи"
-          value={formData.text}
+
+          placeholder="Text"
+          value={input}
+
         />
       </div>
       <div style={{ marginBottom: '13px' }}>

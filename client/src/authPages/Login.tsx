@@ -29,7 +29,7 @@ export default function Login() {
   const loginHandler = async () => {
     try {
       const response = await axios.post(
-        'https://nutrition-o5ja.onrender.com/auth/login',
+        `${import.meta.env.VITE_URL}auth/login`,
         {
           login: inputs.login,
           password: inputs.password,

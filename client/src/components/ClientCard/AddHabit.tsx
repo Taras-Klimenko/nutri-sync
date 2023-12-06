@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+
+
 import ClientCard from '../ClientCard/ClientCard';
+
 import './ClientCard.css';
 
 interface HabitValuesForm {
@@ -10,7 +13,7 @@ interface HabitValuesForm {
 
 export default function HabitForm(props): JSX.Element {
   const { setHabit, id } = props;
-  // console.log(id, 'IIIIIIII')
+
   const [habitValues, setHabitValues] = useState<HabitValuesForm>({
     title: '',
     isCompleted: false,
@@ -23,7 +26,8 @@ export default function HabitForm(props): JSX.Element {
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    fetch(`https://nutrition-o5ja.onrender.com/habit`, {
+    
+    fetch(`${import.meta.env.VITE_URL}habit`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -32,7 +36,7 @@ export default function HabitForm(props): JSX.Element {
       body: JSON.stringify(habitValues),
     })
       .then((data) => {
-        return data.json(); /* RETUUURN*/
+        return data.json();
       })
       .then((data) => {
         console.log(data);

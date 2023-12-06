@@ -18,7 +18,7 @@ const initialState: IUserState = {
   login: '',
   name: '',
   email: '',
-  id: 0,
+  id: null,
   isAdmin: false,
   loader: false,
   parameters: [],
