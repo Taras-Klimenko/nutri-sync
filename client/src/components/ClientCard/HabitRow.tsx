@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import './HabitRow.css' 
-
+import './HabitRow.css';
 
 async function updateHabitById(id: number, isCompleted: boolean) {
   await fetch(`https://nutrition-o5ja.onrender.com/habit/${id}`, {
@@ -12,7 +11,6 @@ async function updateHabitById(id: number, isCompleted: boolean) {
   });
 }
 
-
 async function deleteHabitById(id: number) {
   await fetch(`https://nutrition-o5ja.onrender.com/habit/${id}`, {
     method: 'DELETE',
@@ -22,10 +20,8 @@ async function deleteHabitById(id: number) {
   });
 }
 
-
 const HabitRow = ({ hab, setHabit }) => {
   const [isActive, setIsActive] = useState(hab.isCompleted);
- 
 
   const handleCheckboxChange = (id) => {
     if (isActive === true) {
@@ -37,30 +33,31 @@ const HabitRow = ({ hab, setHabit }) => {
     }
   };
 
-
-const handleDelete = (id) => {
-  deleteHabitById(id)
-  setHabit(prev => {
-    console.log(prev)
-     const filterPrevHabit = prev.filter(item => item.id !== id)
-    console.log(filterPrevHabit)
-    return filterPrevHabit
- })
-}
+  const handleDelete = (id) => {
+    deleteHabitById(id);
+    setHabit((prev) => {
+      console.log(prev);
+      const filterPrevHabit = prev.filter((item) => item.id !== id);
+      console.log(filterPrevHabit);
+      return filterPrevHabit;
+    });
+  };
 
   return (
-    <div className='habit-container'>
-    <input className='habit-checkbox'
-      type="checkbox"
-      checked={isActive}
-      onChange={() => handleCheckboxChange(hab.id)}
-    /> 
-    <div className='habit-title'>{hab.title}</div>
-    <div className='habit-div'>
-    <button className='habit-delete' onClick={() => handleDelete(hab.id)}>X</button>
+    <div className="habit-container">
+      <input
+        className="habit-checkbox"
+        type="checkbox"
+        checked={isActive}
+        onChange={() => handleCheckboxChange(hab.id)}
+      />
+      <div className="habit-title">{hab.title}</div>
+      <div className="habit-div">
+        <button className="habit-delete" onClick={() => handleDelete(hab.id)}>
+          X
+        </button>
+      </div>
     </div>
-  
-  </div>
   );
 };
 

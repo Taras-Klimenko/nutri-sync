@@ -92,7 +92,7 @@ function Editor({ note, onNoteUpdate }) {
       const text = quillRef.current.root.innerHTML;
       try {
         const updatedNote = await updateNote(note.id, { text });
-        onNoteUpdate(updatedNote); // Pass the updated note back to Knowledge
+        onNoteUpdate(updatedNote);
         alert('Сохранено успешно');
       } catch (error) {
         console.error('Ошибка при сохранении:', error);
