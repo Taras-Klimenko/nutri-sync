@@ -2,11 +2,15 @@
     max-width: 400px;
     margin: 0 auto;
     padding: 20px; /* Добавим отступы для контейнера */
+    background-image: url('../../img/5555.jpg');
+    border-radius: 10px;
+    outline: none;
 }
 
 label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    
 }
 
 input,
@@ -15,6 +19,8 @@ select {
     padding: 8px;
     margin-bottom: 15px;
     box-sizing: border-box; /* Учтем padding в расчете ширины элемента */
+    border-radius: 5px;
+    outline: none;
 }
 
 select {
@@ -23,5 +29,6 @@ select {
     border-radius: 4px;
     padding-right: 30px; /* Добавим дополнительное пространство справа для стрелки */
     cursor: pointer;
+    
 }
 

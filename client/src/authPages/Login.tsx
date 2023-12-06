@@ -29,7 +29,7 @@ export default function Login() {
   const loginHandler = async () => {
     try {
       const response = await axios.post(
-        'https://nutrition-o5ja.onrender.com/auth/login',
+        `${import.meta.env.VITE_URL}auth/login`,
         {
           login: inputs.login,
           password: inputs.password,
@@ -61,8 +61,10 @@ export default function Login() {
         id="loginInput"
         onChange={handleInputChange}
       />
+
       <label htmlFor="loginInput" className="login input__label">
         Логин
+
       </label>
 
       <input
@@ -80,7 +82,7 @@ export default function Login() {
         {error}
       </div>
 
-      <button className="login" onClick={loginHandler}>
+      <button className="button" onClick={loginHandler}>
         Войти
       </button>
     </div>

@@ -5,6 +5,7 @@ import Editor from '../components/Editor';
 import {Link} from 'react-router-dom'
 import styles from './Knowledge.module.css';
 
+
 function Knowledge() {
   const [selectedNotebook, setSelectedNotebook] = useState(null);
   const [selectedNote, setSelectedNote] = useState(null);
