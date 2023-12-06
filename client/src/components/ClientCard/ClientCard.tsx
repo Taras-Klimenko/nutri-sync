@@ -1,10 +1,9 @@
-
 import { useState, useEffect } from 'react';
 import './ClientCard.css';
 import HabitRow from './HabitRow';
 import AddHabit from './AddHabit';
 import { useParams } from 'react-router-dom';
-import Stata from "../Stata/Stata.tsx";
+import Stata from '../Stata/Stata.tsx';
 
 interface ClientType {
   firstName: string;
@@ -52,8 +51,8 @@ const ClientCard = (props) => {
   const [parameter, setParameter] = useState<ParameterType | null>(null);
   const [habit, setHabit] = useState<HabitType[] | null>(null);
 
- const { id } = useParams();
-  console.log(id)
+  const { id } = useParams();
+  console.log(id);
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
@@ -70,7 +69,6 @@ const ClientCard = (props) => {
     fetchClient();
   }, [id]);
 
-
   if (client === null) {
     return 'Загрузка';
   }
@@ -82,7 +80,6 @@ const ClientCard = (props) => {
     const year = parsedDate.getFullYear().toString();
     return `${day}.${month}.${year}`;
   }
-
 
   return (
     <div>
@@ -103,55 +100,55 @@ const ClientCard = (props) => {
           className={activeTab === 'goals' ? 'active' : ''}
           onClick={() => handleTabChange('goals')}
         >
-          Цели
+          Привычки и цели
         </button>
       </div>
 
       <div className="tab-content">
         {activeTab === 'data' && (
-          <div className='data-container'>
-            <div className='data-text'>
-            <h2>Данные:</h2>
-            <div> Имя клиента: {client?.firstName}</div>
-            <div> Фамилия клиента:{client?.lastName}</div>
-            <div> День рождения: {formatDate(client?.birthday)}</div>
-            <div> Номер телефона: {client?.phoneNumber}</div>
-            <div> Клиент оплатил до: {formatDate(client?.paidTill)}</div>
-            <div> Рост, в см: {parameter?.height}</div>
+          <div className="data-container">
+            <div className="data-text">
+              <h2>Данные:</h2>
+              <div> Имя клиента: {client?.firstName}</div>
+              <div> Фамилия клиента:{client?.lastName}</div>
+              <div> День рождения: {formatDate(client?.birthday)}</div>
+              <div> Номер телефона: {client?.phoneNumber}</div>
+              <div> Клиент оплатил до: {formatDate(client?.paidTill)}</div>
             </div>
           </div>
         )}
 
         {activeTab === 'parameters' && (
-          <div className='data-container'>
-            <h2>Параметры: {client?.firstName} {client?.lastName}</h2>
+          <div className="data-container">
+            <h2>
+              Параметры: {client?.firstName} {client?.lastName}
+            </h2>
             <div> Рост: {parameter?.height}</div>
             <div> Вес: {parameter?.weight}</div>
             <div> Обхват груди:{parameter?.chest}</div>
             <div> Обхват талии: {parameter?.waist}</div>
             <div> Обхват бедер: {parameter?.hips}</div>
             <div> Индекс массы тела: {parameter?.BMI}</div>
-              <div style={{ width: '300px', height: '300px' }}>
-                  <Stata id={id}/>
-              </div>
+            <div style={{ width: '300px', height: '300px' }}>
+              <Stata id={id} />
+            </div>
           </div>
-
         )}
 
         {activeTab === 'goals' && (
-             <div className='data-container'>
+          <div className="data-container">
             <h2>Привычки:</h2>
-            
-            <div className='habit-cont' style={{ display: 'flex' }}>
+
+            <div className="habit-cont" style={{ display: 'flex' }}>
               <div className="habit-title">
-              <AddHabit id={id} setHabit={setHabit} />
+                <AddHabit id={id} setHabit={setHabit} />
                 {habit?.map((hab) => {
-                  return <HabitRow key={hab.id} hab={hab} setHabit={setHabit}/>;
+                  return (
+                    <HabitRow key={hab.id} hab={hab} setHabit={setHabit} />
+                  );
                 })}
               </div>
-              <div>
-              
-              </div>
+              <div></div>
             </div>
           </div>
         )}

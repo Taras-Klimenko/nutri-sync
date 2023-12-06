@@ -18,7 +18,6 @@ function Knowledge() {
 
   return (
     <div className={styles.knowledge_container}>
-      <Link to="/dashboard"><MyButton>На главную</MyButton></Link>
       <Sidebar onSelectNotebook={setSelectedNotebook} onSelectNote={handleSelectNote} selectedNotebook={selectedNotebook} />
         <Editor note={selectedNote} onNoteUpdate={handleNoteUpdate}/>
       </div>
