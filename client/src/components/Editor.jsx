@@ -102,7 +102,7 @@ function Editor({ note, onNoteUpdate }) {
   }
     
   return (
-    <div>
+    <div className='editor_container'>
       <div ref={editorRef}></div>
       {note && <button onClick={handleSave}>Сохранить</button>}
       <button onClick={handleGetSuggestions}>Автодополнение</button>

@@ -1,8 +1,9 @@
 import React from 'react';
 
-function NotebookItem({ notebook, onSelect, onDelete }) {
+function NotebookItem({ notebook, onSelect, onDelete, isSelected }) {
+  const itemClass = isSelected ? "notebookItem active" : "notebookItem";
   return (
-    <div className="notebookItem">
+    <div className={itemClass}>
       <span onClick={() => {onSelect(notebook)}}>{notebook.name}</span>
       <button onClick={() => {onDelete(notebook.id)}}>X</button>
     </div>
