@@ -1,7 +1,7 @@
 const BASE_URL = import.meta.env.VITE_URL;
 
 export const getCategories = async () => {
-  const response = await fetch(`${BASE_URL}/api/categories`);
+  const response = await fetch(`${BASE_URL}api/categories`);
   if (!response.ok) {
     throw new Error('Ошибка сетевого соединения');
   }
@@ -9,9 +9,7 @@ export const getCategories = async () => {
 };
 
 export const getNotesByCategory = async (categoryId) => {
-  const response = await fetch(
-    `${BASE_URL}/api/categories/${categoryId}/notes`
-  );
+  const response = await fetch(`${BASE_URL}api/categories/${categoryId}/notes`);
   if (!response.ok) {
     throw new Error('Ошибка сетевого соединения');
   }
@@ -19,7 +17,7 @@ export const getNotesByCategory = async (categoryId) => {
 };
 
 export const createNotebook = async (notebookData) => {
-  const response = await fetch(`${BASE_URL}/api/categories`, {
+  const response = await fetch(`${BASE_URL}api/categories`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -35,7 +33,7 @@ export const createNotebook = async (notebookData) => {
 };
 
 export const deleteNotebook = async (categoryId) => {
-  const response = await fetch(`${BASE_URL}/api/categories/${categoryId}`, {
+  const response = await fetch(`${BASE_URL}api/categories/${categoryId}`, {
     method: 'DELETE',
   });
 
@@ -46,7 +44,7 @@ export const deleteNotebook = async (categoryId) => {
 
 export const createNote = async (categoryId, noteData) => {
   const response = await fetch(
-    `${BASE_URL}/api/categories/${categoryId}/notes`,
+    `${BASE_URL}api/categories/${categoryId}/notes`,
     {
       method: 'POST',
       headers: {
