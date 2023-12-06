@@ -22,7 +22,7 @@ const client= clients.length
 
     return (
         <div style={buttonStyle}>
-            Clients In Work: {client}
+        Клиентов в работе: {client}
         </div>
 
     )

@@ -123,7 +123,7 @@ const ClientCard = (props) => {
         )}
 
         {activeTab === 'parameters' && (
-          <div className='data-container'>
+          <div className='data-container-parametr'>
             <h2>Параметры: {client?.firstName} {client?.lastName}</h2>
             <div> Рост: {parameter?.height}</div>
             <div> Вес: {parameter?.weight}</div>

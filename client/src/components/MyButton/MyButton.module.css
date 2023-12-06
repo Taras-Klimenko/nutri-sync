@@ -1,20 +1,20 @@
 /* MyButton.module.css */
 .myButton {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
     text-align: center;
-    text-decoration: none;
-    outline: none;
-    border: 1px solid #3498db;
-    color: #3498db;
-    background-color: #fff;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
+    margin-left: 35px;
+    /* color: var(--color-text); */
+    background-color: var(--color-dark);
+    transition: color 0.3s ease-in-out,
+     background-color 0.3s ease-in-out,
+      box-shadow 0.3s ease-in-out;
+      cursor: pointer;
 }
 
 .myButton:hover {
-    background-color: #3498db;
-    color: #fff;
+    color: rgb(48, 47, 47);
+  background-color: var(--color-light); 
+  box-shadow: 3px 3px 0 1px var(--color-signal); 
 }

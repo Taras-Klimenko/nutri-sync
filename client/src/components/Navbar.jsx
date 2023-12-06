@@ -13,31 +13,31 @@ export default function Navbar() {
   const { name } = useAppSelector((store) => store.userSlice);
   return (
     <div className="navbar">
-      <div className="navLink">Hello, {name ? name : 'гость'}</div>
+      <div className="navLink">Привет, {name ? name : 'гость'}</div>
       <Link className="navLink" to="/login">
-        Login
+        Логин
       </Link>
       <Link className="navLink" to="/reg">
-        Reg
+       Регистрация
       </Link>
       {/* TODO для теста одного клиента (потом удалить)  */}
-      <Link className="navLink" to="/clients/1">
+      {/* <Link className="navLink" to="/clients/1">
         Clients
-      </Link>
+      </Link> */}
       <Link className="navLink" to="/dashboard">
-        Dashboard
+        Главная
       </Link>
-      <Link className="navLink" to="/add-clients">
-        Add Clients
-      </Link>
+      {/* <Link className="navLink" to="/add-clients">
+       Новый клиент
+      </Link> */}
       <Link className="navLink" to="/knowledge">
-        Knowledge
+        Знания
       </Link>
-      <Link className="navLink" to="/statistics">
-        Statistics
-      </Link>
+      {/* <Link className="navLink" to="/statistics">
+        Параметры
+      </Link> */}
       <Link className="navLink" onClick={() => logoutHandler()}>
-        Logout
+        Выйти
       </Link>
     </div>
   );

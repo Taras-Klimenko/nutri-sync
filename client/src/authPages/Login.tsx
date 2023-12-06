@@ -61,8 +61,7 @@ export default function Login() {
         id="loginInput"
         onChange={handleInputChange}
       />
-      <label htmlFor="loginInput" className="login input__label">
-        Login
+      <label htmlFor="loginInput" className="login input__label">Логин
       </label>
 
       <input
@@ -73,14 +72,14 @@ export default function Login() {
         className="login input"
       />
       <label htmlFor="passwordInput" className="login input__label">
-        Password
+       Пароль
       </label>
 
       <div className={`login error ${error ? 'visible' : 'invisible'}`}>
         {error}
       </div>
 
-      <button className="login" onClick={loginHandler}>
+      <button className="button" onClick={loginHandler}>
         Войти
       </button>
     </div>

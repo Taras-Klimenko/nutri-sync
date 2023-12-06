@@ -5,6 +5,7 @@ import Editor from '../components/Editor';
 import Header from '../components/Header';
 import {Link} from 'react-router-dom'
 
+
 function Knowledge() {
   const [selectedNotebook, setSelectedNotebook] = useState(null);
   const [selectedNote, setSelectedNote] = useState(null);

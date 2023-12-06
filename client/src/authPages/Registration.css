@@ -4,7 +4,10 @@
   align-items: center;
   justify-content: space-around;
   height: 100%;
-  top: 90px;
+  padding: 10px;
+  background-image: url('../img/5555.jpg');
+  border-radius: 10px;
+
 }
 
 .column {
@@ -27,11 +30,10 @@
   position: relative;
   background-color: transparent;
   border-radius: 15px;
-  color: var(--color-dark);
-  bottom: 32px;
+  color: rgb(176,176,176);
+  bottom: 50px;
   right: 0px;
   font-size: 13px;
-  padding: 3px;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out,
     background-color 0.5s ease-in-out;
 }
@@ -48,7 +50,6 @@
 }
 
 .reg.error {
-  height: 40px;
   background-color: var(--color-dark);
   color: var(--color-text);
   transition: opacity 0.4s ease-in-out;
@@ -60,11 +61,12 @@ button.reg {
   width: 100px;
   height: 30px;
   border-radius: 10px;
-  border: none;
+  margin-bottom:30px;
   color: var(--color-text);
   background-color: var(--color-dark);
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out,
     box-shadow 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 button.reg:hover {
