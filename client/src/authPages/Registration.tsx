@@ -96,8 +96,7 @@ export default function Registration() {
         {error}
       </div>
       <br />
-      <button className="reg" onClick={regHandler}>
-        Регистрация
+      <button className="reg" onClick={regHandler}> Регистрация
       </button>
     </div>
   );

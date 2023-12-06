@@ -19,5 +19,7 @@ export default function ClientsInWork() {
     marginTop: '20px',
   };
 
+
   return <div style={buttonStyle}>Клиентов в работе: {client}</div>;
 }
+

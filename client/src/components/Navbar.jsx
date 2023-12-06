@@ -30,12 +30,18 @@ export default function Navbar() {
       <Link className="navLink" to="/add-clients">
         Добавить клиента
       </Link>
+      {/* <Link className="navLink" to="/add-clients">
+       Новый клиент
+      </Link> */}
       <Link className="navLink" to="/knowledge">
         База знаний
       </Link>
       <Link className="navLink" to="/statistics">
         Статистика
       </Link>
+      {/* <Link className="navLink" to="/statistics">
+        Параметры
+      </Link> */}
       <Link className="navLink" onClick={() => logoutHandler()}>
         Выйти
       </Link>

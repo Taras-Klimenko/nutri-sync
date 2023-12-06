@@ -2,8 +2,12 @@
   width: 100%;
   display: flex;
   align-items: center;
-  height: 100%;
-  width: 50%;
+  /* height: 100%;
+  width: 50%; */
+  padding: 15px;
+  background-image: url('../img/5555.jpg');
+  border-radius: 10px;
+  margin-bottom: 60px;
 }
 
 .column {
@@ -15,41 +19,46 @@
   height: 45px;
   border: unset;
   border-radius: 15px;
-  text-align: center;
   outline: none;
+  display: flex;
+ 
 }
 
 .login.input__label {
-  display: block;
+  display: flex;
   position: relative;
+  vertical-align: top;
   background-color: transparent;
   border-radius: 15px;
-  color: var(--color-dark);
-  bottom: 32px;
+  color: rgb(176,176,176);
+  bottom: 50px;
   right: 0px;
   font-size: 13px;
   padding: 3px;
-  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out,
-    background-color 0.5s ease-in-out;
-}
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out, background-color 0.5s ease-in-out;
+ 
+  }
 .login.input:focus + .input__label {
   transform: translate(-6rem, -70%) scale(1.2);
   color: var(--color-text);
   background-color: var(--color-background);
+ 
+
 }
 
 .login.input:focus {
   box-shadow: 3px 5px 0 0 var(--color-signal);
   color: var(--color-light);
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .login.error {
-  min-height: 25px;
-  background-color: rgba(255, 255, 255, 0.213);
+  min-height: 20px;
   transition: opacity 0.5s ease-in-out;
   border-radius: 5px;
+  padding: 4px;
 }
+
 
 .error.visible {
   opacity: 1;
@@ -59,19 +68,22 @@
   opacity: 0;
 }
 
-button.login {
+button.button {
   width: 100px;
   height: 30px;
   border-radius: 10px;
-  border: none;
+  text-align: center;
   color: var(--color-text);
   background-color: var(--color-dark);
-  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out,
+  transition: color 0.3s ease-in-out,
+   background-color 0.3s ease-in-out,
     box-shadow 0.3s ease-in-out;
+    cursor: pointer;
 }
 
-button.login:hover {
+button.button:hover {
   color: rgb(48, 47, 47);
   background-color: var(--color-light);
   box-shadow: 3px 3px 0 1px var(--color-signal);
+  
 }
