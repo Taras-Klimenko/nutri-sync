@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './HabitRow.css';
 
 async function updateHabitById(id: number, isCompleted: boolean) {
-  await fetch(`https://nutrition-o5ja.onrender.com/habit/${id}`, {
+  await fetch(`${import.meta.env.VITE_URL}habit/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -12,7 +12,7 @@ async function updateHabitById(id: number, isCompleted: boolean) {
 }
 
 async function deleteHabitById(id: number) {
-  await fetch(`https://nutrition-o5ja.onrender.com/habit/${id}`, {
+  await fetch(`${import.meta.env.VITE_URL}habit/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
