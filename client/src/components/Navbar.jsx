@@ -15,23 +15,29 @@ export default function Navbar() {
     <div className="navbar">
       <div className="navLink">Привет, {name ? name : 'гость'}</div>
       <Link className="navLink" to="/login">
-        Логин
+        Войти
       </Link>
       <Link className="navLink" to="/reg">
-       Регистрация
+        Регистрация
       </Link>
       {/* TODO для теста одного клиента (потом удалить)  */}
-      {/* <Link className="navLink" to="/clients/1">
-        Clients
-      </Link> */}
+      <Link className="navLink" to="/clients/1">
+        Клиенты
+      </Link>
       <Link className="navLink" to="/dashboard">
         Главная
+      </Link>
+      <Link className="navLink" to="/add-clients">
+        Добавить клиента
       </Link>
       {/* <Link className="navLink" to="/add-clients">
        Новый клиент
       </Link> */}
       <Link className="navLink" to="/knowledge">
-        Знания
+        База знаний
+      </Link>
+      <Link className="navLink" to="/statistics">
+        Статистика
       </Link>
       {/* <Link className="navLink" to="/statistics">
         Параметры

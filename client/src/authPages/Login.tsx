@@ -61,7 +61,10 @@ export default function Login() {
         id="loginInput"
         onChange={handleInputChange}
       />
-      <label htmlFor="loginInput" className="login input__label">Логин
+
+      <label htmlFor="loginInput" className="login input__label">
+        Логин
+
       </label>
 
       <input
@@ -72,7 +75,7 @@ export default function Login() {
         className="login input"
       />
       <label htmlFor="passwordInput" className="login input__label">
-       Пароль
+        Пароль
       </label>
 
       <div className={`login error ${error ? 'visible' : 'invisible'}`}>

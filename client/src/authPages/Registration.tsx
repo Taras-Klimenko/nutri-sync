@@ -88,7 +88,7 @@ export default function Registration() {
         className="reg input"
       />
       <label htmlFor="passwordInput" className="reg input__label">
-       Пароль
+        Пароль
       </label>
       <br />
 

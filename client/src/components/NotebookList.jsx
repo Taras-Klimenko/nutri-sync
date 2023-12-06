@@ -25,7 +25,7 @@ const handleCreateNotebook = async(event) => {
       setShowInput(false);
       
     } catch (error) {
-      console.error('Failed to create notebook:', error);
+      console.error('Не удалось создать категорию:', error);
     }
   }
 }
@@ -36,7 +36,7 @@ const handleDeleteNotebook = async (notebookId) => {
     setNotebooks(notebooks.filter(notebook => notebook.id !== notebookId))
     
   } catch (error) {
-    console.error('Failed to delete notebook:', error);
+    console.error('Не удалось удалить категорию:', error);
   }
 }
 
@@ -44,7 +44,7 @@ const handleDeleteNotebook = async (notebookId) => {
 
   return (
     <div>
-      <h2>Рубрики</h2>
+      <h2>Категории</h2>
       <button onClick={() => setShowInput(true)}>Добавить</button>
       {showInput && (
         <form onSubmit={handleCreateNotebook}>
