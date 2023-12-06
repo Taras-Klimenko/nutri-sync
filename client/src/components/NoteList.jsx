@@ -2,7 +2,7 @@ import React, { useState, useEffect }from 'react';
 import NoteItem from './NoteItem';
 import { getNotesByCategory, createNote, deleteNote } from '../api'
 
-function NoteList({selectedNotebook, onSelectNote}) {
+function NoteList({selectedNotebook, onSelectNote, selectedNote}) {
   const [notes, setNotes] = useState([]);
   const [showInput, setShowInput] = useState(false);
   const [newNoteTitle, setNewNoteTitle] = useState('');
@@ -27,11 +27,9 @@ function NoteList({selectedNotebook, onSelectNote}) {
     }
   };
     
-  if (!selectedNotebook) {
-    return <div>Выберите категорию для создания заметки</div>;
-  }
 
   const handleDeleteNote = async (noteId) => {
+    if (!window.confirm('Эта заметка будет удалена безвозвратно. Действительно хотите ее удалить?')) return;
     try {
       await deleteNote(noteId);
       setNotes(notes.filter(note => note.id !== noteId));
@@ -42,9 +40,10 @@ function NoteList({selectedNotebook, onSelectNote}) {
 
 
   return (
-    <div>
+    <div className='note_list'>
       <h2>Заметки</h2>
-      <button onClick={() => setShowInput(true)}>Добавить</button>
+      <p className='editor_hint' style={{width: '93%', fontSize: '12px'}}>Выберите или создайте новую заметку</p>
+      <button onClick={() => setShowInput(true)} style={{width: '93%'}}>Добавить</button>
       {showInput && (
         <form onSubmit={handleCreateNote}>
           <input 
@@ -52,12 +51,13 @@ function NoteList({selectedNotebook, onSelectNote}) {
             value={newNoteTitle} 
             onChange={(event) => setNewNoteTitle(event.target.value)} 
             placeholder="Название заметки"
+            style={{width: '93%'}}
           />
-          <button type="submit">Создать</button>
+          <button type="submit" style={{width: '93%'}}>Создать</button>
         </form>
       )}
       {notes.map((note) => (
-        <NoteItem key={note.id} note={note} onSelect={onSelectNote} onDelete={handleDeleteNote}/>
+        <NoteItem key={note.id} note={note} onSelect={onSelectNote} onDelete={handleDeleteNote} isSelected={selectedNote && note.id === selectedNote.id}/>
       ))}
     </div>
   );
