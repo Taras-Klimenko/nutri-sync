@@ -33,15 +33,12 @@ interface HabitType {
 }
 
 async function fetchClientById(id: number) {
-  const response = await fetch(
-    `https://nutrition-o5ja.onrender.com/api/clients/${id}`,
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }
-  );
+  const response = await fetch(`${import.meta.env.VITE_URL}api/clients/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
   const data: ClientType = await response.json();
   return data;
 }
@@ -123,7 +120,7 @@ const ClientCard = (props) => {
         )}
 
         {activeTab === 'parameters' && (
-          <div className='data-container'>
+          <div className='data-container-parameter'>
             <h2>Параметры: {client?.firstName} {client?.lastName}</h2>
             <div> Рост: {parameter?.height}</div>
             <div> Вес: {parameter?.weight}</div>

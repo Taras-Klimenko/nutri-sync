@@ -1,11 +1,8 @@
-
 .tabs {
   display: flex;
   flex-direction: row;
- 
-  position: relative;
 
-  
+  position: relative;
 }
 
 .tabs button {
@@ -42,7 +39,8 @@
 
 .tabs button:active {
   background-color: var(--color-dark-green);
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   transform: scale(0.98);
 }
 
@@ -56,10 +54,21 @@
   padding: 32px;
   /* max-height: 500px;
   width: 500px; */
-
+  width: 90%;
 }
-.habit-cont{
+.habit-cont {
   overflow: auto;
 
   width: 500px;
+}
+
+.data-container-parameter {
+  margin-left: 2px;
+  overflow: auto; /* Добавьте эти две строки */
+  overflow-y: scroll; /* Добавьте эти две строки */
+  background-image: url('../../img/5555.jpg');
+  /* background-color: aliceblue; */
+  border-radius: 4px 4px 10px 10px;
+  height: 700px;
+  width: 1200px;
 }
