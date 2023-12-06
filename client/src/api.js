@@ -62,7 +62,7 @@ export const createNote = async (categoryId, noteData) => {
 };
 
 export const updateNote = async (noteId, updatedContent) => {
-  const response = await fetch(`${BASE_URL}/api/categories/notes/${noteId}`, {
+  const response = await fetch(`${BASE_URL}api/categories/notes/${noteId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ export const updateNote = async (noteId, updatedContent) => {
 };
 
 export const deleteNote = async (noteId) => {
-  const response = await fetch(`${BASE_URL}/api/categories/notes/${noteId}`, {
+  const response = await fetch(`${BASE_URL}api/categories/notes/${noteId}`, {
     method: 'DELETE',
   });
 
