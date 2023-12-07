@@ -30,10 +30,12 @@ export default function AllCurator() {
               </p>
             </div>
           ))}
+
       </div>
       <Link to="/reg">
         <MyButton>Добавить</MyButton>
       </Link>
+
     </div>
   );
 }

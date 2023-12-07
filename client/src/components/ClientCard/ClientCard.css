@@ -1,8 +1,10 @@
 .tabs {
   display: flex;
   flex-direction: row;
-
-  position: relative;
+  position: fixed;
+  top: 14%;
+  left: 110px;
+  
 }
 
 .tabs button {
@@ -46,39 +48,37 @@
 
 .data-container {
   margin-left: 2px;
-  overflow: auto; /* Добавьте эти две строки */
-  overflow-y: scroll; /* Добавьте эти две строки */
+  position: fixed;
+  top: 20%;
+  left: 110px;
+  overflow: auto;
+  overflow-y: scroll;
   background-image: url('../../img/5555.jpg');
-  /* background-color: aliceblue; */
   border-radius: 4px 4px 10px 10px;
   padding: 32px;
-  /* max-height: 500px;
-  width: 500px; */
-  width: 90%;
+  width: 50%;
+  max-height: 500px;
+
 }
 
-.data-container-parametr{
-  width: 1200px;
-  background-image: url('../../img/5555.jpg');
-  /* background-color: aliceblue; */
-  border-radius: 4px 4px 10px 10px;
-  padding: 32px;
-}
 
 .habit-cont{
-
   overflow: auto;
-
   width: 500px;
 }
 
 .data-container-parameter {
   margin-left: 2px;
-  overflow: auto; /* Добавьте эти две строки */
-  overflow-y: scroll; /* Добавьте эти две строки */
+  position: fixed;
+  top: 20%;
+  left: 110px;
+  overflow: auto;
+  overflow-y: scroll; 
   background-image: url('../../img/5555.jpg');
   /* background-color: aliceblue; */
   border-radius: 4px 4px 10px 10px;
-  height: 700px;
+  max-height: 700px;
   width: 1200px;
+  font-size: 15px;
+  padding-left: 20px;
 }

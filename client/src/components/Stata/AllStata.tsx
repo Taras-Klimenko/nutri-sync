@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import MyButton from '../MyButton/MyButton.tsx';
 import EditModal from './EditModal.tsx';
+import './AllStata.css';
 
 export default function AllStata({ data, onDeleteStata, setData }) {
     const itemsPerPage = 5;
@@ -25,7 +26,7 @@ export default function AllStata({ data, onDeleteStata, setData }) {
 
     const renderItems = () => {
         return currentItems.map((item: any) => (
-            <div key={item.id} style={{ border: '2px solid red', padding: '10px', margin: '10px' }}>
+            <div className='allStata' key={item.id}>
                 Параметры на: {item.createdAt.slice(0, 10)}
                 <p>Рост см: {item.height}</p>
                 <p>Вес кг: {item.weight}</p>
