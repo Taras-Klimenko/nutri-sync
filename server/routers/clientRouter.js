@@ -44,9 +44,8 @@ const standardHabits = [
   { title: 'Необходимое количество порций ежедневно', isCompleted: false },
   { title: 'Контроль размера порций', isCompleted: false },
   { title: 'Оставлять лишнее на тарелке', isCompleted: false },
-  {
-    title: 'Правильное питание в ситуациях, когда раньше переедал(а)',
-    isCompleted: false,
+  { title: 'Правильное питание в ситуациях, когда раньше переедал(а)',
+  isCompleted: false,
   },
   { title: 'Просьба о поддержке и получение поддержки', isCompleted: false },
   { title: 'Извлечение уроков из срывов', isCompleted: false },

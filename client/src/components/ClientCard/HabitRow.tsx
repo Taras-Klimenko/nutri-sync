@@ -45,6 +45,7 @@ const HabitRow = ({ hab, setHabit }) => {
 
   return (
     <div className="habit-container">
+      <div className='habit-container-new'>
       <input
         className="habit-checkbox"
         type="checkbox"
@@ -52,9 +53,10 @@ const HabitRow = ({ hab, setHabit }) => {
         onChange={() => handleCheckboxChange(hab.id)}
       />
       <div className="habit-title">{hab.title}</div>
+      </div>
       <div className="habit-div">
         <button className="habit-delete" onClick={() => handleDelete(hab.id)}>
-          X
+         X
         </button>
       </div>
     </div>

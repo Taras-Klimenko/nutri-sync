@@ -1,7 +1,8 @@
 import axios from 'axios';
-import MyButton from '../MyButton/MyButton.tsx';
 import { useState } from 'react';
-import './EditModal.css'
+import MyButton from '../EditButton/EditButton';
+import EditButton from '../EditButton/EditButton';
+
 
 
 const EditModal = ({ data, onSave, onDelete, onClose }) => {
@@ -54,7 +55,7 @@ const EditModal = ({ data, onSave, onDelete, onClose }) => {
 
   return (
     <div className='edit'>
-      <h2>Редактируем данные за: {editedData.createdAt.slice(0, 10)}</h2>
+      <h4>Редактируем данные за: {editedData.createdAt.slice(0, 10)}</h4>
       <label>
         Рост см:
         <input
@@ -62,6 +63,7 @@ const EditModal = ({ data, onSave, onDelete, onClose }) => {
           name="height"
           value={editedData.height}
           onChange={handleChange}
+          style={{ width: '80%', fontSize: '12px' }}
         />
       </label>
       <br />
@@ -72,6 +74,7 @@ const EditModal = ({ data, onSave, onDelete, onClose }) => {
           name="weight"
           value={editedData.weight}
           onChange={handleChange}
+          style={{ width: '80%', fontSize: '12px' }}
         />
       </label>
       <br />
@@ -82,6 +85,7 @@ const EditModal = ({ data, onSave, onDelete, onClose }) => {
           name="chest"
           value={editedData.chest}
           onChange={handleChange}
+          style={{ width: '80%', fontSize: '12px' }}
         />
       </label>
       <br />
@@ -92,6 +96,7 @@ const EditModal = ({ data, onSave, onDelete, onClose }) => {
           name="waist"
           value={editedData.waist}
           onChange={handleChange}
+          style={{ width: '80%', fontSize: '12px' }}
         />
       </label>
       <br />
@@ -102,18 +107,23 @@ const EditModal = ({ data, onSave, onDelete, onClose }) => {
           name="hips"
           value={editedData.hips}
           onChange={handleChange}
+          style={{ width: '80%', fontSize: '12px' }}
         />
       </label>
       <br />
       <label>
-        ИМТ:
-        <input type="text" name="BMI" value={calculateBMI()} readOnly />
+        Индекс массы тела:
+        <input type="text" name="BMI" value={calculateBMI()} readOnly     style={{ width: '80%', fontSize: '12px' }} />
+        
       </label>
-      <br />
-
-      <MyButton onClick={handleSave}>Сохранить</MyButton>
-      <MyButton onClick={handleDelete}>Удалить</MyButton>
-      <MyButton onClick={onClose}>Отмена</MyButton>
+      {/* <button onClick={handleSave}>Сохранить</button>
+      <button onClick={handleDelete}>Удалить</button>
+      <button onClick={onClose}>Отмена</button> */}
+<div className='buttonEdit'>
+      <EditButton onClick={handleSave}>Сохранить</EditButton>
+      <EditButton onClick={handleDelete}>Удалить</EditButton>
+      <EditButton onClick={onClose}>Отмена</EditButton>
+      </div>
     </div>
   );
 };

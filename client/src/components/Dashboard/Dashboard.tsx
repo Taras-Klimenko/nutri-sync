@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 import AllClients from '../AllClients/AllClients.tsx';
 import TodoDasbord from '../TodoDasbord/TodoDasbord.tsx';
-import MyButton from '../MyButton/MyButton.tsx';
+import MenuButton from '../Dashboard/MenuButton.tsx';
 import { Link } from 'react-router-dom';
 import ClientsInWork from '../ClientsInWork/ClientsInWork.tsx';
 import './Dachboard.css';
@@ -20,22 +20,21 @@ export default function Dashboard({}: DashboardProps): ReactElement {
         }}
       >
         <Link to="/add-clients">
-          {/* <MyButton>Добавить клиента</MyButton> */}
-          <div className='button-add'> Добавить клиента</div>
+          <MenuButton>Добавить клиента</MenuButton>
+          {/* <div className='button-add'> Добавить клиента</div> */}
         </Link>
         <Link to="/knowledge">
-          {/* <MyButton>База знаний</MyButton> */}
-          <div className='button-add'> База знаний</div>
+          <MenuButton>База знаний</MenuButton>
+          {/* <div className='button-add'> База знаний</div> */}
         </Link>
         <Link to="/all-curator">
-          {/* <MyButton>Все кураторы</MyButton> */}
-          <div className='button-add'> Все кураторы</div>
+          <MenuButton>Все кураторы</MenuButton>
+          {/* <div className='button-add'> Все кураторы</div> */}
         </Link>
       </div>
       <div className='addClients'
         style={{
           display: 'flex',
-         
           alignItems: 'center',
         }}
       >
@@ -43,7 +42,6 @@ export default function Dashboard({}: DashboardProps): ReactElement {
         <div className='addTodo'
           style={{
             display: 'flex',
-           
             marginBottom: '20px',
           }}
         >

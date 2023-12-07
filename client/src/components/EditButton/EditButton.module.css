@@ -1,0 +1,13 @@
+/* MyButton.module.css */
+.editButton {
+
+  max-width: 70px;
+  border-radius: 10px;
+  cursor: pointer;
+  flex-direction:row;
+  padding-left: 3px;
+  margin-left: 2px;
+  margin-bottom: 8px;
+
+}
+
