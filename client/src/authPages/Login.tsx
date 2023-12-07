@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import { useAppDispatch, useAppSelector } from '../redux/store/hooks';
 import { addUser } from '../redux/store/slice/userSlice';
+import MyButton from '../components/MyButton/MyButton';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -64,7 +65,6 @@ export default function Login() {
 
       <label htmlFor="loginInput" className="login input__label">
         Логин
-
       </label>
 
       <input
@@ -82,9 +82,9 @@ export default function Login() {
         {error}
       </div>
 
-      <button className="button" onClick={loginHandler}>
+      <MyButton className="button" onClick={loginHandler}>
         Войти
-      </button>
+      </MyButton>
     </div>
   );
 }

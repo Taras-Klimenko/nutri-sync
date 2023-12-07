@@ -20,7 +20,7 @@ body {
 }
 
 .navbar {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   width: 100%;
@@ -188,9 +188,16 @@ body {
   background-color: #f0fdf4;
 }
 
+.editorButtonContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* КУРАТОРЫ */
 .allCuratorContainer {
   width: 90vw;
+  max-height: 80vh;
+  overflow-y: auto;
   margin: 0 auto;
   padding: 20px;
   text-align: center;
@@ -226,7 +233,7 @@ body {
 
 .curatorCard p {
   font-size: 1rem;
-  color: #4c4c4c;
+  color: #676767;
   margin: 5px 0;
 }
 .curatorCard span {
