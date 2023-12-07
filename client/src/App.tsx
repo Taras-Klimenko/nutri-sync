@@ -48,6 +48,7 @@ function App() {
       <Navbar />
       {loader && <div className="loader"></div>}
       <Routes>
+        <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/reg" element={<Registration />} />
         <Route path="/clients/:id" element={<ClientCard />} />
@@ -62,3 +63,8 @@ function App() {
   );
 }
 export default App;
+
+function Landing() {
+  window.location.href = '../landing.html';
+  return null;
+}
