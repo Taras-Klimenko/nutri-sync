@@ -1,6 +1,8 @@
 import axios from 'axios';
 import MyButton from '../MyButton/MyButton.tsx';
 import { useState } from 'react';
+import './EditModal.css'
+
 
 const EditModal = ({ data, onSave, onDelete, onClose }) => {
   const [editedData, setEditedData] = useState({ ...data });
@@ -51,7 +53,7 @@ const EditModal = ({ data, onSave, onDelete, onClose }) => {
   };
 
   return (
-    <div style={{ border: '2px solid green', padding: '10px', margin: '10px' }}>
+    <div className='edit'>
       <h2>Редактируем данные за: {editedData.createdAt.slice(0, 10)}</h2>
       <label>
         Рост см:

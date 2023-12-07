@@ -36,10 +36,10 @@ export default function AllCurator() {
               <p>Пароль: {curator.email}</p>
             </div>
           ))}
-     
-      {/* <Link to="/reg">
+      
+       <Link to="/reg">
         <MyButton>Добавить куратора</MyButton>
-      </Link> */}
+      </Link> 
     </div>
   );
 }

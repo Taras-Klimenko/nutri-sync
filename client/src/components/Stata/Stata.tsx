@@ -37,10 +37,13 @@ export default function Stata({ id }: { id: number }) {
     <div>
       <div
         style={{
-          width: '900px',
-          height: '500px',
-          border: '2px solid red',
-          margin: '30px',
+          width: '600px',
+          height: '320px',
+          border: '2px solid green',
+          borderRadius: '5px',
+          position: 'fixed',
+          top: '30%',
+          right: '20%',
         }}
       >
         {data && <Chart data={data} />}
