@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import MyButton from '../components/MyButton/MyButton'
 import Sidebar from '../components/Sidebar';
 import Editor from '../components/Editor';
-import {Link} from 'react-router-dom'
 
 
 function Knowledge() {
