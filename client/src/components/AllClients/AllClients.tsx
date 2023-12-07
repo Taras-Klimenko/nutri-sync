@@ -9,6 +9,9 @@ export default function AllClients() {
   return (
     <div className={styles.allClients}>
       <h2>Клиенты</h2>
+      <Link to="/add-clients">
+        <MyButton>Добавить клиента</MyButton>
+      </Link>
       <div>
         {clients.map((client) => (
           <div key={client.id} className={styles.clientItem}>

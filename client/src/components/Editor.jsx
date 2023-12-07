@@ -3,6 +3,7 @@ import { OpenAI } from "openai";
 import Quill from 'quill'
 import 'quill/dist/quill.snow.css'
 import {updateNote} from '../api'
+import MyButton from '../components/MyButton/MyButton'
 
 
 
@@ -104,8 +105,10 @@ function Editor({ note, onNoteUpdate }) {
   return (
     <div className='editor_container'>
       <div ref={editorRef}></div>
-      {note && <button onClick={handleSave}>Сохранить</button>}
-      <button onClick={handleGetSuggestions}>Автодополнение</button>
+      <div className='editorButtonContainer'>
+        <MyButton onClick={handleGetSuggestions}>Автодополнение</MyButton>
+        {note && <MyButton onClick={handleSave}>Сохранить</MyButton>}
+      </div>
     </div>
   );
 }

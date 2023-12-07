@@ -26,16 +26,14 @@ export default function AllCurator() {
                 <span>Логин:</span> {curator.login}
               </p>
               <p>
-                <span>Пароль:</span> {curator.email}
+                <span>Почта:</span> {curator.email}
               </p>
             </div>
           ))}
-
       </div>
       <Link to="/reg">
         <MyButton>Добавить</MyButton>
       </Link>
-
     </div>
   );
 }

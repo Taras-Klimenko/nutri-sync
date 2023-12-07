@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Registration.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import MyButton from '../components/MyButton/MyButton';
 
 export default function Registration() {
   const [inputs, setInputs] = useState({
@@ -96,8 +97,7 @@ export default function Registration() {
         {error}
       </div>
       <br />
-      <button className="reg" onClick={regHandler}> Регистрация
-      </button>
+      <MyButton onClick={regHandler}> Регистрация</MyButton>
     </div>
   );
 }

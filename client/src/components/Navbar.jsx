@@ -15,13 +15,12 @@ export default function Navbar() {
   const { name } = useAppSelector((store) => store.userSlice);
   return (
     <div className="navbar">
-      <div className="navLink">Привет, {name ? name : 'гость'}</div>
+      <div className="navLink">{name ? name : 'Гость'}</div>
       <Link className="navLink" to="/login">
         Войти
       </Link>
-      <Link className="navLink" to="/reg">
-        Регистрация
-      </Link>
+      <Link className="navLink" to="/all-curator">Кураторы
+        </Link>
       {/* TODO для теста одного клиента (потом удалить)  */}
       {/* <Link className="navLink" to="/clients/1">
         Клиенты
