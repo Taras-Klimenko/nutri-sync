@@ -11,35 +11,25 @@ const StataInput = ({ id, onClose, setData }) => {
     hips: '',
     BMI: '',
   });
-  const handleChange = (e: { target: { name: any; value: any } }) => {
-    const { name, value } = e.target;
+    const handleChange = (e: { target: { name: any; value: any } }) => {
+        const { name, value } = e.target;
 
-    if (name === 'weight' || name === 'height') {
-      const BMI = calculateBMI(formData.weight, formData.height);
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-        BMI,
-      }));
-    } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-    }
-  };
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
 
+        if (name === 'weight' || name === 'height') {
+            const updatedWeight = name === 'weight' ? value : formData.weight;
+            const updatedHeight = name === 'height' ? value : formData.height;
+            const updatedBMI = updatedWeight / ((updatedHeight / 100) * (updatedHeight / 100));
 
-  const calculateBMI = (weight: string, height: string | number) => {
-    const weightNumber = parseFloat(weight);
-    const heightNumber = parseFloat(height / 10);
-    if (!isNaN(weightNumber) && !isNaN(heightNumber) && heightNumber !== 0) {
-      const BMI = (weightNumber / (heightNumber * heightNumber)).toFixed(2);
-      return BMI;
-    }
-    return '';
-  };
-
+            setFormData((prevData) => ({
+                ...prevData,
+                BMI: updatedBMI.toFixed(2),
+            }));
+        }
+    };
 
   const handleSubmit = async () => {
     try {
@@ -84,6 +74,11 @@ const StataInput = ({ id, onClose, setData }) => {
             <label>
                 Объем бедер см:
                 <input type="text" name="hips" value={formData.hips} onChange={handleChange} placeholder="Введите объем бедер"/>
+            </label>
+            <br />
+            <label>
+                ИМТ:
+                <input type="text" name="BMI" value={formData.BMI} onChange={handleChange} placeholder="BMI" readOnly/>
             </label>
             <br />
             <MyButton onClick={handleSubmit}>Отправить данные</MyButton>
