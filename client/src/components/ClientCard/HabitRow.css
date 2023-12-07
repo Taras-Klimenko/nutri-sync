@@ -9,10 +9,14 @@ height: 20px;
 .habit-container{
   display: flex;
   overflow: auto;
-  /* justify-content: space-between;  */
- padding: 0px 10px 5px 0px;
- border-radius: 5px;
+  justify-content: space-between; 
+  padding: 0px 10px 5px 0px;
+  border-radius: 5px;
 
+
+}
+.habit-container-new{
+  display: flex;
 }
 .habit-title{
 

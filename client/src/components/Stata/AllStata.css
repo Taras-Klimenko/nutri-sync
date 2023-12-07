@@ -1,3 +1,9 @@
 .allStata{
-
+  max-width: 200px;
+  border: 2px solid green;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+.allStata p{
+  line-height: 0.5;
 }

@@ -26,8 +26,8 @@ export default function AllStata({ data, onDeleteStata, setData }) {
 
     const renderItems = () => {
         return currentItems.map((item: any) => (
-            <div className='allStata' key={item.id}>
-                Параметры на: {item.createdAt.slice(0, 10)}
+            <div key={item.id}>
+                Параметры на: <br/> {item.createdAt.slice(0, 10)}
                 <p>Рост см: {item.height}</p>
                 <p>Вес кг: {item.weight}</p>
                 <p>Объем груди см: {item.chest}</p>
@@ -47,12 +47,12 @@ export default function AllStata({ data, onDeleteStata, setData }) {
     }
 
     return (
-        <div style={{ border: '2px solid blue', padding: '10px'}}>
+        <div className='allStata'>
             {renderItems()}
             <div >
                 {pageNumbers.map((number) => (
-                    <span key={number} onClick={() => paginate(number)} style={{ cursor: 'pointer', margin: '5px' }}>
-                        {number}
+                    <span key={number} onClick={() => paginate(number)} style={{ cursor: 'pointer', margin: '5px'}}>
+                       номер:{number}
                     </span>
                 ))}
             </div>

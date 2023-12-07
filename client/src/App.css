@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Kanit&family=Marck+Script&family=Oswald:wght@500&family=Prompt&family=Roboto&family=Rubik&family=Rubik+Dirt&family=Shantell+Sans&display=swap');
+
 :root {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Roboto';
   --color-dark-brown: #4d4729;
   --color-olive: #7e8341;
   --color-light-olive: #9ea868;
@@ -27,8 +29,13 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  /* background-color: var(--color-dark-brown); */
+  /* background-color: #707633; */
   height: 50px;
+  color:#bcc92b;
+  padding-bottom: 5px;
+
+
+
 }
 
 .navLink {
@@ -44,14 +51,14 @@ body {
   height: 25px;
   margin-top: 0px;
   text-align: center;
-  box-shadow: 3px 3px 1px 1px var(--color-light-olive);
+  box-shadow: 3px 2px 5px 5px var(--color-light-olive);
   transition: box-shadow 0.5s ease-in-out;
   font-size: 15px;
 }
 
 .navLink:hover {
-  background-color: var(--color-light-olive);
-  box-shadow: 3px 3px 1px 1px var(--color-light-olive);
+  /* background-color: var(--color-light); */
+  box-shadow: 2px 2px 1px 1px ;
   color: rgb(255, 255, 255);
   text-decoration: none;
 }
@@ -195,7 +202,7 @@ body {
   padding: 20px;
   text-align: center;
   border-radius: 4px;
-  background-image: url('./src/img/5555.jpg');
+  background-image: url('./img/5555.jpg');
 }
 
 .allCuratorContainer h2 {
