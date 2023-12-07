@@ -3,8 +3,6 @@ import { useEffect } from 'react';
 import { getCurators } from '../../redux/store/thunkActions.ts';
 import MyButton from '../MyButton/MyButton.tsx';
 import { Link } from 'react-router-dom';
-import './AllCurator.css';
-
 
 export default function AllCurator() {
   const dispatch = useAppDispatch();
@@ -13,33 +11,31 @@ export default function AllCurator() {
   useEffect(() => {
     dispatch(getCurators());
   }, [dispatch]);
+
   return (
-    <div className='allCurator'>
-    
-       <div className='allCurator-title'>Кураторы:</div> 
+    <div className="allCuratorContainer">
+      <h2>Кураторы:</h2>
+      <div className="allCurators">
         {curators &&
           curators.map((curator) => (
-            <div
-              key={curator.id}
-              value={curator.id}
-              style={{
-                border: '2px solid #000',
-                borderRadius: '5px',
-                padding: '10px',
-                marginTop: '20px',
-                paddingLeft: '20px',
-               marginRight:'15px'
-              }}
-            >
-              <p>Логин: {curator.login}</p>
-              <p>Имя: {curator.name}</p>
-              <p>Пароль: {curator.email}</p>
+            <div key={curator.id} value={curator.id} className="curatorCard">
+              <p>
+                <span>Имя:</span> {curator.name}
+              </p>
+              <p>
+                <span>Логин:</span> {curator.login}
+              </p>
+              <p>
+                <span>Пароль:</span> {curator.email}
+              </p>
             </div>
           ))}
-      
-       <Link to="/reg">
-        <MyButton>Добавить куратора</MyButton>
-      </Link> 
+
+      </div>
+      <Link to="/reg">
+        <MyButton>Добавить</MyButton>
+      </Link>
+
     </div>
   );
 }
