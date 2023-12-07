@@ -104,10 +104,12 @@ export default function AddClients() {
             ))}
         </select>
       </label>
-      <MyButton onClick={handleAddClient}>Добавить</MyButton>
-      <Link to="/dashboard">
-        <MyButton>Отмена</MyButton>
-      </Link>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <MyButton onClick={handleAddClient}>Добавить</MyButton>
+        <Link to="/dashboard">
+          <MyButton>Отмена</MyButton>
+        </Link>
+      </div>
     </div>
   );
 }
