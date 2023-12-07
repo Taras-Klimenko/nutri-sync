@@ -16,9 +16,9 @@ export default function Navbar() {
   return (
     <div className="navbar">
       <div className="navLink">{name ? name : 'Гость'}</div>
-      <Link className="navLink" to="/login">
+      {/* <Link className="navLink" to="/login">
         Войти
-      </Link>
+      </Link> */}
       <Link className="navLink" to="/all-curator">Кураторы
         </Link>
       {/* TODO для теста одного клиента (потом удалить)  */}
