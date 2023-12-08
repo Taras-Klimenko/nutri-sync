@@ -29,10 +29,12 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+
   background-color: rgba(0, 0, 0, 0.555); /* Полупрозрачный цвет фона */
   height: 50px;
   color: #bcc92b;
   padding-bottom: 5px;
+
 }
 .roote {
   display: flex;

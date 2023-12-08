@@ -60,6 +60,7 @@ const EditModal = ({ data, onSave, onDelete, onClose, setData }) => {
       <h4>Редактируем данные за: {editedData.createdAt.slice(0, 10)}</h4>
       <label>
         Рост см:
+        <br />
         <input
           type="text"
           name="height"

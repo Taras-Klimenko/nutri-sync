@@ -23,12 +23,12 @@ export default function Todo() {
     return (
         <div className="todoContainer">
             <div className="inputContainer">
-                <input
+                <input 
                     onChange={changeHandler}
                     name="text"
                     type="text"
                     className="todoInput"
-                    placeholder="Text"
+                    placeholder="Описание задачи"
                     value={input}
                 />
             </div>

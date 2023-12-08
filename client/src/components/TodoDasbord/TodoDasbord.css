@@ -28,4 +28,13 @@
 .todoActions {
     display: flex;
     align-items: center; /* Чтобы элементы выровнялись по центру вертикали */
+
+}
+.todoActions input {
+    display: flex;
+    margin-bottom: 2px;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 12px;
+
 }

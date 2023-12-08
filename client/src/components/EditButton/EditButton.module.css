@@ -2,12 +2,15 @@
 .editButton {
 
   max-width: 150px;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
   flex-direction:row;
   padding-left: 3px;
   margin-left: 2px;
   margin-bottom: 8px;
-
+  background-color: #4caf50;
+  color:aliceblue;
+  border: 0;
+  padding: 5px;
 }
 
