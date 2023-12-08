@@ -1,0 +1,18 @@
+FROM node:21-alpine3.17
+
+WORKDIR /server/
+
+COPY package.json /server/
+
+RUN npm install
+
+COPY . /server/
+
+EXPOSE 8000
+
+COPY ./startup.sh /server/
+
+RUN chmod +x /server/startup.sh
+ 
+ENTRYPOINT [ "sh", "/server/startup.sh" ]
+

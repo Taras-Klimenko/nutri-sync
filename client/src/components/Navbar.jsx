@@ -12,7 +12,10 @@ export default function Navbar() {
     });
     dispatch(logout());
   };
-  const { name } = useAppSelector((store) => store.userSlice);
+  // const { name } = useAppSelector((store) => store.userSlice);
+
+  const localstore = JSON.parse(localStorage.getItem("userState"));
+  const name = localstore?.userSlice?.name
   return (
     <div className="navbar">
       <div className="navLink">{name ? name : 'Гость'}</div>
