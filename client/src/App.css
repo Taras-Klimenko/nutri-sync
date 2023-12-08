@@ -29,22 +29,17 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный цвет фона */
+  background-color: rgba(0, 0, 0, 0.555); /* Полупрозрачный цвет фона */
   height: 50px;
   color: #bcc92b;
   padding-bottom: 5px;
-
+}
 .roote {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   padding-top: 50px;
-
 }
-
-font-weight: 600;
-text-transform: uppercase;
- 
 
 .nav {
   flex-shrink: 0; /* Navbar не будет уменьшаться в размерах */
@@ -57,7 +52,6 @@ text-transform: uppercase;
   margin-top: 50px; /* Добавлен отступ сверху, чтобы контент не наезжал на навбар */
 }
 
-
 .navLink {
   font-size: 12px;
   /* background-color: rgb(234, 255, 244); */
@@ -69,14 +63,16 @@ text-transform: uppercase;
   border-color: #b1cecc;
   width: 118px;
   height: 25px;
-  margin-top: 0px;
+  margin-top: auto;
   text-align: center;
-  /* box-shadow: 3px 2px 5px 5px var(--color-light-olive);
-  transition: box-shadow 0.5s ease-in-out; */
+  /* box-shadow: 3px 2px 5px 5px var(--color-light-olive); */
+  transition: transform 0.5s ease-in-out;
   font-size: 15px;
+  text-transform: uppercase;
 }
 
 .navLink:hover {
+  transform: scale(1.15);
   /* background-color: var(--color-light); */
   /* box-shadow: 2px 2px 1px 1px ;
   color: rgb(255, 255, 255);

@@ -15,7 +15,7 @@
 
 .login.input {
   width: 200px;
-  height: 45px;
+  height: 48px;
   border: unset;
   border-radius: 10px;
   outline: none;
@@ -27,23 +27,22 @@
   display: flex;
   position: relative;
   vertical-align: top;
-  background-color: transparent;
-  border-radius: 10px;
-  color: rgb(176,176,176);
-  bottom: 35px;
+  background-color: rgba(5, 34, 2, 0.314);
+  border-radius: 6px;
+  color: rgb(255, 255, 255);
+  bottom: 22px;
   right: 0px;
-  font-size: 15px;
+  font-size: 12px;
   align-items: center;
   padding: 3px;
-  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out, background-color 0.5s ease-in-out;
-
-  }
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out,
+    background-color 0.2s ease-in-out;
+}
 .login.input:focus + .input__label {
   transform: translate(-6rem, -70%) scale(1.2);
   color: var(--color-text);
   background-color: var(--color-background);
-
-
+  bottom: 27px;
 }
 
 .login.input:focus {
@@ -66,5 +65,3 @@
 .error.invisible {
   opacity: 0;
 }
-
-
