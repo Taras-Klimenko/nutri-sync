@@ -4,8 +4,8 @@ import HabitRow from './HabitRow';
 import AddHabit from './AddHabit';
 import { useParams } from 'react-router-dom';
 import Stata from '../Stata/Stata.tsx';
-import MyButton from "../MyButton/MyButton.tsx";
-import NewBatton from "./NewBatton.tsx";
+import MyButton from '../MyButton/MyButton.tsx';
+import NewBatton from './NewBatton.tsx';
 
 interface ClientType {
   firstName: string;
@@ -69,7 +69,7 @@ const ClientCard = (props) => {
   }, [id]);
 
   if (client === null) {
-    return <div className='loader'></div>;
+    return 'Загрузка';
   }
 
   function formatDate(dateString) {
@@ -81,32 +81,32 @@ const ClientCard = (props) => {
   }
 
   return (
-      <div className="clientcard-wrapper">
-    <div className="clientcard">
-      <div className="tabs">
-        <NewBatton
-          className={activeTab === 'data' ? 'active' : ''}
-          onClick={() => handleTabChange('data')}
-        >
-          О клиенте
-        </NewBatton>
-        <NewBatton
-          className={activeTab === 'parameters' ? 'active' : ''}
-          onClick={() => handleTabChange('parameters')}
-        >
-          Параметры
-        </NewBatton>
-        <NewBatton
-          className={activeTab === 'goals' ? 'active' : ''}
-          onClick={() => handleTabChange('goals')}
-        >
-          Привычки и цели
-        </NewBatton>
-      </div>
+    <div className="clientcard-wrapper">
+      <div className="clientcard">
+        <div className="tabs">
+          <NewBatton
+            className={activeTab === 'data' ? 'active' : ''}
+            onClick={() => handleTabChange('data')}
+          >
+            О клиенте
+          </NewBatton>
+          <NewBatton
+            className={activeTab === 'parameters' ? 'active' : ''}
+            onClick={() => handleTabChange('parameters')}
+          >
+            Параметры
+          </NewBatton>
+          <NewBatton
+            className={activeTab === 'goals' ? 'active' : ''}
+            onClick={() => handleTabChange('goals')}
+          >
+            Привычки и цели
+          </NewBatton>
+        </div>
 
-      <div className='stata'>
-        <div className="tab-content">
-          {activeTab === 'data' && (
+        <div className="stata">
+          <div className="tab-content">
+            {activeTab === 'data' && (
               <div className="data-container data-text">
                 <div className="">
                   <h2>Данные:</h2>
@@ -126,37 +126,37 @@ const ClientCard = (props) => {
                   <div> Индекс массы тела: {parameter?.BMI}</div>
                 </div>
               </div>
-          )}
+            )}
 
-          {activeTab === 'parameters' && (
+            {activeTab === 'parameters' && (
               <div className="data-container-parameter">
-                <h2 style={{paddingLeft: '30px'}}>
+                <h2 style={{ paddingLeft: '30px' }}>
                   Параметры по периодам: {client?.firstName} {client?.lastName}
                 </h2>
-                <div >
-                  <Stata id={id}/>
+                <div>
+                  <Stata id={id} />
                 </div>
               </div>
-          )}
+            )}
 
-          {activeTab === 'goals' && (
+            {activeTab === 'goals' && (
               <div className="data-container">
                 <h2>Привычки:</h2>
-                <div className="habit-cont" style={{display: 'flex'}}>
+                <div className="habit-cont" style={{ display: 'flex' }}>
                   <div className="habit-title">
-                    <AddHabit id={id} setHabit={setHabit}/>
+                    <AddHabit id={id} setHabit={setHabit} />
                     {habit?.map((hab) => {
                       return (
-                          <HabitRow key={hab.id} hab={hab} setHabit={setHabit}/>
+                        <HabitRow key={hab.id} hab={hab} setHabit={setHabit} />
                       );
                     })}
                   </div>
                 </div>
               </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };
