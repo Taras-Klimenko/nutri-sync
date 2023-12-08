@@ -6,14 +6,13 @@ import { logout } from '../redux/store/slice/userSlice';
 
 export default function Navbar() {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
   const logoutHandler = () => {
     axios.get(`${import.meta.env.VITE_URL}auth/logout`, {
       withCredentials: true,
     });
     dispatch(logout());
     localStorage.clear();
-    navigate('/');
+    window.location.href = '../landing.html';
   };
   // const { name } = useAppSelector((store) => store.userSlice);
 
