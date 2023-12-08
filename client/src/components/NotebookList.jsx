@@ -47,7 +47,7 @@ const handleDeleteNotebook = async (notebookId) => {
     <div className='notebook_list'>
       <h3 style={{marginTop: '-0.25rem'}}>Категории</h3>
       <p className='editor_hint' style={{width: '93%', fontSize: '0.8rem', marginBottom: '3rem', marginTop: '-1rem'}}>Выберите или создайте категорию для заметок</p>
-      <button onClick={() => setShowInput(true)} style={{width: '93%', height: '2rem'}}>Добавить</button>
+      <button onClick={() => setShowInput(true)} style={{ backgroundColor:'#4caf50', color:'white', border:'none', width: '93%', height: '2rem'}}>Добавить</button>
       {showInput && (
         <form onSubmit={handleCreateNotebook}>
           <input 
@@ -57,7 +57,7 @@ const handleDeleteNotebook = async (notebookId) => {
             placeholder="Название категории"
             style={{width: '93%'}}
           />
-          <button type="submit" style={{width: '93%', height: '2rem'}}>Создать</button>
+          <button type="submit" style={{backgroundColor:'#4caf50', color:'white', border:'none', width: '93%', height: '2rem'}}>Создать</button>
         </form>
       )}
       {notebooks.map((notebook) => (
