@@ -10,35 +10,13 @@ interface DashboardProps {}
 
 export default function Dashboard({}: DashboardProps): ReactElement {
   return (
-    <div>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          marginBottom: '130px',
-        }}
-
-      ></div>
-      <div
-        className="addClients"
-        style={{
-          display: 'flex',
-
-          alignItems: 'center',
-        }}
-      >
-        <AllClients />
-        <div
-          className="addTodo"
-          style={{
-            display: 'flex',
-
-            marginBottom: '20px',
-          }}
-        >
+    <div className='dashboard'>
+      <div className="addClients">
+          <AllClients />
+      </div>
+        <div className="addTodo">
           <TodoDasbord />
         </div>
-      </div>
     </div>
   );
 }

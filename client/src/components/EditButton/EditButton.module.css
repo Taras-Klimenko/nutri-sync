@@ -1,7 +1,7 @@
 /* MyButton.module.css */
 .editButton {
 
-  max-width: 70px;
+  max-width: 150px;
   border-radius: 10px;
   cursor: pointer;
   flex-direction:row;

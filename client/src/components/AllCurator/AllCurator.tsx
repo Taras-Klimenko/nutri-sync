@@ -1,9 +1,9 @@
 import { useAppDispatch, useAppSelector } from '../../redux/store/hooks.ts';
 import { useEffect } from 'react';
 import { getCurators } from '../../redux/store/thunkActions.ts';
-import MyButton from '../MyButton/MyButton.tsx';
 import { Link } from 'react-router-dom';
-
+import './AllCurator.css'
+import NewBatton from "../ClientCard/NewBatton.tsx";
 export default function AllCurator() {
   const dispatch = useAppDispatch();
   const { curators } = useAppSelector((store) => store.clientSlice);
@@ -32,7 +32,7 @@ export default function AllCurator() {
           ))}
       </div>
       <Link to="/reg">
-        <MyButton>Добавить</MyButton>
+        <NewBatton>Добавить</NewBatton>
       </Link>
     </div>
   );

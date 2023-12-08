@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Registration.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import MyButton from '../components/MyButton/MyButton';
+import NewBatton from "../components/ClientCard/NewBatton.tsx";
 
 export default function Registration() {
   const [inputs, setInputs] = useState({
@@ -92,12 +92,11 @@ export default function Registration() {
         Пароль
       </label>
       <br />
-
       <div className={`reg error ${errorVisible ? 'visible' : 'invisible'}`}>
         {error}
       </div>
       <br />
-      <MyButton onClick={regHandler}> Регистрация</MyButton>
+      <NewBatton onClick={regHandler}> Регистрация</NewBatton>
     </div>
   );
 }

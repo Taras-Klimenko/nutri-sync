@@ -20,23 +20,41 @@ body {
 }
 
 .navbar {
-  position: absolute;
+  position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   width: 100%;
   z-index: 1000;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  /* background-color: #707633; */
+  background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный цвет фона */
   height: 50px;
-  color:#bcc92b;
+  color: #bcc92b;
   padding-bottom: 5px;
+}
 
-
+.roote {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 50px;
 
 }
+
+
+.nav {
+  flex-shrink: 0; /* Navbar не будет уменьшаться в размерах */
+}
+
+.content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-top: 50px; /* Высота навбара */
+  margin-top: 50px; /* Добавлен отступ сверху, чтобы контент не наезжал на навбар */
+}
+
 
 .navLink {
   font-size: 12px;

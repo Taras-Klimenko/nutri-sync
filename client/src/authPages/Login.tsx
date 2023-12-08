@@ -5,6 +5,7 @@ import './Login.css';
 import { useAppDispatch, useAppSelector } from '../redux/store/hooks';
 import { addUser } from '../redux/store/slice/userSlice';
 import MyButton from '../components/MyButton/MyButton';
+import NewBatton from "../components/ClientCard/NewBatton.tsx";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -82,9 +83,9 @@ export default function Login() {
         {error}
       </div>
 
-      <MyButton className="button" onClick={loginHandler}>
+      <NewBatton className="button" onClick={loginHandler}>
         Войти
-      </MyButton>
+      </NewBatton>
     </div>
   );
 }

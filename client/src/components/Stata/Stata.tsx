@@ -4,6 +4,7 @@ import StataInput from './StataInput.tsx';
 import AllStata from './AllStata.tsx';
 import axios from 'axios';
 import MyButton from '../MyButton/MyButton.tsx';
+import './Stata.css'
 
 async function fetchStata(id: number) {
   const response = await axios.get(
@@ -32,27 +33,29 @@ export default function Stata({ id }: { id: number }) {
   const handleModalClose = () => {
     setIsAdding(false);
   };
+    const handleDataUpdate = async () => {
+        const updatedData = await fetchStata(id);
+        setData(updatedData);
+    };
 
   return (
-    <div>
-      <div
-        style={{
-          width: '600px',
-          height: '320px',
-          border: '2px solid green',
-          borderRadius: '5px',
-          position: 'fixed',
-          top: '30%',
-          right: '20%',
-        }}
-      >
-        {data && <Chart data={data} />}
+      <div className='stata'>
+          <div>
+              <div className='statapic'>
+                  {data && <Chart data={data}/>}
+              </div>
+          </div>
+          <div >
+              <div>
+                  <AllStata data={data} onDeleteStata={undefined} setData={handleDataUpdate}/>
+              </div>
+              <div>
+                  {isAdding && (
+                      <StataInput id={id} onClose={handleModalClose} SetData={handleDataUpdate}/>
+                  )}
+              </div>
+              <MyButton onClick={handleAddButtonClick}>Добавить данные</MyButton>
+          </div>
       </div>
-      <AllStata data={data} setData={setData} onDeleteStata={undefined} />
-      <MyButton onClick={handleAddButtonClick}>Добавить данные</MyButton>
-      {isAdding && (
-        <StataInput id={id} setData={setData} onClose={handleModalClose} />
-      )}
-    </div>
   );
 }

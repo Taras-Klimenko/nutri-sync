@@ -1,9 +1,48 @@
 .allStata{
-  max-width: 200px;
+  width: 1100px;
   border: 2px solid green;
   border-radius: 5px;
   padding-left: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+
 }
 .allStata p{
   line-height: 0.5;
 }
+.allStata-new{
+  max-width: 200px;
+  border: 1px solid green;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  margin-bottom: 20px;
+}
+
+.allStata button {
+  cursor: pointer;
+  margin: 5px;
+}
+
+/* Добавьте стили для модального фона */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Затемненный фон */
+  z-index: 998; /* Задайте значение z-index, чтобы фон находился под модальным окном, но поверх других элементов */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white; /* Цвет фона модального окна */
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 999; /* Задайте значение z-index, чтобы модальное окно находилось поверх фона и других элементов */
+}
+

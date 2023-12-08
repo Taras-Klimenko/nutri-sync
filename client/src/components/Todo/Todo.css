@@ -1,0 +1,19 @@
+
+.todoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border: 2px solid green;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.inputContainer{
+    width: 300px;
+    height: 38px;
+    padding-top: 5px;
+}
+
+
+

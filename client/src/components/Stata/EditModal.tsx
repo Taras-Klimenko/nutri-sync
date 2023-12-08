@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { useState } from 'react';
-import MyButton from '../EditButton/EditButton';
 import EditButton from '../EditButton/EditButton';
+import './EditModal.css'
 
 
 
-const EditModal = ({ data, onSave, onDelete, onClose }) => {
+const EditModal = ({ data, onSave, onDelete, onClose, setData }) => {
   const [editedData, setEditedData] = useState({ ...data });
 
   const handleChange = (e) => {
@@ -33,6 +33,7 @@ const EditModal = ({ data, onSave, onDelete, onClose }) => {
       );
       console.log(response.data);
       onSave({ ...editedData, BMI: bmi });
+      setData()
       onClose();
     } catch (error) {
       console.error('Произошла ошибка при обновлении данных:', error);
@@ -49,8 +50,9 @@ const EditModal = ({ data, onSave, onDelete, onClose }) => {
       console.error('Произошла ошибка при удалении данных:', error);
     }
     setTimeout(() => {
+        setData()
       onClose();
-    }, 100);
+    }, 500);
   };
 
   return (
@@ -67,17 +69,17 @@ const EditModal = ({ data, onSave, onDelete, onClose }) => {
         />
       </label>
       <br />
-      <label>
-        Вес кг:
-        <input
-          type="text"
-          name="weight"
-          value={editedData.weight}
-          onChange={handleChange}
-          style={{ width: '80%', fontSize: '12px' }}
-        />
-      </label>
-      <br />
+        <label>
+            Вес кг:<br/>
+            <input
+                type="text"
+                name="weight"
+                value={editedData.weight}
+                onChange={handleChange}
+                style={{width: '80%', fontSize: '12px'}}
+            />
+        </label>
+        <br />
       <label>
         Объем груди см:
         <input
@@ -113,13 +115,10 @@ const EditModal = ({ data, onSave, onDelete, onClose }) => {
       <br />
       <label>
         Индекс массы тела:
-        <input type="text" name="BMI" value={calculateBMI()} readOnly     style={{ width: '80%', fontSize: '12px' }} />
-        
+        <input type="text" name="BMI" value={calculateBMI()} readOnly
+               style={{ width: '80%', fontSize: '12px' }} />
       </label>
-      {/* <button onClick={handleSave}>Сохранить</button>
-      <button onClick={handleDelete}>Удалить</button>
-      <button onClick={onClose}>Отмена</button> */}
-<div className='buttonEdit'>
+        <div>
       <EditButton onClick={handleSave}>Сохранить</EditButton>
       <EditButton onClick={handleDelete}>Удалить</EditButton>
       <EditButton onClick={onClose}>Отмена</EditButton>

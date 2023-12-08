@@ -1,0 +1,38 @@
+.allCuratorContainer {
+    margin: 20px;
+}
+
+.allCuratorContainer h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.allCurators {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.curatorCard {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid #4caf50;
+    border-radius: 5px;
+    margin: 10px;
+    max-width: 300px;
+    box-sizing: border-box;
+    font-size: 16px;
+    text-align: left; /* Выравнивание текста по левому краю */
+}
+
+.curatorCard p {
+    margin: 8px 0;
+}
+
+.curatorCard span {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.allCuratorContainer a {
+    text-decoration: none;
+}

@@ -1,0 +1,31 @@
+.todoDasbord {
+    margin: 20px;
+    padding: 20px;
+    background-image: url('../../img/5555.jpg');
+    border-radius: 5px;
+    width: 500px;
+    height: 700px;
+}
+
+.todoItem {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid green;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.allTodo {
+    margin-top: 15px;
+    border: 2px solid green;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.todoActions {
+    display: flex;
+    align-items: center; /* Чтобы элементы выровнялись по центру вертикали */
+}
