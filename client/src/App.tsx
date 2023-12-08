@@ -44,22 +44,27 @@ function App() {
   }, [dispatch, isAdmin, id]);
 
   return (
-    <>
-      <Navbar />
-      {loader && <div className="loader"></div>}
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/reg" element={<Registration />} />
-        <Route path="/clients/:id" element={<ClientCard />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/add-clients" element={<AddClients />} />
-        <Route path="/knowledge" element={<Knowledge />} />
-        <Route path="/statistics" element={<Statistics />} />
-        <Route path="/client/:id" element={<EditClientDefault />} />
-        <Route path="/all-curator" element={<AllCurator />} />
-      </Routes>
-    </>
+    <div className='roote'>
+      <div className='nav'>
+        <Navbar />
+        {loader && <div className="loader"></div>}
+      </div>
+      <div className='content'>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/reg" element={<Registration />} />
+          <Route path="/clients/:id" element={<ClientCard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/add-clients" element={<AddClients />} />
+          <Route path="/knowledge" element={<Knowledge />} />
+          <Route path="/statistics" element={<Statistics />} />
+          <Route path="/client/:id" element={<EditClientDefault />} />
+          <Route path="/all-curator" element={<AllCurator />} />
+        </Routes>
+      </div>
+
+    </div>
   );
 }
 export default App;

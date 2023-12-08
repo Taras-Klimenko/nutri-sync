@@ -7,15 +7,17 @@ export default function AllStata({ data, onDeleteStata, setData }) {
     const itemsPerPage = 5;
     const [currentPage, setCurrentPage] = useState(1);
     const [editingData, setEditingData] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false); // Добавлено состояние для модального окна
 
-    const handleEditStata = (data: React.SetStateAction<null>) => {
+    const handleEditStata = (data) => {
         setEditingData(data);
+        setIsModalOpen(true); // Открываем модальное окно при редактировании
     };
 
     const handleEditModalClose = () => {
         setEditingData(null);
+        setIsModalOpen(false); // Закрываем модальное окно при закрытии
     };
-
     if (!data || data.length === 0) {
         return <p>Нет данных для отображения</p>;
     }
@@ -26,7 +28,7 @@ export default function AllStata({ data, onDeleteStata, setData }) {
 
     const renderItems = () => {
         return currentItems.map((item: any) => (
-            <div key={item.id}>
+            <div className='allStata-new' key={item.id}>
                 Параметры на: <br/> {item.createdAt.slice(0, 10)}
                 <p>Рост см: {item.height}</p>
                 <p>Вес кг: {item.weight}</p>
@@ -49,22 +51,26 @@ export default function AllStata({ data, onDeleteStata, setData }) {
     return (
         <div className='allStata'>
             {renderItems()}
-            <div >
+            <div>
                 {pageNumbers.map((number) => (
-                    <span key={number} onClick={() => paginate(number)} style={{ cursor: 'pointer', margin: '5px'}}>
-                       номер:{number}
-                    </span>
+                    <MyButton key={number} onClick={() => paginate(number)} style={{cursor: 'pointer', margin: '5px'}}>
+                        {number}
+                    </MyButton>
                 ))}
             </div>
-            {editingData && (
-                <EditModal
-                    setData = {setData}
-                    data={editingData}
-                    onSave={(editedData) => {
-                    }}
-                    onDelete={() => onDeleteStata(editingData.id)}
-                    onClose={handleEditModalClose}
-                />
+            {editingData && isModalOpen && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <EditModal
+                            setData={setData}
+                            data={editingData}
+                            onSave={(editedData) => {
+                            }}
+                            onDelete={() => onDeleteStata(editingData.id)}
+                            onClose={handleEditModalClose}
+                        />
+                    </div>
+                </div>
             )}
         </div>
     );

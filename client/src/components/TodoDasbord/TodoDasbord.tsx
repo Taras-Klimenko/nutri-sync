@@ -1,10 +1,8 @@
 import MyButton from '../MyButton/MyButton.tsx';
 import Todo from '../Todo/Todo.tsx';
 import { useAppDispatch, useAppSelector } from '../../redux/store/hooks.ts';
-import {
-  deleteTodo,
-  updateTodoStatus,
-} from '../../redux/store/thunkActions.ts';
+import { deleteTodo, updateTodoStatus } from '../../redux/store/thunkActions.ts';
+import './TodoDasbord.css'; // Убедитесь, что правильно указан путь к файлу стилей
 
 export default function TodoDasbord() {
   const { todos } = useAppSelector((store) => store.clientSlice);
@@ -15,38 +13,26 @@ export default function TodoDasbord() {
   };
 
   return (
-    <div style={{ padding: '20px', borderRadius: '5px' }}>
-      <h2 style={{ marginBottom: '20px' }}>Задачи</h2>
-      <Todo />
-      {todos.map((task) => (
-        <div
-          key={task.id}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            marginBottom: '10px',
-            padding: '10px',
-            border: '1px solid #ddd',
-            borderRadius: '5px',
-            backgroundColor: '#fff',
-            
-          }}
-        >
-          <div style={{ flex: '1', marginRight: '10px' }}>{task.text}</div>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <input
-              id={task.id.toString()}
-              type="checkbox"
-              checked={task.isCompleted}
-              onChange={() => handleButtonClick(task.id, task.isCompleted)}
-              style={{ marginRight: '10px' }}
-            />
-            <MyButton onClick={() => dispatch(deleteTodo(task.id))}>
-              Удалить
-            </MyButton>
-          </div>
-        </div>
-      ))}
-    </div>
+      <div className="todoDasbord"> {/* Добавляем класс для контейнера */}
+        <h1>Задачи</h1>
+        <Todo />
+        {todos.map((task) => (
+            <div key={task.id} className="todoItem"> {/* Добавляем класс для элемента */}
+              <div>{task.text}</div>
+              <div className="todoActions">
+                <input
+                    id={task.id.toString()}
+                    type="checkbox"
+                    checked={task.isCompleted}
+                    onChange={() => handleButtonClick(task.id, task.isCompleted)}
+                    style={{ marginRight: '10px' }}
+                />
+                <MyButton onClick={() => dispatch(deleteTodo(task.id))}>
+                  X
+                </MyButton>
+              </div>
+            </div>
+        ))}
+      </div>
   );
 }

@@ -4,6 +4,8 @@ import HabitRow from './HabitRow';
 import AddHabit from './AddHabit';
 import { useParams } from 'react-router-dom';
 import Stata from '../Stata/Stata.tsx';
+import MyButton from "../MyButton/MyButton.tsx";
+import NewBatton from "./NewBatton.tsx";
 
 interface ClientType {
   firstName: string;
@@ -79,80 +81,82 @@ const ClientCard = (props) => {
   }
 
   return (
-    <div>
+      <div className="clientcard-wrapper">
+    <div className="clientcard">
       <div className="tabs">
-        <button
+        <NewBatton
           className={activeTab === 'data' ? 'active' : ''}
           onClick={() => handleTabChange('data')}
         >
           О клиенте
-        </button>
-        <button
+        </NewBatton>
+        <NewBatton
           className={activeTab === 'parameters' ? 'active' : ''}
           onClick={() => handleTabChange('parameters')}
         >
           Параметры
-        </button>
-        <button
+        </NewBatton>
+        <NewBatton
           className={activeTab === 'goals' ? 'active' : ''}
           onClick={() => handleTabChange('goals')}
         >
           Привычки и цели
-        </button>
+        </NewBatton>
       </div>
 
-      <div className="tab-content">
-        {activeTab === 'data' && (
-          <div className="data-container">
-            <div className="data-text">
-              <h2>Данные:</h2>
-              <div> Имя клиента: {client?.firstName}</div>
-              <div> Фамилия клиента:{client?.lastName}</div>
-              <div> День рождения: {formatDate(client?.birthday)}</div>
-              <div> Номер телефона: {client?.phoneNumber}</div>
-              <div> Клиент оплатил до: {formatDate(client?.paidTill)}</div>
-            </div>
-          </div>
-        )}
-
-        {activeTab === 'parameters' && (
-
-
-          <div className="data-container-parameter">
-            <h2>
-              Параметры: {client?.firstName} {client?.lastName}
-            </h2>
-
-            <div> Рост: {parameter?.height}</div>
-            <div> Вес: {parameter?.weight}</div>
-            <div> Обхват груди:{parameter?.chest}</div>
-            <div> Обхват талии: {parameter?.waist}</div>
-            <div> Обхват бедер: {parameter?.hips}</div>
-            <div> Индекс массы тела: {parameter?.BMI}</div>
-            <div style={{ width: '300px', height: '300px' }}>
-              <Stata id={id} />
-            </div>
-          </div>
-        )}
-
-        {activeTab === 'goals' && (
-          <div className="data-container">
-            <h2>Привычки:</h2>
-
-            <div className="habit-cont" style={{ display: 'flex' }}>
-              <div className="habit-title">
-                <AddHabit id={id} setHabit={setHabit} />
-                {habit?.map((hab) => {
-                  return (
-                    <HabitRow key={hab.id} hab={hab} setHabit={setHabit} />
-                  );
-                })}
+      <div className='stata'>
+        <div className="tab-content">
+          {activeTab === 'data' && (
+              <div className="data-container data-text">
+                <div className="">
+                  <h2>Данные:</h2>
+                  <div> Имя клиента: {client?.firstName}</div>
+                  <div> Фамилия клиента:{client?.lastName}</div>
+                  <div> День рождения: {formatDate(client?.birthday)}</div>
+                  <div> Номер телефона: {client?.phoneNumber}</div>
+                  <div> Клиент оплатил до: {formatDate(client?.paidTill)}</div>
+                </div>
+                <div>
+                  <h2>Начальные параметры:</h2>
+                  <div> Рост: {parameter?.height}</div>
+                  <div> Вес: {parameter?.weight}</div>
+                  <div> Обхват груди:{parameter?.chest}</div>
+                  <div> Обхват талии: {parameter?.waist}</div>
+                  <div> Обхват бедер: {parameter?.hips}</div>
+                  <div> Индекс массы тела: {parameter?.BMI}</div>
+                </div>
               </div>
-              <div></div>
-            </div>
-          </div>
-        )}
+          )}
+
+          {activeTab === 'parameters' && (
+              <div className="data-container-parameter">
+                <h2 style={{paddingLeft: '30px'}}>
+                  Параметры по периодам: {client?.firstName} {client?.lastName}
+                </h2>
+                <div >
+                  <Stata id={id}/>
+                </div>
+              </div>
+          )}
+
+          {activeTab === 'goals' && (
+              <div className="data-container">
+                <h2>Привычки:</h2>
+                <div className="habit-cont" style={{display: 'flex'}}>
+                  <div className="habit-title">
+                    <AddHabit id={id} setHabit={setHabit}/>
+                    {habit?.map((hab) => {
+                      return (
+                          <HabitRow key={hab.id} hab={hab} setHabit={setHabit}/>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+          )}
+        </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -9,6 +9,7 @@ import {
   getCurators,
   updateClient,
 } from '../../redux/store/thunkActions.ts';
+import EditButton from "../EditButton/EditButton.tsx";
 
 export default function EditClient() {
   const navigate = useNavigate();
@@ -118,10 +119,10 @@ export default function EditClient() {
                 ))}
             </select>
           </label>
-          <MyButton onClick={handleUpdateClient}>Сохранить</MyButton>
-          <MyButton onClick={handleDeleteClient}>Удалить</MyButton>
+          <EditButton onClick={handleUpdateClient}>Сохранить</EditButton>
+          <EditButton onClick={handleDeleteClient}>Удалить</EditButton>
           <Link to="/dashboard">
-            <MyButton>Отмена</MyButton>
+            <EditButton>Отмена</EditButton>
           </Link>
         </div>
       ) : (

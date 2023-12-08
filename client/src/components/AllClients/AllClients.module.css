@@ -3,6 +3,8 @@
     padding: 20px;
     background-image: url('../../img/5555.jpg');
     border-radius: 5px;
+    width: 500px;
+    height: 700px;
 }
 
 .clientItem {
@@ -10,4 +12,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 5px;
+    border: 1px solid green;
+    padding: 5px;
+}
+.allClient{
+    margin-top: 15px;
+    border: 2px solid green;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.font{
+    font-size: 25px;
 }

@@ -1,0 +1,17 @@
+.stata{
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+}
+
+.statapic{
+    width: 1100px;
+    border: 2px solid green;
+    border-radius: 5px;
+
+}
+
+.statatext{
+    display: flex;
+}
+

@@ -1,84 +1,80 @@
 .tabs {
   display: flex;
-  flex-direction: row;
-  position: fixed;
-  top: 14%;
-  left: 110px;
-  
+  justify-content: space-around;
+  background-color: rgb(234, 255, 244);
+
+}
+.clientcard-wrapper {
+  width: 1200px; /* Устанавливаем фиксированную ширину */
+  margin-top: 400px/* Центрируем по горизонтали */
 }
 
 .tabs button {
-  border-radius: 2px 2px 2px 0px;
-  background-color: rgb(234, 255, 244);
-  background-image: url('../../img/5555.jpg');
+  border-radius: 5px;
+  background-color: transparent;
   font-size: 15px;
   transition: all 0.3s ease;
-  transform: translateZ(0);
-  backface-visibility: hidden;
   outline: none;
-  margin: 0.2px;
-  width: 120px;
-  padding: 3px;
-}
-
-.tabs button:first-child {
-  border-radius: 5px 5px 0px 0px;
-}
-.tabs button {
-  border-radius: 5px 5px 0px 0px;
-}
-.tabs button:last-child {
-  border-radius: 5px 5px 0px 0px;
+  border: none;
+  cursor: pointer;
+  padding: 8px 15px;
 }
 
 .tabs button:hover {
   background-color: var(--color-dark-brown);
-  /* box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12); */
   color: rgb(255, 255, 255);
-  text-decoration: none;
-  transform: scale(1.02);
 }
 
 .tabs button:active {
   background-color: var(--color-dark-green);
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2),
-    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-  transform: scale(0.98);
+}
+
+.clientcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
 }
 
 .data-container {
-  margin-left: 2px;
-  position: fixed;
-  top: 20%;
-  left: 110px;
-  overflow: auto;
-  overflow-y: scroll;
+  margin-top: 20px;
   background-image: url('../../img/5555.jpg');
-  border-radius: 4px 4px 10px 10px;
-  padding: 32px;
-  width: 50%;
-  max-height: 500px;
-
+  border-radius: 4px;
+  margin-left: 40px;
+  padding: 20px;
+  max-width: 900px;
 }
 
-
-.habit-cont{
+.habit-cont {
   overflow: auto;
-  width: 500px;
+  margin-top: 20px;
 }
 
 .data-container-parameter {
-  margin-left: 2px;
-  position: fixed;
-  top: 20%;
-  left: 110px;
-  overflow: auto;
-  overflow-y: scroll; 
-  background-image: url('../../img/5555.jpg');
-  /* background-color: aliceblue; */
-  border-radius: 4px 4px 10px 10px;
-  max-height: 700px;
   width: 1200px;
-  font-size: 15px;
-  padding-left: 20px;
+  background-image: url('../../img/5555.jpg');
+  padding: 20px; /* Добавляем отступы для лучшего визуального эффекта */
+}
+
+
+.data-text {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.data-text > div {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid green;
+  border-radius: 5px;
+  margin: 20px;
+  max-width: 500px;
+  box-sizing: border-box;
+  font-size: 25px;
+}
+
+.data-text h2 {
+  font-size: 1.4em;
+  margin-bottom: 8px;
+  width: 100%;
 }
