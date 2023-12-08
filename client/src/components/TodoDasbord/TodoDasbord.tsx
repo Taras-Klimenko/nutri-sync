@@ -18,15 +18,18 @@ export default function TodoDasbord() {
         <Todo />
         {todos.map((task) => (
             <div key={task.id} className="todoItem"> {/* Добавляем класс для элемента */}
-              <div>{task.text}</div>
-              <div className="todoActions">
-                <input
+              <div className='todoActions'>
+              <input
                     id={task.id.toString()}
                     type="checkbox"
                     checked={task.isCompleted}
                     onChange={() => handleButtonClick(task.id, task.isCompleted)}
-                    style={{ marginRight: '10px' }}
+                    // style={{ marginRight: '20px' }}
                 />
+                {task.text}
+              </div>
+              <div className="todoActions">
+                
                 <MyButton onClick={() => dispatch(deleteTodo(task.id))}>
                   X
                 </MyButton>

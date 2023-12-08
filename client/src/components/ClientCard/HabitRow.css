@@ -12,7 +12,7 @@ height: 20px;
   justify-content: space-between; 
   padding: 0px 10px 5px 0px;
   border-radius: 5px;
-
+  overflow-y: auto;
 
 }
 .habit-container-new{
@@ -28,17 +28,26 @@ height: 20px;
 }
 .habit-add{
   display: flex;
-
+  border-radius: 5px;
+  border: none;
 }
 .habbit-button{
   width: 80px;
   height: 36px;
+  background-color: #4caf50;
+  color:white;
+  border-radius: 5px;
+  border: none;
+  margin-left: 5px;
 }
 .habit-delete{
-
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
+  border: none;
 }
 .habit-div{
   display: flex;
   flex-direction:column;
-
+  border-radius: 5px;
 }
