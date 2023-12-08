@@ -33,7 +33,6 @@ body {
   height: 50px;
   color: #bcc92b;
   padding-bottom: 5px;
-}
 
 .roote {
   display: flex;
@@ -43,6 +42,9 @@ body {
 
 }
 
+font-weight: 600;
+text-transform: uppercase;
+ 
 
 .nav {
   flex-shrink: 0; /* Navbar не будет уменьшаться в размерах */
@@ -69,16 +71,16 @@ body {
   height: 25px;
   margin-top: 0px;
   text-align: center;
-  box-shadow: 3px 2px 5px 5px var(--color-light-olive);
-  transition: box-shadow 0.5s ease-in-out;
+  /* box-shadow: 3px 2px 5px 5px var(--color-light-olive);
+  transition: box-shadow 0.5s ease-in-out; */
   font-size: 15px;
 }
 
 .navLink:hover {
   /* background-color: var(--color-light); */
-  box-shadow: 2px 2px 1px 1px ;
+  /* box-shadow: 2px 2px 1px 1px ;
   color: rgb(255, 255, 255);
-  text-decoration: none;
+  text-decoration: none; */
 }
 
 .loader {
