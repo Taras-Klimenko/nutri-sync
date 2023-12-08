@@ -45,8 +45,8 @@ const handleDeleteNotebook = async (notebookId) => {
 
   return (
     <div className='notebook_list'>
-      <h3>Категории</h3>
-      <p className='editor_hint' style={{width: '93%', fontSize: '0.8rem', marginBottom: '2rem'}}>Выберите или создайте категорию для заметок</p>
+      <h3 style={{marginTop: '-0.25rem'}}>Категории</h3>
+      <p className='editor_hint' style={{width: '93%', fontSize: '0.8rem', marginBottom: '3rem', marginTop: '-1rem'}}>Выберите или создайте категорию для заметок</p>
       <button onClick={() => setShowInput(true)} style={{width: '93%', height: '2rem'}}>Добавить</button>
       {showInput && (
         <form onSubmit={handleCreateNotebook}>

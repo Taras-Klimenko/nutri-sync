@@ -41,8 +41,8 @@ function NoteList({selectedNotebook, onSelectNote, selectedNote}) {
 
   return (
     <div className='note_list'>
-      <h3>Заметки</h3>
-      <p className='editor_hint' style={{width: '93%', fontSize: '0.8rem', marginBottom: '2rem'}}>Выберите или создайте новую заметку</p>
+      <h3 style={{marginTop: '-0.25rem'}}>Заметки</h3>
+      <p className='editor_hint' style={{width: '93%', fontSize: '0.8rem', marginBottom: '3rem', marginTop: '-1rem'}}>Выберите или создайте новую заметку</p>
       <button onClick={() => setShowInput(true)} style={{width: '93%', height: '2rem'}}>Добавить</button>
       {showInput && (
         <form onSubmit={handleCreateNote}>
