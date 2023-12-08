@@ -69,7 +69,7 @@ const ClientCard = (props) => {
   }, [id]);
 
   if (client === null) {
-    return 'Загрузка';
+    return <div className='loader'></div>;
   }
 
   function formatDate(dateString) {
