@@ -10,6 +10,7 @@ const authRouter = require('./src/routers/authRouter');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const indexRouter = require('./src/routers/indexRouter');
 const clientRouter = require('./routers/clientRouter');
 const categoryRouter = require('./src/routers/categoryRouter');
 const curatorRouter = require('./src/routers/curatorRouter');
@@ -52,6 +53,7 @@ app.use('/habit', habitRouter);
 app.use('/clients', clientRouter);
 app.use('/api/parameters', parametersRouter);
 app.use('/api/stata', stataRouter);
+app.use('*', indexRouter);
 
 app.listen(PORT, () => {
   console.log('Start in ', PORT);
